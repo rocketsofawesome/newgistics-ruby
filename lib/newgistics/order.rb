@@ -2,6 +2,7 @@ module Newgistics
   class Order
     include Virtus.model
 
+    attribute :id, String
     attribute :warehouse_id, String
     attribute :customer, Customer
     attribute :order_date, Date
