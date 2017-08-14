@@ -7,7 +7,11 @@ module Newgistics
         @orders = orders
       end
 
-      def payload
+      def path
+        '/post_shipments.aspx'
+      end
+
+      def body
         xml_builder.to_xml
       end
 
@@ -20,13 +24,17 @@ module Newgistics
       end
 
       def orders_xml(xml)
-        xml.Orders do
+        xml.Orders(apiKey: api_key) do
           orders.each { |order| order_xml(order, xml) }
         end
       end
 
+      def api_key
+        Newgistics.configuration.api_key
+      end
+
       def order_xml(order, xml)
-        xml.Order(order_id: order.id) do
+        xml.Order(orderID: order.id) do
           xml.Warehouse(warehouseid: order.warehouse_id)
           xml.ShipMethod order.ship_method
           xml.InfoLine order.info_line

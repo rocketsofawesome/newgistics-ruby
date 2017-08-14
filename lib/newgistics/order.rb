@@ -16,5 +16,17 @@ module Newgistics
     attribute :hold_for_all_inventory, Boolean
     attribute :custom_fields, Hash
     attribute :items, Array[Item]
+
+    attribute :errors, Array[String], default: []
+    attribute :warnings, Array[String], default: []
+
+    def save
+      request = Requests::PostShipment.new([self])
+      response_handler = ResponseHandlers::PostShipment.new(self)
+
+      Newgistics.api.post(request, response_handler)
+
+      errors.empty?
+    end
   end
 end
