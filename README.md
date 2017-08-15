@@ -1,28 +1,35 @@
 # Newgistics
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/newgistics`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby gem allows you to interact with the Newgistics Fulfillment API.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'newgistics'
+gem 'newgistics', github: 'rocketsofawesome/newgistics-ruby'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+## Resources
 
-    $ gem install newgistics
+### Orders
 
-## Usage
+#### Placing an order on Newgistics
 
-TODO: Write usage instructions here
+```ruby
+order = Newgistics::Order.new(order_attributes)
+order.save
+```
+
+`order_attributes` is a `Hash` containing all the attributes for the order, the attributes should map one-to-one to the Newgistics API spec.
+
+`order.save` will return `true` if the order is placed successfully and `false` otherwise, any errors or warnings generated when placing the order are available under `order.errors` and `order.warnings` respectively
+
 
 ## Development
 
