@@ -8,7 +8,7 @@ module Newgistics
       end
 
       def handle(response)
-        if response.kind_of? Net::HTTPSuccess
+        if response.success?
           handle_successful_response(response)
         else
           handle_failed_response(response)
