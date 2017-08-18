@@ -1,7 +1,6 @@
 require "virtus"
 require "nokogiri"
 require "faraday"
-require 'dotenv'
 
 require "newgistics/api"
 require "newgistics/configuration"
@@ -14,7 +13,6 @@ require "newgistics/version"
 
 module Newgistics
   def self.configuration
-    Dotenv.load
     @configuration ||= Configuration.new
   end
 

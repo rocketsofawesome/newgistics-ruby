@@ -13,6 +13,7 @@ RSpec.describe Newgistics::Requests::PostShipment do
     it "serializes the orders appropriately" do
       Newgistics.configure { |c| c.api_key = 'ABC123' }
       order = Newgistics::Order.new(
+        id: 'XML001',
         warehouse_id: 'WAREHOUSE_ID',
         ship_method: 'USPS',
         info_line: 'Additional order details',
@@ -56,6 +57,7 @@ RSpec.describe Newgistics::Requests::PostShipment do
       xml = Nokogiri::XML(request.body)
 
       expect(xml).to have_element('Orders').with_attributes(apiKey: 'ABC123')
+      expect(xml).to have_element('Order').with_attributes(orderID: 'XML001')
       verify_order_xml(xml.at_css('Order'))
       verify_customer_xml(xml.at_css('Order CustomerInfo'))
       verify_custom_fields_xml(xml.at_css('Order CustomFields'))
