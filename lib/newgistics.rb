@@ -7,8 +7,13 @@ require "newgistics/configuration"
 require "newgistics/customer"
 require "newgistics/item"
 require "newgistics/order"
+require "newgistics/query"
+require "newgistics/request_helper"
 require "newgistics/requests/post_shipment"
+require "newgistics/requests/search_shipments"
 require "newgistics/response_handlers/post_shipment"
+require "newgistics/response_handlers/search_shipments"
+require "newgistics/shipment"
 require "newgistics/version"
 
 module Newgistics
