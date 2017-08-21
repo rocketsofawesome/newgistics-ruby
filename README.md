@@ -1,5 +1,6 @@
 [![Code Climate](https://codeclimate.com/repos/5991e52637216b02640002d4/badges/9e19d346f6da0db0783c/gpa.svg)](https://codeclimate.com/repos/5991e52637216b02640002d4/feed)
-[ ![Codeship Status for rocketsofawesome/newgistics-ruby](https://app.codeship.com/projects/63cb9a70-68b6-0135-a28b-5ec5668067cc/status?branch=master)](https://app.codeship.com/projects/241459)
+[![Test Coverage](https://codeclimate.com/repos/5991e52637216b02640002d4/badges/9e19d346f6da0db0783c/coverage.svg)](https://codeclimate.com/repos/5991e52637216b02640002d4/coverage)
+[ ![Codeship Status for rocketsofawesome/newgistics-ruby](https://app.codeship.com/projects/63cb9a70-68b6-0135-a28b-5ec5668067cc/status?branch=master)](https://app.codeship.com/projects/241459)\
 # Newgistics
 
 This Ruby gem allows you to interact with the Newgistics Fulfillment API.
