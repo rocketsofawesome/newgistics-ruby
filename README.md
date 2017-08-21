@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/rocketsofawesome/newgistics-ruby/badges/gpa.svg)](https://codeclimate.com/github/rocketsofawesome/newgistics-ruby)
 # Newgistics
 
 This Ruby gem allows you to interact with the Newgistics Fulfillment API.
