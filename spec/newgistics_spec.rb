@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe Newgistics do
   it "has a version number" do
-    expect(Newgistics::VERSION).not_to be nil
+    expect(Newgistics::VERSION).not_to be_nil
   end
 
   it "has an API object" do

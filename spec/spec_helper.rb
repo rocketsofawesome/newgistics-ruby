@@ -3,6 +3,7 @@ require "bundler/setup"
 require "simplecov"
 require "newgistics"
 require "pry"
+require 'vcr'
 
 Dotenv.load
 Dir[File.join(File.dirname(__FILE__), 'support', '**', '*.rb')].each do |f|
