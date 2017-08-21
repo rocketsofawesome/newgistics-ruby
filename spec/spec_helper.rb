@@ -1,5 +1,14 @@
+require "dotenv"
 require "bundler/setup"
+require "simplecov"
 require "newgistics"
+require "pry"
+require 'vcr'
+
+Dotenv.load
+Dir[File.join(File.dirname(__FILE__), 'support', '**', '*.rb')].each do |f|
+  require f
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
