@@ -43,11 +43,11 @@ module Newgistics
       end
 
       def handle_failed_response(response)
-        raise_error "???"
+        raise_error "#{response.status} - #{response.reason_phrase}"
       end
 
       def raise_error(message)
-        raise message
+        raise QueryError.new(message)
       end
     end
   end

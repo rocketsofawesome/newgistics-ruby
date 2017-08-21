@@ -3,7 +3,7 @@ module Newgistics
     class SearchShipments
       attr_reader :params
 
-      def initialize(params)
+      def initialize(params = {})
         @params = params.merge(key: Newgistics.configuration.api_key)
       end
 
