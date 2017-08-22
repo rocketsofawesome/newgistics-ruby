@@ -16,6 +16,7 @@ require "newgistics/response_handlers/post_shipment"
 require "newgistics/response_handlers/search_shipments"
 require "newgistics/shipment"
 require "newgistics/version"
+require "newgistics/xml_marshaller"
 
 module Newgistics
   def self.configuration

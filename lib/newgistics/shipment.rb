@@ -34,9 +34,7 @@ module Newgistics
       request = Requests::SearchShipments
       response_handler = ResponseHandlers::SearchShipments.new
 
-      Query.new(request, response_handler).tap do |query|
-        query.where(conditions)
-      end
+      Query.new(request, response_handler).where(conditions)
     end
   end
 end

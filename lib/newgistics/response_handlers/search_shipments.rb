@@ -35,11 +35,7 @@ module Newgistics
       end
 
       def assign_attributes(shipment, shipment_xml)
-        shipment_xml.elements.each do |element|
-          next if element.elements.any?
-          setter = "#{StringHelper.underscore(element.name)}="
-          shipment.send(setter, element.text) if shipment.respond_to?(setter)
-        end
+        XmlMarshaller.new.assign_attributes(shipment, shipment_xml)
       end
 
       def handle_failed_response(response)

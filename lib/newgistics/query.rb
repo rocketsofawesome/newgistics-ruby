@@ -12,6 +12,7 @@ module Newgistics
 
     def where(conditions)
       @conditions.merge!(conditions)
+      self
     end
 
     def all
