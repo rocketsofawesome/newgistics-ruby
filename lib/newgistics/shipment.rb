@@ -25,10 +25,12 @@ module Newgistics
     attribute :shipment_date, DateTime
     attribute :expected_delivery_date, DateTime
     attribute :delivered_timestamp, DateTime
-    attribute :warehouse, String
+    attribute :warehouse, Warehouse
     attribute :ship_method, String
     attribute :ship_method_code, String
     attribute :tracking, String
+    attribute :items, Array[Item]
+    attribute :custom_fields, Hash
 
     def self.where(conditions)
       request = Requests::SearchShipments

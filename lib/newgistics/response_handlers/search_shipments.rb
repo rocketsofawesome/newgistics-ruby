@@ -35,6 +35,7 @@ module Newgistics
       end
 
       def assign_attributes(shipment, shipment_xml)
+        binding.pry
         XmlMarshaller.new.assign_attributes(shipment, shipment_xml)
       end
 

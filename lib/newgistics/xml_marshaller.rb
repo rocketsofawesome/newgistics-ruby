@@ -1,10 +1,12 @@
 module Newgistics
   class XmlMarshaller
-    def assign_attributes(object, element)
-      if element.elements.any?
-        assign_nested_attribute(object, element)
-      else
-        assign_simple_attribute(object, element)
+    def assign_attributes(object, root)
+      root.elements.each do |element|
+        if element.elements.any?
+          assign_nested_attribute(object, element)
+        else
+          assign_simple_attribute(object, element)
+        end
       end
     end
 
@@ -12,19 +14,18 @@ module Newgistics
 
     def assign_nested_attribute(object, element)
       attribute = attribute_name(element)
-      setter = setter_name(element)
       attribute_set = object.class.attribute_set[attribute]
-      return if attribute_set.nil? || !object.respond_to?(setter)
+      return if attribute_set.nil?
 
-      if attribute_set.type.primitive.is_a? Array
+      if attribute_set.type.primitive == Array
         list_item_name = get_list_item_name(attribute_set)
-        elements = element.at_css(list_item_name).map do |child|
+        elements = element.css(list_item_name).map do |child|
           build_object(attribute_set.member_type.primitive, child)
         end
-        object.send(setter, elements)
+        object[attribute] = elements
       else
-        new_object = build_object(attribute_set.type.primitive.new, element)
-        object.send(setter, new_object)
+        new_object = build_object(attribute_set.type.primitive, element)
+        object[attribute] = new_object
       end
     end
 
@@ -39,16 +40,12 @@ module Newgistics
     end
 
     def assign_simple_attribute(object, element)
-      setter = setter_name(element)
-      if object.respond_to?(setter)
-        object.send(setter, element.text)
+      attribute = attribute_name(element)
+      if object.is_a?(Hash) || object.respond_to?(attribute)
+        object[attribute] = element.text unless element.text.empty? 
       else
-        puts "Object doesn't respond to #{setter}"
+        puts "Object doesn't respond to #{attribute}"
       end
-    end
-
-    def setter_name(element)
-      "#{attribute_name(element)}="
     end
 
     def attribute_name(element)

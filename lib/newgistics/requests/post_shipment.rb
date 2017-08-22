@@ -75,7 +75,7 @@ module Newgistics
       def item_xml(item, xml)
         xml.Item do
           xml.SKU item.sku
-          xml.Qty item.quantity
+          xml.Qty item.qty
           xml.IsGiftWrapped item.is_gift_wrapped
           custom_fields_xml(item, xml)
         end

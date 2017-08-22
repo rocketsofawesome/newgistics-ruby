@@ -69,10 +69,10 @@ RSpec.describe Newgistics::Order do
         total: 25.0
       },
       items: [
-        { sku: 'SKU1', quantity: 1, is_gift_wrapped: false },
+        { sku: 'SKU1', qty: 1, is_gift_wrapped: false },
         {
           sku: 'SKU2',
-          quantity: 2,
+          qty: 2,
           is_gift_wrapped: true,
           custom_fields: {
             gift_message: 'A sample message'
