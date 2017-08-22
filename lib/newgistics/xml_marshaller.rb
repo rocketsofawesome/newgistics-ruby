@@ -41,10 +41,9 @@ module Newgistics
 
     def assign_simple_attribute(object, element)
       attribute = attribute_name(element)
-      if object.is_a?(Hash) || object.respond_to?(attribute)
+      setter = "#{attribute}="
+      if object.is_a?(Hash) || object.respond_to?(setter)
         object[attribute] = element.text unless element.text.empty? 
-      else
-        puts "Object doesn't respond to #{attribute}"
       end
     end
 
