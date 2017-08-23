@@ -40,6 +40,3 @@ module Newgistics
     end
   end
 end
-
-
-

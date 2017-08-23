@@ -13,13 +13,13 @@ RSpec.describe Newgistics::Requests::SearchShipments do
     it "serializes the search parameters properly" do
       date = Date.new.iso8601
       request = described_class.new(
-        status: 'ONHOLD', 
+        status: 'ONHOLD',
         start_received_timestamp: date
       )
 
       expect(request.body).to eql(
         'key' => Newgistics.configuration.api_key,
-        'status' => 'ONHOLD', 
+        'status' => 'ONHOLD',
         'startReceivedTimestamp' => date
       )
     end

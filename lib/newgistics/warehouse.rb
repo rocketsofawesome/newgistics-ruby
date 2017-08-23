@@ -7,6 +7,6 @@ module Newgistics
     attribute :city, String
     attribute :state, String
     attribute :postal_code, String
-    attribute :country, String 
+    attribute :country, String
   end
 end
