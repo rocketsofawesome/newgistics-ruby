@@ -7,7 +7,7 @@ RSpec.describe Newgistics::ResponseHandlers::SearchShipments do
     context "when the response has a successful HTTP status" do
       it "raises a Newgistics::QueryError when there are errors in the body" do
         response_body = <<~HEREDOC
-        <?xml version="1.0" encoding="UTF-8" ?>
+          <?xml version="1.0" encoding="UTF-8" ?>
           <response>
               <errors><error>Incorrect skus</error></errors>
           </response>
