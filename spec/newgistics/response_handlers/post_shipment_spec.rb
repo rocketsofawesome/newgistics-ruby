@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Newgistics::ResponseHandlers::PostShipment do
+  include FaradayHelpers
+
   describe '#handle' do
     it 'handles a 200 response with no errors' do
       order = Newgistics::Order.new()
@@ -14,9 +16,7 @@ RSpec.describe Newgistics::ResponseHandlers::PostShipment do
             <errors></errors>
         </response>
       HEREDOC
-      env = Faraday::Env.from \
-        :status => 200, :body => response_body
-      response = Faraday::Response.new env
+      response = build_response(status: 200, body: response_body)
       response_handler = described_class.new(order)
 
       response_handler.handle(response)
@@ -38,9 +38,7 @@ RSpec.describe Newgistics::ResponseHandlers::PostShipment do
             <errors><error>Incorrect skus</error></errors>
         </response>
       HEREDOC
-      env = Faraday::Env.from \
-        :status => 200, :body => response_body
-      response = Faraday::Response.new env
+      response = build_response(status: 200, body: response_body)
       response_handler = described_class.new(order)
 
       response_handler.handle(response)
@@ -52,11 +50,8 @@ RSpec.describe Newgistics::ResponseHandlers::PostShipment do
     end
 
     it 'handles a 404 response' do
-      order = Newgistics::Order.new()
-      env = Faraday::Env.from \
-        :status => 404, :response_headers => {'Content-Type' => 'text/html'},
-        :reason_phrase => 'Not Found'
-      response = Faraday::Response.new env
+      order = Newgistics::Order.new
+      response = build_response(status: 404, reason_phrase: 'Not Found')
       response_handler = described_class.new(order)
 
       response_handler.handle(response)

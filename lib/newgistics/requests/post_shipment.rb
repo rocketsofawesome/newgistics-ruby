@@ -61,13 +61,9 @@ module Newgistics
       def custom_fields_xml(object, xml)
         xml.CustomFields do
           object.custom_fields.each do |key, value|
-            xml.send camelize(key), value
+            xml.send StringHelper.camelize(key), value
           end
         end
-      end
-
-      def camelize(string)
-        string.to_s.gsub(/([a-z\d]+)(_|\z)/) { $1.capitalize }
       end
 
       def items_xml(items, xml)
@@ -79,7 +75,7 @@ module Newgistics
       def item_xml(item, xml)
         xml.Item do
           xml.SKU item.sku
-          xml.Qty item.quantity
+          xml.Qty item.qty
           xml.IsGiftWrapped item.is_gift_wrapped
           custom_fields_xml(item, xml)
         end

@@ -7,7 +7,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Orders apiKey="3cd9b348dce54548b67758b73c8fa167">
+        <Orders apiKey="ABC123">
           <Order orderID="XML001">
             <Warehouse warehouseid="WAREHOUSE_ID"/>
             <ShipMethod>USPS</ShipMethod>
