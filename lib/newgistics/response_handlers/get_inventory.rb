@@ -11,7 +11,7 @@ module Newgistics
 
       private
 
-      def handle_succesful_response(response)
+      def handle_successful_response(response)
         xml = Nokogiri::XML(response.body)
         errors = xml.css('errors error').map(&:text)
 
@@ -25,11 +25,13 @@ module Newgistics
       def build_products(xml)
         xml.css('products product').map do |product_xml|
           build_product(product_xml)
+        end
       end
 
       def build_product(product_xml)
         Product.new(id: product_xml['id'], sku: product_xml['sku']).tap do |product|
           assign_attributes(product, product_xml)
+        end
       end
 
       def assign_attributes(product, product_xml)

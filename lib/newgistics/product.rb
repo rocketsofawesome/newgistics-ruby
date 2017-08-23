@@ -15,15 +15,15 @@ module Newgistics
     attribute :pending_quantity, Integer
     attribute :available_quantity, Integer
 
-    def self.all(conditions)
-      request = Requests::Inventory
+    def self.all
+      request = Requests::Inventory.new
       response_handler = ResponseHandlers::Inventory.new
 
       Query.new(request, response_handler).all
     end
 
     def self.where(conditions)
-      request = Requests::Inventory
+      request = Requests::Inventory.new
       response_handler = ResponseHandlers::Inventory.new
 
       Query.new(request, response_handler).where(conditions)

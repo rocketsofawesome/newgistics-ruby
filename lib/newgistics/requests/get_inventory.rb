@@ -3,7 +3,7 @@ module Newgistics
     class Inventory
       attr_reader :params
 
-      def initialize(params = {})
+      def params=(params)
         @params = params.merge(key: Newgistics.configuration.api_key)
       end
 
