@@ -54,7 +54,7 @@ RSpec.describe Newgistics::Shipment do
       end
     end
 
-    vcr_options = { cassette_name: 'shipment/where/failure', record: :new_episodes }
+    vcr_options = { cassette_name: 'shipment/where/failure' }
     context "when API returns an error", vcr: vcr_options do
       it 'raises a QueryError' do
         start_date = Date.new(2017, 8, 1).iso8601

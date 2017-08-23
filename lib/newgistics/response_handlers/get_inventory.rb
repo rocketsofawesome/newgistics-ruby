@@ -39,7 +39,7 @@ module Newgistics
       end
 
       def handle_failed_response(response)
-        raise_error "#{response.status} - #{respons.reason_phrase}"
+        raise_error "#{response.status} - #{response.reason_phrase}"
       end
 
       def raise_error(message)

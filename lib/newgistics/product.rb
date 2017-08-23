@@ -5,7 +5,7 @@ module Newgistics
     attribute :id, String
     attribute :sku, String
 
-    attribute :put_away_quantity, Integer
+    attribute :putaway_quantity, Integer
     attribute :quarantine_quantity, Integer
     attribute :damaged_quantity, Integer
     attribute :expired_quantity, Integer

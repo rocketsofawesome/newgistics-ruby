@@ -8,7 +8,7 @@ module Newgistics
       end
 
       def path
-        'inventory.aspx'
+        '/inventory.aspx'
       end
 
       def body
