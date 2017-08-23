@@ -48,7 +48,7 @@ Newgistics::Shipment.
 
 You can use the `where` method to specify the parameters of the Search. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
 
-`Newgistics::Shipment.where(XXX).all` will return a list of `Newgistics::Shipment` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
+`Newgistics::Shipment.where(conditions).all` will return a list of `Newgistics::Shipment` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
 
 ## Development
