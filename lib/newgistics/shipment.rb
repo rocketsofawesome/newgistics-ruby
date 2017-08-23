@@ -33,7 +33,7 @@ module Newgistics
     attribute :custom_fields, Hash
 
     def self.where(conditions)
-      request = Requests::SearchShipments
+      request = Requests::SearchShipments.new
       response_handler = ResponseHandlers::SearchShipments.new
 
       Query.new(request, response_handler).where(conditions)

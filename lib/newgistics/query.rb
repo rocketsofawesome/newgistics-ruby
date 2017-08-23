@@ -2,10 +2,10 @@ module Newgistics
   class Query
     include Enumerable
 
-    attr_reader :request_class, :response_handler, :conditions
+    attr_reader :request, :response_handler, :conditions
 
-    def initialize(request_class, response_handler)
-      @request_class = request_class
+    def initialize(request, response_handler)
+      @request = request
       @response_handler = response_handler
       @conditions = {}
     end
@@ -26,7 +26,7 @@ module Newgistics
     private
 
     def results
-      request = request_class.new(conditions)
+      request.params = conditions
       Newgistics.api.get(request, response_handler)
     end
   end

@@ -45,7 +45,7 @@ module Newgistics
       attribute = attribute_name(element)
       setter = "#{attribute}="
       if object.is_a?(Hash) || object.respond_to?(setter)
-        object[attribute] = element.text unless element.text.empty?
+        object[attribute.to_sym] = element.text unless element.text.empty?
       end
     end
 
