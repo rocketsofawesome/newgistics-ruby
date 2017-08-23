@@ -18,14 +18,16 @@ module Newgistics
       return if attribute_set.nil?
 
       if attribute_set.type.primitive == Array
-        list_item_name = get_list_item_name(attribute_set)
-        elements = element.css(list_item_name).map do |child|
-          build_object(attribute_set.member_type.primitive, child)
-        end
-        object[attribute] = elements
+        object[attribute] = build_list(attribute_set.member_type.primitive, element)
       else
-        new_object = build_object(attribute_set.type.primitive, element)
-        object[attribute] = new_object
+        object[attribute] = build_object(attribute_set.type.primitive, element)
+      end
+    end
+
+    def build_list(item_class, element)
+      item_selector = get_list_item_selector(item_class)
+      element.css(item_selector).map do |child|
+        build_object(item_class, child)
       end
     end
 
@@ -35,15 +37,15 @@ module Newgistics
       end
     end
 
-    def get_list_item_name(attribute_set)
-      attribute_set.member_type.primitive.to_s.split('::').last
+    def get_list_item_selector(item_class)
+      item_class.to_s.split('::').last
     end
 
     def assign_simple_attribute(object, element)
       attribute = attribute_name(element)
       setter = "#{attribute}="
       if object.is_a?(Hash) || object.respond_to?(setter)
-        object[attribute] = element.text unless element.text.empty? 
+        object[attribute] = element.text unless element.text.empty?
       end
     end
 
