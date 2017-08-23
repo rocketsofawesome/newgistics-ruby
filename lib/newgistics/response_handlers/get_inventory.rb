@@ -1,5 +1,5 @@
 module Newgistics
-  module Response
+  module ResponseHandlers
     class Inventory
       def handle(response)
         if response.success?
