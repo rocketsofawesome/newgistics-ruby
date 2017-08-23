@@ -33,6 +33,23 @@ order.save
 
 `order.save` will return `true` if the order is placed successfully and `false` otherwise, any errors or warnings generated when placing the order are available under `order.errors` and `order.warnings` respectively
 
+### Shipments
+
+#### Searching for shipments on Newgistics
+
+```ruby
+Newgistics::Shipment.
+  where(start_received_timestamp: start_date).
+  where(end_received_timestamp: end_date).
+  all
+```
+
+`start_date` and `end_date` are `Date` types in ISO 8601 format. Please note that when using timestamps the Newgistics API expects that you send both the `start_` timestamp and the `end_` timestamp. This means you cannot send `start_received_timestamp` without sending `end_received_timestamp` the same goes for `shipped_timestamp` and `exception_timestamp`.
+
+You can use the `where` method to specify the parameters of the Search. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
+
+`Newgistics::Shipment.where(XXX).all` will return a list of `Newgistics::Shipment` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
+
 
 ## Development
 
