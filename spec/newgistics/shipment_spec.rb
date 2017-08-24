@@ -39,6 +39,7 @@ RSpec.describe Newgistics::Shipment do
           tracking: nil
         )
         expect(results.first.warehouse).to have_attributes(
+          id: "157",
           name: "Hebron, KY",
           address: "1200 WORLDWIDE BLVD",
           city: "HEBRON",
