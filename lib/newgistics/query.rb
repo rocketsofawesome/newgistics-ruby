@@ -10,6 +10,16 @@ module Newgistics
       @conditions = {}
     end
 
+    def self.build(endpoint:, element_selector:, model_class:)
+      request = Requests::Search.new(endpoint)
+      response_handler = ResponseHandlers::Search.new(
+        element_selector: element_selector,
+        model_class: model_class
+      )
+
+      new(request, response_handler)
+    end
+
     def where(conditions)
       @conditions.merge!(conditions)
       self
