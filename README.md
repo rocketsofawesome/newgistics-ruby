@@ -50,6 +50,22 @@ You can use the `where` method to specify the parameters of the Search. Paramete
 
 `Newgistics::Shipment.where(conditions).all` will return a list of `Newgistics::Shipment` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
+### Inventory
+
+#### Updating inventory on Newgistics
+```ruby
+products = Newgistics::Inventory.all
+products = Newgistics::Inventory.
+  where(sku: sku).
+  where(warehouse: warehouse_id).
+  all
+```
+`sku` is a product's sku and `warehouse` is the warehouse's id number, where both of these values are strings. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
+
+However, parameters are not necessary for this endpoint and you will receive the complete inventory of products if you give it no parameters, so this allows you to just use the `all` method to retrieve the entire inventory.
+
+`Newgistics::Inventory.all` will return a list of `Newgistics::Product` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
+
 
 ## Development
 
