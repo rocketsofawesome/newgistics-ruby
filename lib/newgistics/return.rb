@@ -30,7 +30,7 @@ module Newgistics
 
     def self.where(conditions)
       Query.build(
-        endpoint: 'returns.aspx',
+        endpoint: '/returns.aspx',
         element_selector: 'Returns Return',
         model_class: self
       ).where(conditions)
