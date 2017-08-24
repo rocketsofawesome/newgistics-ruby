@@ -1,6 +1,13 @@
 module Newgistics
   module ResponseHandlers
-    class Inventory
+    class Search
+      attr_reader :element_selector, :model_class
+
+      def initialize(element_selector:, model_class:)
+        @element_selector = element_selector
+        @model_class = model_class
+      end
+
       def handle(response)
         if response.success?
           handle_successful_response(response)
@@ -16,26 +23,22 @@ module Newgistics
         errors = xml.css('errors error').map(&:text)
 
         if errors.empty?
-          build_products(xml)
+          build_models(xml)
         else
           raise_error(errors.join(', '))
         end
       end
 
-      def build_products(xml)
-        xml.css('products product').map do |product_xml|
-          build_product(product_xml)
+      def build_models(xml)
+        xml.css(element_selector).map do |model_xml|
+          build_model(model_xml)
         end
       end
 
-      def build_product(product_xml)
-        Product.new(id: product_xml['id'], sku: product_xml['sku']).tap do |product|
-          assign_attributes(product, product_xml)
+      def build_model(model_xml)
+        model_class.new.tap do |model|
+          XmlMarshaller.new.assign_attributes(model, model_xml)
         end
-      end
-
-      def assign_attributes(product, product_xml)
-        XmlMarshaller.new.assign_attributes(product, product_xml)
       end
 
       def handle_failed_response(response)

@@ -34,7 +34,10 @@ module Newgistics
 
     def self.where(conditions)
       request = Requests::Search.new('/shipments.aspx')
-      response_handler = ResponseHandlers::SearchShipments.new
+      response_handler = ResponseHandlers::Search.new(
+        element_selector: 'Shipments Shipment',
+        model_class: self
+      )
 
       Query.new(request, response_handler).where(conditions)
     end
