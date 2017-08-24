@@ -76,7 +76,7 @@ Newgistics::Return.
   all
 ```
 
-`start_date` and `end_date` are Date types in ISO 8601 format. Please note that when using timestamps the Newgistics API expects that you send both the `start_ timestamp` and the `end_ timestamp.` This means you cannot send `start_timestamp` without sending `end_timestamp`.
+`start_date` and `end_date` are Date types in ISO 8601 format. Please note that when using timestamps the Newgistics API expects that you send both the `start_timestamp` and the `end_timestamp.` This means you cannot send `start_timestamp` without sending `end_timestamp`.
 
 You can use the where method to specify the parameters of the Search. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
 
