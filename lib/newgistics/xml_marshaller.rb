@@ -1,6 +1,19 @@
 module Newgistics
   class XmlMarshaller
     def assign_attributes(object, root)
+      marshall_attributes(object, root)
+      marshall_elements(object, root)
+    end
+
+    private
+
+    def marshall_attributes(object, root)
+      root.attributes.values.each do |attribute|
+        assign_attribute(object, attribute.name, attribute.value)
+      end
+    end
+
+    def marshall_elements(object, root)
       root.elements.each do |element|
         if element.elements.any?
           assign_nested_attribute(object, element)
@@ -9,8 +22,6 @@ module Newgistics
         end
       end
     end
-
-    private
 
     def assign_nested_attribute(object, element)
       attribute = attribute_name(element)
@@ -43,9 +54,13 @@ module Newgistics
 
     def assign_simple_attribute(object, element)
       attribute = attribute_name(element)
+      assign_attribute(object, attribute, element.text)
+    end
+
+    def assign_attribute(object, attribute, value)
       setter = "#{attribute}="
       if object.is_a?(Hash) || object.respond_to?(setter)
-        object[attribute.to_sym] = element.text unless element.text.empty?
+        object[attribute.to_sym] = value unless value.empty?
       end
     end
 

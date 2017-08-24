@@ -8,6 +8,7 @@ module Newgistics
   class BogusModel
     include Virtus.model
 
+    attribute :id, String
     attribute :simple_attribute, String
     attribute :bogus_items, Array[BogusItem]
     attribute :favorite_bogus_item, BogusItem

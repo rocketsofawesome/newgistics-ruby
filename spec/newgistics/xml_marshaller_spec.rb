@@ -88,6 +88,20 @@ RSpec.describe Newgistics::XmlMarshaller do
 
       expect(object.favorite_bogus_item.name).to eq('My favorite item!')
     end
+
+    it "assigns attributes from elements with children" do
+      xml = build_xml(<<-XML)
+        <BogusModel id="ABC">
+          <SimpleAttribute>Simple Value</SimpleAttribute>
+        </BogusModel>
+      XML
+      marshaller = described_class.new
+      object = Newgistics::BogusModel.new
+
+      marshaller.assign_attributes(object, xml.root)
+
+      expect(object.id).to eq('ABC')
+    end
   end
 
   def build_xml(string)
