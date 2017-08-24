@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apistaging.newgisticsfulfillment.com/returns.aspx?endTimestamp=2017-08-22&key=ABC123&startTimestamp=2017-08-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=kxo3e02b2rdn4iwn4f1s24om; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Thu, 24 Aug 2017 20:25:43 GMT
+      connection:
+      - close
+      content-length:
+      - '127'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPGVycm9ycz4NCiAgICA8ZXJyb3I+SW52YWxpZCBBUEkga2V5PC9lcnJvcj4NCiAgPC9lcnJvcnM+DQo8L3Jlc3BvbnNlPg==
+    http_version: 
+  recorded_at: Thu, 24 Aug 2017 20:25:18 GMT
+recorded_with: VCR 3.0.3
