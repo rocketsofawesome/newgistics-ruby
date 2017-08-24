@@ -1,14 +1,14 @@
 module Newgistics
   module Requests
-    class Inventory
-      attr_reader :params
+    class Search
+      attr_reader :path, :params
+
+      def initialize(path)
+        @path = path
+      end
 
       def params=(params)
         @params = params.merge(key: Newgistics.configuration.api_key)
-      end
-
-      def path
-        '/inventory.aspx'
       end
 
       def body

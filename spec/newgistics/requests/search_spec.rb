@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe Newgistics::Requests::SearchShipments do
+RSpec.describe Newgistics::Requests::Search do
   describe '#path' do
     it "returns the correct API endpoint" do
-      request = described_class.new
+      request = described_class.new('/shipments.aspx')
 
       expect(request.path).to eq('/shipments.aspx')
     end
@@ -12,7 +12,7 @@ RSpec.describe Newgistics::Requests::SearchShipments do
   describe '#body' do
     it "serializes the search parameters properly" do
       date = Date.new.iso8601
-      request = described_class.new
+      request = described_class.new('/shipments.aspx')
       request.params = {
         status: 'ONHOLD',
         start_received_timestamp: date

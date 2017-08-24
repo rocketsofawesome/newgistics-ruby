@@ -16,14 +16,11 @@ module Newgistics
     attribute :available_quantity, Integer
 
     def self.all
-      request = Requests::Inventory.new
-      response_handler = ResponseHandlers::Inventory.new
-
-      Query.new(request, response_handler).all
+      where({}).all
     end
 
     def self.where(conditions)
-      request = Requests::Inventory.new
+      request = Requests::Search.new('/inventory.aspx')
       response_handler = ResponseHandlers::Inventory.new
 
       Query.new(request, response_handler).where(conditions)
