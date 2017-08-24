@@ -20,13 +20,11 @@ module Newgistics
     end
 
     def self.where(conditions)
-      request = Requests::Search.new('/inventory.aspx')
-      response_handler = ResponseHandlers::Search.new(
+      Query.build(
+        endpoint: '/inventory.aspx',
         element_selector: 'products product',
         model_class: self
-      )
-
-      Query.new(request, response_handler).where(conditions)
+      ).where(conditions)
     end
   end
 end

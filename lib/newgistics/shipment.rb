@@ -33,13 +33,11 @@ module Newgistics
     attribute :custom_fields, Hash
 
     def self.where(conditions)
-      request = Requests::Search.new('/shipments.aspx')
-      response_handler = ResponseHandlers::Search.new(
+      Query.build(
+        endpoint: '/shipments.aspx',
         element_selector: 'Shipments Shipment',
         model_class: self
-      )
-
-      Query.new(request, response_handler).where(conditions)
+      ).where(conditions)
     end
   end
 end
