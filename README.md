@@ -66,6 +66,22 @@ However, parameters are not necessary for this endpoint and you will receive the
 
 `Newgistics::Product.all` will return a list of `Newgistics::Product` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
+### Returns
+
+#### Searching for returns received by Newgistics
+```ruby
+Newgistics::Return.
+  where(start_timestamp: start_date).
+  where(end_timestamp: end_date).
+  all
+```
+
+`start_date` and `end_date` are Date types in ISO 8601 format. Please note that when using timestamps the Newgistics API expects that you send both the `start_timestamp` and the `end_timestamp.` This means you cannot send `start_timestamp` without sending `end_timestamp`.
+
+You can use the where method to specify the parameters of the Search. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
+
+`Newgistics::Return.where(conditions).all` will return a list of `Newgistics::Return` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
+
 
 ## Development
 
