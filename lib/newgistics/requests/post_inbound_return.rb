@@ -1,6 +1,6 @@
 module Newgistics
   module Requests
-    class PostReturn
+    class PostInboundReturn
       attr_reader :returns
 
       def initialize(returns)
@@ -34,11 +34,19 @@ module Newgistics
       end
 
       def return_xml(inbound_return, xml)
-        xml.Return(id: inbound_return.id) do
+        xml.Return(return_attributes(inbound_return)) do
           xml.RMA inbound_return.rma
+          xml.Comments inbound_return.comments
 
           items_xml(inbound_return.items, xml)
         end
+      end
+
+      def return_attributes(inbound_return)
+        {
+          id: inbound_return.shipment_id,
+          orderID: inbound_return.order_id
+        }.reject { |_k, v| v.nil? || v.empty? }
       end
 
       def items_xml(items, xml)

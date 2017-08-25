@@ -19,7 +19,7 @@ module Newgistics
 
     attribute :errors, Array[String], default: []
     attribute :warnings, Array[String], default: []
-    attribute :shipment_id, String, default: ""
+    attribute :shipment_id, String
 
     def save
       request = Requests::PostShipment.new([self])

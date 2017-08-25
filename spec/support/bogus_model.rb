@@ -13,5 +13,7 @@ module Newgistics
     attribute :bogus_items, Array[BogusItem]
     attribute :favorite_bogus_item, BogusItem
     attribute :custom_fields, Hash
+    attribute :errors, Array[String]
+    attribute :warnings, Array[String]
   end
 end
