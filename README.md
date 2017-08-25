@@ -82,6 +82,17 @@ You can use the where method to specify the parameters of the Search. Parameter 
 
 `Newgistics::Return.where(conditions).all` will return a list of `Newgistics::Return` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
+### Inbound Returns
+
+#### Sending inbound returns to Newgistics
+```ruby
+Newgistics::InboundReturn.new(inbound_return_attributes).save
+```
+
+`inbound_return_attributes` is a `Hash` containing all the attributes for the inbound return, the attributes should map one-to-one to the Newgistics API spec. *Caveat*: you should only supply either `shipment_id` or `order_id` but not both because you will receive an error from the API.
+
+`inbound_return.save` will return `true` if the inbound return is sent successfully to Newgistics and `false` otherwise, any errors or warnings generated when sending the inbound_return are available under `inbound_return.errors` and `inbound_return.warnings` respectively
+
 
 ## Development
 
