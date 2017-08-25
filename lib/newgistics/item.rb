@@ -13,5 +13,7 @@ module Newgistics
     attribute :return_reason, String
     attribute :qty_returned_to_stock, Integer
     attribute :return_timestamp, DateTime
+
+    attribute :reason, String
   end
 end
