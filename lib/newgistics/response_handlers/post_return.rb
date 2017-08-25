@@ -1,10 +1,10 @@
 module Newgistics
   module ResponseHandlers
     class PostReturn
-      attr_reader :return
+      attr_reader :inbound_return
 
-      def initialize(return)
-        @return = return
+      def initialize(inbound_return)
+        @inbound_return = inbound_return
       end
 
       def handle(response)
@@ -19,12 +19,12 @@ module Newgistics
 
       def handle_successful_response(response)
         xml = Nokogiri::XML(response.body)
-        return.errors = xml.css('errors error').map(&:text)
-        return.warnings = xml.css('warnings warning').map(&:text)
+        inbound_return.errors = xml.css('errors error').map(&:text)
+        inbound_return.warnings = xml.css('warnings warning').map(&:text)
 
-        if return.errors.empty?
-          return.id = xml.css('Return').first['id']
-          return.rma = xml.css('Return').first['RMA']
+        if inbound_return.errors.empty?
+          inbound_return.id = xml.css('Return').first['id']
+          inbound_return.rma = xml.css('Return').first['RMA']
         end
       end
 
@@ -32,7 +32,7 @@ module Newgistics
         message = "Failed to save return: "
         message += "#{response.status} - #{response.reason_phrase}"
 
-        return.errors << message
+        inbound_return.errors << message
       end
     end
   end

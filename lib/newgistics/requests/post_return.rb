@@ -25,7 +25,7 @@ module Newgistics
 
       def returns_xml(xml)
         xml.Returns(apiKey: api_key) do
-          returns.each { |return| return_xml(return, xml) }
+          returns.each { |inbound_return| return_xml(inbound_return, xml) }
         end
       end
 
@@ -33,11 +33,11 @@ module Newgistics
         Newgistics.configuration.api_key
       end
 
-      def return_xml(return, xml)
-        xml.Return(id: return.id) do
-          xml.RMA return.rma
+      def return_xml(inbound_return, xml)
+        xml.Return(id: inbound_return.id) do
+          xml.RMA inbound_return.rma
 
-          items_xml(return.items, xml)
+          items_xml(inbound_return.items, xml)
         end
       end
 
