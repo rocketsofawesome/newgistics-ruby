@@ -19,8 +19,8 @@ module Newgistics
     attribute :phone, String
     attribute :carrier, String
     attribute :tracking_number, String
-    attribute :postage_due, String
-    attribute :rma_preasent, Boolean
+    attribute :postage_due, Float
+    attribute :rma_present, Boolean
     attribute :rma_number, String
     attribute :reason, String
     attribute :condition, String
