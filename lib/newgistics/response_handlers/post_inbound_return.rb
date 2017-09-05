@@ -18,7 +18,7 @@ module Newgistics
 
       def handle_successful_response(response)
         xml = Nokogiri::XML(response.body)
-        inbound_return.id = xml.css('Return').first['id']
+        inbound_return.id = xml.css('Return').first['ID']
       end
     end
   end

@@ -91,7 +91,7 @@ RSpec.describe Newgistics::XmlMarshaller do
 
     it "assigns attributes from elements with children" do
       xml = build_xml(<<-XML)
-        <BogusModel id="ABC">
+        <BogusModel id="ABC" otherID="123">
           <SimpleAttribute>Simple Value</SimpleAttribute>
         </BogusModel>
       XML
@@ -101,6 +101,7 @@ RSpec.describe Newgistics::XmlMarshaller do
       marshaller.assign_attributes(object, xml.root)
 
       expect(object.id).to eq('ABC')
+      expect(object.other_id).to eq("123")
     end
   end
 

@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apistaging.newgisticsfulfillment.com/returns.aspx?endTimestamp=2017-09-30&key=ABC123&startTimestamp=2017-08-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=ygfckizx45ayirnydrj5qwxz; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Tue, 05 Sep 2017 15:51:41 GMT
+      connection:
+      - close
+      content-length:
+      - '81'
+    body:
+      encoding: ASCII-8BIT
+      string:
+        <response>
+          <Returns>
+            <Return warehouseID="60" shipmentID="91955463"
+              orderID="8aa081cb1fa5de9e011fb47803835ec9">
+              <Status>RETURNED</Status>
+              <Name>MATT MURDOCK</Name>
+              <Company />
+              <Address1>75 Spring St</Address1>
+              <Address2>4th floor</Address2>
+              <City>New York</City>
+              <State>NY</State>
+              <PostalCode>10012</PostalCode>
+              <Country>US</Country>
+              <Email>matt@murdock.com</Email>
+              <Phone>617 123 4567</Phone>
+              <Carrier>USPS</Carrier>
+              <TrackingNumber />
+              <PostageDue>0</PostageDue>
+              <RmaPresent>true</RmaPresent>
+              <RmaNumber>100001</RmaNumber>
+              <Reason>Consumer Return</Reason>
+              <Condition>Opened with components opened</Condition>
+              <Notes />
+              <IsArchived>false</IsArchived>
+              <Timestamp>2017-09-05T10:30:00.0</Timestamp>
+              <Items>
+                <Item id="79451">
+                  <SKU>1007-201-G</SKU>
+                  <QtyReturned>1</QtyReturned>
+                  <ReturnReason code="A">Too Big</ReturnReason>
+                  <QtyReturnedToStock>1</QtyReturnedToStock>
+                  <ReturnTimestamp>2017-09-05T06:38:04.623</ReturnTimestamp>
+                </Item>
+              </Items>
+            </Return>
+          </Returns>
+        </response>
+    http_version:
+  recorded_at: Tue, 05 Sep 2017 15:51:41 GMT
+recorded_with: VCR 3.0.3

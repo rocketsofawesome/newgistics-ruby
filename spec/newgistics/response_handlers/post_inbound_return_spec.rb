@@ -10,14 +10,14 @@ RSpec.describe Newgistics::ResponseHandlers::PostInboundReturn do
         <?xml version="1.0" encoding="UTF-8" ?>
         <response>
             <Returns>
-                <Return id="6013782" RMA="2520910" ShipmentID="69776" inbound_returnID="TEST-001" />
+                <Return ID="6013782" RMA="2520910" ShipmentID="69776" inbound_returnID="TEST-001" />
             </Returns>
             <warnings></warnings>
             <errors></errors>
         </response>
       HEREDOC
       response = build_response(status: 200, body: response_body)
-      
+
       response_handler = described_class.new(inbound_return)
 
       response_handler.handle(response)

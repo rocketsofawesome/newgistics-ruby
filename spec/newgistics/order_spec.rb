@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe Newgistics::Order do
+  include IntegrationHelpers
+
   describe '#save' do
     vcr_options = { cassette_name: 'order/save/successfully' }
     context "when the order is placed successfully", vcr: vcr_options do
+      before { use_valid_api_key }
       it 'updates the order object with the shipment_id and any errors or warnings' do
         order = described_class.new(order_attributes)
 
@@ -21,15 +24,15 @@ RSpec.describe Newgistics::Order do
 
     vcr_options = { cassette_name: 'order/save/failure' }
     context "when placing the order fails", vcr: vcr_options do
+      before { use_invalid_api_key }
+
       it "returns false" do
-        Newgistics.configuration.api_key = nil
         order = described_class.new(order_attributes)
 
         expect(order.save).to be(false)
       end
 
       it "saves the errors on the order" do
-        Newgistics.configuration.api_key = nil
         order = described_class.new(order_attributes)
 
         order.save

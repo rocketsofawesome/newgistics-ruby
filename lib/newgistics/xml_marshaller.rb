@@ -9,7 +9,8 @@ module Newgistics
 
     def marshall_attributes(object, root)
       root.attributes.values.each do |attribute|
-        assign_attribute(object, attribute.name, attribute.value)
+        transformed_name = attribute_name(attribute)
+        assign_attribute(object, transformed_name, attribute.value)
       end
     end
 
