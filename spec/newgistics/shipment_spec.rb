@@ -7,7 +7,6 @@ RSpec.describe Newgistics::Shipment do
       it 'returns a list of shipment objects' do
         start_date = Date.new(2017, 8, 1).iso8601
         end_date = Date.new(2017, 8, 22).iso8601
-        Newgistics.configure { |c| c.api_key = 'ABC123' }
 
         results = Newgistics::Shipment.
           where(start_received_timestamp: start_date).

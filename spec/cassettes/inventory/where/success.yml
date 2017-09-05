@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apistaging.newgisticsfulfillment.com/inventory_details.aspx?key=ABC123&sku=SKU
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=k5vz4jmxhi4f3lfm2fytv0u4; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Tue, 05 Sep 2017 14:28:28 GMT
+      connection:
+      - close
+      content-length:
+      - '45'
+    body:
+      encoding: ASCII-8BIT
+      string:
+        <response>
+          <inventories>
+            <inventory id="325307271" type="transfer" linkedinventoryid="325307272">
+              <manifestPO/>
+              <shipmentID>SHIPMENT_ID</shipmentID>
+              <orderID></orderID>
+              <timestamp>2015-02-19T11:00:00.0</timestamp>
+              <sku>SKU</sku>
+              <quantity>-1</quantity>
+              <reasonCode id="1">Facility Damage</reasonCode>
+              <inventorytype>currentQty</inventorytype>
+              <notes>Damaged by forklift</notes>
+            </inventory>
+          </inventories>
+        </response>
+    http_version:
+  recorded_at: Tue, 05 Sep 2017 14:28:29 GMT
+recorded_with: VCR 3.0.3
