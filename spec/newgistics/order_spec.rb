@@ -5,15 +5,14 @@ RSpec.describe Newgistics::Order do
     vcr_options = { cassette_name: 'order/save/successfully' }
     context "when the order is placed successfully", vcr: vcr_options do
       it 'updates the order object with the shipment_id and any errors or warnings' do
-        Newgistics.configure { |c| c.api_key = 'ABC123' }
         order = described_class.new(order_attributes)
-          
+
         order.save
 
         expect(order.shipment_id).not_to be_nil
       end
 
-      it "returns true" do 
+      it "returns true" do
         order = described_class.new(order_attributes)
 
         expect(order.save).to be(true)
@@ -22,14 +21,14 @@ RSpec.describe Newgistics::Order do
 
     vcr_options = { cassette_name: 'order/save/failure' }
     context "when placing the order fails", vcr: vcr_options do
-      it "returns false" do 
+      it "returns false" do
         Newgistics.configuration.api_key = nil
         order = described_class.new(order_attributes)
 
         expect(order.save).to be(false)
       end
 
-      it "saves the errors on the order" do 
+      it "saves the errors on the order" do
         Newgistics.configuration.api_key = nil
         order = described_class.new(order_attributes)
 
