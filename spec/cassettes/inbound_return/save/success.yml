@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apistaging.newgisticsfulfillment.com/post_inbound_returns.aspx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0"?>
+        <Returns apiKey="ABC123">
+          <Return id="91955463">
+            <RMA>RMA_NUMBER</RMA>
+            <Comments>Sample Comment</Comments>
+            <Items>
+              <Item>
+                <SKU>1007-201-G</SKU>
+                <Qty>1</Qty>
+                <Reason>Too Big</Reason>
+              </Item>
+            </Items>
+          </Return>
+        </Returns>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=0n4w0ojt1ln4ugxws2euhdjh; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Tue, 05 Sep 2017 15:14:48 GMT
+      connection:
+      - close
+      content-length:
+      - '212'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxSZXNwb25zZT4NCiAgPFJldHVybnM+DQogICAgPFJldHVybiBJRD0iMTc1NDI1MSIgUk1BPSJSTUFfTlVNQkVSIiBTaGlwbWVudElEPSI5MTk1NTQ2MyIgT3JkZXJJRD0iUjEyMzQ1Njc4OSIgLz4NCiAgPC9SZXR1cm5zPg0KICA8V2FybmluZ3MgLz4NCiAgPEVycm9ycyAvPg0KPC9SZXNwb25zZT4=
+    http_version:
+  recorded_at: Tue, 05 Sep 2017 15:14:48 GMT
+recorded_with: VCR 3.0.3
