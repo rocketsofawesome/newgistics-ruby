@@ -6,7 +6,7 @@ RSpec.describe Newgistics::Inventory do
     context "when the API doesn't return an error", vcr: vcr_options do
       it "returns an array of inventories" do
         start_date = Date.new(2017, 8, 1).iso8601
-        query = described_class.where(start_timestamp: start_date)
+        query = described_class.where(sku: 'SKU')
 
         inventories = query.all
 

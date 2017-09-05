@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://apistaging.newgisticsfulfillment.com/inventory_details.aspx?key=ABC123&startTimestamp=2017-08-01
+    uri: https://apistaging.newgisticsfulfillment.com/inventory_details.aspx?key=ABC123&sku=SKU
     body:
       encoding: US-ASCII
       string: ''
