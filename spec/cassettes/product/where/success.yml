@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apistaging.newgisticsfulfillment.com/inventory.aspx?key=ABC123&sku=2010-025-E
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=y1w23dzox01xunkwdvlp43hg; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Tue, 05 Sep 2017 15:36:55 GMT
+      connection:
+      - close
+      content-length:
+      - '766'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPHByb2R1Y3RzPg0KICAgIDxwcm9kdWN0IGlkPSIxNDg0NTY3IiBza3U9IjIwMTAtMDI1LUUiPg0KICAgICAgPHJlY2VpdmluZ1F1YW50aXR5PjA8L3JlY2VpdmluZ1F1YW50aXR5Pg0KICAgICAgPGFycml2ZWRQdXRBd2F5UXVhbnRpdHk+MDwvYXJyaXZlZFB1dEF3YXlRdWFudGl0eT4NCiAgICAgIDxwdXRhd2F5UXVhbnRpdHk+MDwvcHV0YXdheVF1YW50aXR5Pg0KICAgICAgPHF1YXJhbnRpbmVRdWFudGl0eT4wPC9xdWFyYW50aW5lUXVhbnRpdHk+DQogICAgICA8ZGFtYWdlZFF1YW50aXR5PjA8L2RhbWFnZWRRdWFudGl0eT4NCiAgICAgIDxleHBpcmVkUXVhbnRpdHk+MDwvZXhwaXJlZFF1YW50aXR5Pg0KICAgICAgPHJlY2FsbGVkUXVhbnRpdHk+MDwvcmVjYWxsZWRRdWFudGl0eT4NCiAgICAgIDxyZXR1cm5zUXVhbnRpdHk+MDwvcmV0dXJuc1F1YW50aXR5Pg0KICAgICAgPGN1cnJlbnRRdWFudGl0eT4wPC9jdXJyZW50UXVhbnRpdHk+DQogICAgICA8a2l0dGluZ1F1YW50aXR5PjA8L2tpdHRpbmdRdWFudGl0eT4NCiAgICAgIDxwZW5kaW5nUXVhbnRpdHk+MDwvcGVuZGluZ1F1YW50aXR5Pg0KICAgICAgPGF2YWlsYWJsZVF1YW50aXR5PjA8L2F2YWlsYWJsZVF1YW50aXR5Pg0KICAgICAgPGJhY2tvcmRlcmVkUXVhbnRpdHk+MDwvYmFja29yZGVyZWRRdWFudGl0eT4NCiAgICA8L3Byb2R1Y3Q+DQogIDwvcHJvZHVjdHM+DQo8L3Jlc3BvbnNlPg==
+    http_version:
+  recorded_at: Tue, 05 Sep 2017 15:36:56 GMT
+recorded_with: VCR 3.0.3

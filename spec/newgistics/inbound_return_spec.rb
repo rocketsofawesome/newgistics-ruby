@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe Newgistics::InboundReturn do
+  include IntegrationHelpers
+
   describe '#save' do
+    before { use_valid_api_key }
+
     vcr_options = { cassette_name: 'inbound_return/save/success' }
     context "when the inbound return is placed successfully", vcr: vcr_options do
       it "returns true" do

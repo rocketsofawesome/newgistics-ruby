@@ -1,10 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe Newgistics::Shipment do
+  include IntegrationHelpers
+
   describe '.where' do
     vcr_options = { cassette_name: 'shipment/where/successfully' }
     context "when the shipments are queried successfully", vcr: vcr_options do
       it 'returns a list of shipment objects' do
+        use_valid_api_key
         start_date = Date.new(2017, 8, 1).iso8601
         end_date = Date.new(2017, 8, 22).iso8601
 
@@ -57,8 +60,8 @@ RSpec.describe Newgistics::Shipment do
     vcr_options = { cassette_name: 'shipment/where/failure' }
     context "when API returns an error", vcr: vcr_options do
       it 'raises a QueryError' do
+        use_invalid_api_key
         start_date = Date.new(2017, 8, 1).iso8601
-        Newgistics.configure { |c| c.api_key = 'INVALID' }
         query = Newgistics::Shipment.where(start_received_timestamp: start_date)
 
         expect { query.all }.to raise_error(Newgistics::QueryError)
