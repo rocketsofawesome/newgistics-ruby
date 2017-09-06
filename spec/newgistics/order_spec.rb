@@ -44,9 +44,8 @@ RSpec.describe Newgistics::Order do
 
   def order_attributes(attributes = {})
     {
-      id: 'XML001',
-      warehouse_id: 'WAREHOUSE_ID',
-      ship_method: 'USPS',
+      id: 'R123456789',
+      ship_method: 'USPS Express',
       info_line: 'Additional order details',
       requires_signature: false,
       is_insured: false,
@@ -72,9 +71,9 @@ RSpec.describe Newgistics::Order do
         total: 25.0
       },
       items: [
-        { sku: 'SKU1', qty: 1, is_gift_wrapped: false },
+        { sku: '1007-201-G', qty: 1, is_gift_wrapped: false },
         {
-          sku: 'SKU2',
+          sku: '1008-240-C',
           qty: 2,
           is_gift_wrapped: true,
           custom_fields: {
