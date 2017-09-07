@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://apistaging.newgisticsfulfillment.com/inventory_details.aspx?key=ABC123&sku=SKU
+    uri: https://apistaging.newgisticsfulfillment.com/inventory_details.aspx?key=<API_KEY>&sku=SKU
     body:
       encoding: US-ASCII
       string: ''
@@ -21,21 +21,22 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=k5vz4jmxhi4f3lfm2fytv0u4; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=pvhgcwtrb42yelbdpqihsgt0; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Tue, 05 Sep 2017 14:28:28 GMT
+      - Thu, 07 Sep 2017 13:24:29 GMT
       connection:
       - close
       content-length:
       - '45'
     body:
       encoding: ASCII-8BIT
-      string:
+      string: |
+        <?xml version="1.0"?>
         <response>
           <inventories>
             <inventory id="325307271" type="transfer" linkedinventoryid="325307272">
@@ -52,5 +53,5 @@ http_interactions:
           </inventories>
         </response>
     http_version:
-  recorded_at: Tue, 05 Sep 2017 14:28:29 GMT
+  recorded_at: Thu, 07 Sep 2017 13:24:29 GMT
 recorded_with: VCR 3.0.3

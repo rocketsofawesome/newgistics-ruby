@@ -7,14 +7,14 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Returns apiKey="3cd9b348dce54548b67758b73c8fa167">
-          <Return id="91755251">
-            <RMA>12938474</RMA>
+        <Returns apiKey="<API_KEY>">
+          <Return id="INVALID">
+            <RMA>RA343167887</RMA>
             <Comments>Sample Comment</Comments>
             <Items>
               <Item>
-                <SKU>BCD-123</SKU>
-                <Qty>2</Qty>
+                <SKU>1007-201-G</SKU>
+                <Qty>1</Qty>
                 <Reason>Too Big</Reason>
               </Item>
             </Items>
@@ -37,22 +37,29 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=nhdnjyzknebiegfxdweszoig; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=wufvkf1fsy4db5nbcu0edeor; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Fri, 25 Aug 2017 16:25:54 GMT
+      - Thu, 07 Sep 2017 13:34:07 GMT
       connection:
       - close
       content-length:
-      - '224'
+      - '214'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxSZXNwb25zZT4NCiAgPFJldHVybnMgLz4NCiAgPFdhcm5pbmdzIC8+DQogIDxFcnJvcnM+DQogICAgPEVycm9yIFJNQT0iMTI5Mzg0NzQiPlVuYWJsZSB0byBjcmVhdGUgaW5ib3VuZCByZXR1cm47IFByb2R1Y3QgU0tVIEJDRC0xMjMgd2FzIG5vdCBmb3VuZDwvRXJyb3I+DQogIDwvRXJyb3JzPg0KPC9SZXNwb25zZT4=
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <Response>
+          <Returns/>
+          <Warnings/>
+          <Errors>
+            <Error RMA="RA343167887">Unable to create inbound return; invalid shipment ID.</Error>
+          </Errors>
+        </Response>
     http_version: 
-  recorded_at: Fri, 25 Aug 2017 16:25:28 GMT
+  recorded_at: Thu, 07 Sep 2017 13:34:07 GMT
 recorded_with: VCR 3.0.3

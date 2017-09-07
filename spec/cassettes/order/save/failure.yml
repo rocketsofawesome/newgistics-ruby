@@ -7,10 +7,10 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Orders apiKey="">
-          <Order orderID="XML001">
-            <Warehouse warehouseid="WAREHOUSE_ID"/>
-            <ShipMethod>USPS</ShipMethod>
+        <Orders apiKey="INVALID">
+          <Order orderID="R987654321">
+            <Warehouse warehouseid=""/>
+            <ShipMethod>USPS Express</ShipMethod>
             <InfoLine>Additional order details</InfoLine>
             <RequiresSignature>false</RequiresSignature>
             <IsInsured>false</IsInsured>
@@ -21,15 +21,15 @@ http_interactions:
             <OrderDate>08/20/2017</OrderDate>
             <CustomerInfo>
               <Company/>
-              <FirstName>Stephen</FirstName>
-              <LastName>Strange</LastName>
+              <FirstName>Wade</FirstName>
+              <LastName>Wilson</LastName>
               <Address1>75 Spring St</Address1>
               <Address2>4th Floor</Address2>
               <City>New York</City>
               <State>NY</State>
               <Zip>10012</Zip>
               <Country>USA</Country>
-              <Email>stephen@strange.com</Email>
+              <Email>wade@wilson.com</Email>
               <Phone>617 123 4567</Phone>
               <IsResidential>false</IsResidential>
             </CustomerInfo>
@@ -40,13 +40,13 @@ http_interactions:
             </CustomFields>
             <Items>
               <Item>
-                <SKU>SKU1</SKU>
+                <SKU>1007-201-G</SKU>
                 <Qty>1</Qty>
                 <IsGiftWrapped>false</IsGiftWrapped>
                 <CustomFields/>
               </Item>
               <Item>
-                <SKU>SKU2</SKU>
+                <SKU>1008-240-C</SKU>
                 <Qty>2</Qty>
                 <IsGiftWrapped>true</IsGiftWrapped>
                 <CustomFields>
@@ -73,22 +73,27 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=zlbwyp0be1yv0rmesuaqnbmy; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=0syd1mmhtx0fc0jh5oi1ywya; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Mon, 21 Aug 2017 15:28:25 GMT
+      - Thu, 07 Sep 2017 13:38:21 GMT
       connection:
       - close
       content-length:
-      - '170'
+      - '127'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPGVycm9ycz4NCiAgICA8ZXJyb3I+QXR0cmlidXRlICJhcGlLZXkiIGVtcHR5IG9yIG1pc3NpbmcgZnJvbSAiT3JkZXJzIiBlbGVtZW50LjwvZXJyb3I+DQogIDwvZXJyb3JzPg0KPC9yZXNwb25zZT4=
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <errors>
+            <error>Invalid API key</error>
+          </errors>
+        </response>
     http_version: 
-  recorded_at: Mon, 21 Aug 2017 15:28:05 GMT
+  recorded_at: Thu, 07 Sep 2017 13:38:21 GMT
 recorded_with: VCR 3.0.3

@@ -9,16 +9,16 @@ RSpec.describe Newgistics::Shipment do
       it 'returns a list of shipment objects' do
         use_valid_api_key
         start_date = Date.new(2017, 8, 1).iso8601
-        end_date = Date.new(2017, 8, 22).iso8601
+        end_date = Date.new(2017, 9, 7).iso8601
 
         results = Newgistics::Shipment.
           where(start_received_timestamp: start_date).
           where(end_received_timestamp: end_date).
           all
 
-        expect(results.length).to eql 6
-        expect(results.first).to have_attributes(
-          order_id: "XML001",
+        expect(results.length).to eql 2
+        expect(results.last).to have_attributes(
+          order_id: "R123456789",
           name: "STEPHEN STRANGE",
           first_name: "STEPHEN",
           last_name: "STRANGE",
@@ -30,7 +30,7 @@ RSpec.describe Newgistics::Shipment do
           email: "stephen@strange.com",
           phone: "617 123 4567",
           order_timestamp: DateTime.parse("2017-08-20T00:00:00"),
-          received_timestamp: DateTime.parse("2017-08-21T07:22:03.413"),
+          received_timestamp: DateTime.parse("2017-09-06T15:08:21"),
           shipment_status: "ONHOLD",
           order_type: "Consumer",
           shipment_date: nil,
@@ -40,7 +40,7 @@ RSpec.describe Newgistics::Shipment do
           ship_method_code:"HOLD",
           tracking: nil
         )
-        expect(results.first.warehouse).to have_attributes(
+        expect(results.last.warehouse).to have_attributes(
           id: "157",
           name: "Hebron, KY",
           address: "1200 WORLDWIDE BLVD",
@@ -49,7 +49,7 @@ RSpec.describe Newgistics::Shipment do
           postal_code: "41048",
           country: "US"
         )
-        expect(results.first.custom_fields).to include(
+        expect(results.last.custom_fields).to include(
           additional_tax: "15.0",
           subtotal: "10.0",
           total: "25.0"

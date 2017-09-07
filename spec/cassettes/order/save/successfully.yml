@@ -7,10 +7,10 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Orders apiKey="ABC123">
-          <Order orderID="XML001">
-            <Warehouse warehouseid="WAREHOUSE_ID"/>
-            <ShipMethod>USPS</ShipMethod>
+        <Orders apiKey="<API_KEY>">
+          <Order orderID="R987654321">
+            <Warehouse warehouseid=""/>
+            <ShipMethod>USPS Express</ShipMethod>
             <InfoLine>Additional order details</InfoLine>
             <RequiresSignature>false</RequiresSignature>
             <IsInsured>false</IsInsured>
@@ -21,15 +21,15 @@ http_interactions:
             <OrderDate>08/20/2017</OrderDate>
             <CustomerInfo>
               <Company/>
-              <FirstName>Stephen</FirstName>
-              <LastName>Strange</LastName>
+              <FirstName>Wade</FirstName>
+              <LastName>Wilson</LastName>
               <Address1>75 Spring St</Address1>
               <Address2>4th Floor</Address2>
               <City>New York</City>
               <State>NY</State>
               <Zip>10012</Zip>
               <Country>USA</Country>
-              <Email>stephen@strange.com</Email>
+              <Email>wade@wilson.com</Email>
               <Phone>617 123 4567</Phone>
               <IsResidential>false</IsResidential>
             </CustomerInfo>
@@ -40,13 +40,13 @@ http_interactions:
             </CustomFields>
             <Items>
               <Item>
-                <SKU>SKU1</SKU>
+                <SKU>1007-201-G</SKU>
                 <Qty>1</Qty>
                 <IsGiftWrapped>false</IsGiftWrapped>
                 <CustomFields/>
               </Item>
               <Item>
-                <SKU>SKU2</SKU>
+                <SKU>1008-240-C</SKU>
                 <Qty>2</Qty>
                 <IsGiftWrapped>true</IsGiftWrapped>
                 <CustomFields>
@@ -73,22 +73,31 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=ztolhn5jcl1zuazurpu11cb2; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=utgrb0wyu0t1bdgwajzstvct; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Mon, 21 Aug 2017 15:15:07 GMT
+      - Thu, 07 Sep 2017 13:36:58 GMT
       connection:
       - close
       content-length:
-      - '606'
+      - '291'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPHNoaXBtZW50cz4NCiAgICA8c2hpcG1lbnQgaWQ9IjkxNzU1MjUyIiBvcmRlcklEPSJYTUwwMDEiIC8+DQogIDwvc2hpcG1lbnRzPg0KICA8d2FybmluZ3M+DQogICAgPHdhcm5pbmcgb3JkZXJJRD0iWE1MMDAxIj5JbnZhbGlkIFNLVTogU0tVICdTS1UxJyBtaXNzaW5nIChRdHkgPSAxKTwvd2FybmluZz4NCiAgICA8d2FybmluZyBvcmRlcklEPSJYTUwwMDEiPkludmFsaWQgU0tVOiBTS1UgJ1NLVTInIG1pc3NpbmcgKFF0eSA9IDIpPC93YXJuaW5nPg0KICAgIDx3YXJuaW5nIG9yZGVySUQ9IlhNTDAwMSI+T3JkZXIgcGxhY2VkIG9uIGhvbGQ6IER1cGxpY2F0ZSBPcmRlciBJRDwvd2FybmluZz4NCiAgICA8d2FybmluZyBvcmRlcklEPSJYTUwwMDEiPk9yZGVyIHBsYWNlZCBvbiBob2xkOiBObyBDb250ZW50czwvd2FybmluZz4NCiAgICA8d2FybmluZyBvcmRlcklEPSJYTUwwMDEiPk9yZGVyIHBsYWNlZCBvbiBob2xkOiBJbnZhbGlkIG9yIG1pc3Npbmcgc2hpcCBtZXRob2Q8L3dhcm5pbmc+DQogIDwvd2FybmluZ3M+DQogIDxlcnJvcnMgLz4NCjwvcmVzcG9uc2U+
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <shipments>
+            <shipment id="91955522" orderID="R987654321"/>
+          </shipments>
+          <warnings>
+            <warning orderID="R987654321">Order placed on hold: Invalid or missing ship method</warning>
+          </warnings>
+          <errors/>
+        </response>
     http_version: 
-  recorded_at: Mon, 21 Aug 2017 15:14:47 GMT
+  recorded_at: Thu, 07 Sep 2017 13:36:59 GMT
 recorded_with: VCR 3.0.3

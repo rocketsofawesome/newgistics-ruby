@@ -57,8 +57,8 @@ RSpec.describe Newgistics::Product do
           recalled_quantity: 0,
           current_quantity: 0,
           kitting_quantity: 0,
-          pending_quantity: 0,
-          available_quantity: 0
+          pending_quantity: 1,
+          available_quantity: -1
         )
       end
     end
