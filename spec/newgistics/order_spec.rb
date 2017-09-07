@@ -23,7 +23,7 @@ RSpec.describe Newgistics::Order do
       end
     end
 
-    vcr_options = { cassette_name: 'order/save/failure', record: :new_episodes }
+    vcr_options = { cassette_name: 'order/save/failure' }
     context "when placing the order fails", vcr: vcr_options do
       before { use_invalid_api_key }
 
