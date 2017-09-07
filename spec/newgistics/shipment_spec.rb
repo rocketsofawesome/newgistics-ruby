@@ -33,7 +33,7 @@ RSpec.describe Newgistics::Shipment do
           received_timestamp: DateTime.parse("2017-09-06T15:08:21"),
           shipment_status: "ONHOLD",
           order_type: "Consumer",
-          shipment_date: nil,
+          shipped_date: nil,
           expected_delivery_date: nil,
           delivered_timestamp: nil,
           ship_method: "Hold, Do  Not Ship",

@@ -22,7 +22,7 @@ module Newgistics
     attribute :received_timestamp, DateTime
     attribute :shipment_status, String
     attribute :order_type, String
-    attribute :shipment_date, DateTime
+    attribute :shipped_date, DateTime
     attribute :expected_delivery_date, DateTime
     attribute :delivered_timestamp, DateTime
     attribute :warehouse, Warehouse
