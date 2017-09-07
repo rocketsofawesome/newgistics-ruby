@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://apistaging.newgisticsfulfillment.com/inventory.aspx?key=ABC123&sku=2010-025-E
+    uri: https://apistaging.newgisticsfulfillment.com/inventory.aspx?key=<API_KEY>&sku=2010-025-E
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       cache-control:
       - private
@@ -21,22 +21,41 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=y1w23dzox01xunkwdvlp43hg; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=tlezpu40lkzwvy3z3zigjb1g; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Tue, 05 Sep 2017 15:36:55 GMT
+      - Thu, 07 Sep 2017 13:16:17 GMT
       connection:
       - close
       content-length:
       - '766'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPHByb2R1Y3RzPg0KICAgIDxwcm9kdWN0IGlkPSIxNDg0NTY3IiBza3U9IjIwMTAtMDI1LUUiPg0KICAgICAgPHJlY2VpdmluZ1F1YW50aXR5PjA8L3JlY2VpdmluZ1F1YW50aXR5Pg0KICAgICAgPGFycml2ZWRQdXRBd2F5UXVhbnRpdHk+MDwvYXJyaXZlZFB1dEF3YXlRdWFudGl0eT4NCiAgICAgIDxwdXRhd2F5UXVhbnRpdHk+MDwvcHV0YXdheVF1YW50aXR5Pg0KICAgICAgPHF1YXJhbnRpbmVRdWFudGl0eT4wPC9xdWFyYW50aW5lUXVhbnRpdHk+DQogICAgICA8ZGFtYWdlZFF1YW50aXR5PjA8L2RhbWFnZWRRdWFudGl0eT4NCiAgICAgIDxleHBpcmVkUXVhbnRpdHk+MDwvZXhwaXJlZFF1YW50aXR5Pg0KICAgICAgPHJlY2FsbGVkUXVhbnRpdHk+MDwvcmVjYWxsZWRRdWFudGl0eT4NCiAgICAgIDxyZXR1cm5zUXVhbnRpdHk+MDwvcmV0dXJuc1F1YW50aXR5Pg0KICAgICAgPGN1cnJlbnRRdWFudGl0eT4wPC9jdXJyZW50UXVhbnRpdHk+DQogICAgICA8a2l0dGluZ1F1YW50aXR5PjA8L2tpdHRpbmdRdWFudGl0eT4NCiAgICAgIDxwZW5kaW5nUXVhbnRpdHk+MDwvcGVuZGluZ1F1YW50aXR5Pg0KICAgICAgPGF2YWlsYWJsZVF1YW50aXR5PjA8L2F2YWlsYWJsZVF1YW50aXR5Pg0KICAgICAgPGJhY2tvcmRlcmVkUXVhbnRpdHk+MDwvYmFja29yZGVyZWRRdWFudGl0eT4NCiAgICA8L3Byb2R1Y3Q+DQogIDwvcHJvZHVjdHM+DQo8L3Jlc3BvbnNlPg==
-    http_version:
-  recorded_at: Tue, 05 Sep 2017 15:36:56 GMT
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <products>
+            <product id="1484567" sku="2010-025-E">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+          </products>
+        </response>
+    http_version: 
+  recorded_at: Thu, 07 Sep 2017 13:16:17 GMT
 recorded_with: VCR 3.0.3

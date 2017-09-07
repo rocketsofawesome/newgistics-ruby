@@ -4,7 +4,7 @@ RSpec.describe Newgistics::Shipment do
   include IntegrationHelpers
 
   describe '.where' do
-    vcr_options = { cassette_name: 'shipment/where/successfully', record: :new_episodes }
+    vcr_options = { cassette_name: 'shipment/where/successfully' }
     context "when the shipments are queried successfully", vcr: vcr_options do
       it 'returns a list of shipment objects' do
         use_valid_api_key

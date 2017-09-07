@@ -7,8 +7,8 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Orders apiKey="ABC123">
-          <Order orderID="R123456789">
+        <Orders apiKey="<API_KEY>">
+          <Order orderID="R987654321">
             <Warehouse warehouseid=""/>
             <ShipMethod>USPS Express</ShipMethod>
             <InfoLine>Additional order details</InfoLine>
@@ -21,15 +21,15 @@ http_interactions:
             <OrderDate>08/20/2017</OrderDate>
             <CustomerInfo>
               <Company/>
-              <FirstName>Stephen</FirstName>
-              <LastName>Strange</LastName>
+              <FirstName>Wade</FirstName>
+              <LastName>Wilson</LastName>
               <Address1>75 Spring St</Address1>
               <Address2>4th Floor</Address2>
               <City>New York</City>
               <State>NY</State>
               <Zip>10012</Zip>
               <Country>USA</Country>
-              <Email>stephen@strange.com</Email>
+              <Email>wade@wilson.com</Email>
               <Phone>617 123 4567</Phone>
               <IsResidential>false</IsResidential>
             </CustomerInfo>
@@ -64,7 +64,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       cache-control:
       - private
@@ -73,32 +73,31 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=1s1qfvkymbhs5wgvphv5r2va; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=utgrb0wyu0t1bdgwajzstvct; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Wed, 06 Sep 2017 21:08:22 GMT
+      - Thu, 07 Sep 2017 13:36:58 GMT
       connection:
       - close
       content-length:
-      - '377'
+      - '291'
     body:
       encoding: UTF-8
       string: |
         <?xml version="1.0" encoding="utf-8"?>
         <response>
           <shipments>
-            <shipment id="91955506" orderID="R123456789"/>
+            <shipment id="91955522" orderID="R987654321"/>
           </shipments>
           <warnings>
-            <warning orderID="R123456789">Order placed on hold: Duplicate Order ID</warning>
-            <warning orderID="R123456789">Order placed on hold: Invalid or missing ship method</warning>
+            <warning orderID="R987654321">Order placed on hold: Invalid or missing ship method</warning>
           </warnings>
           <errors/>
         </response>
-    http_version:
-  recorded_at: Wed, 06 Sep 2017 21:07:37 GMT
+    http_version: 
+  recorded_at: Thu, 07 Sep 2017 13:36:59 GMT
 recorded_with: VCR 3.0.3

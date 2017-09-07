@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://apistaging.newgisticsfulfillment.com/returns.aspx?endTimestamp=2017-09-30&key=ABC123&startTimestamp=2017-08-01
+    uri: https://apistaging.newgisticsfulfillment.com/returns.aspx?endTimestamp=2017-09-30&key=<API_KEY>&startTimestamp=2017-08-01
     body:
       encoding: US-ASCII
       string: ''
@@ -21,21 +21,22 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=ygfckizx45ayirnydrj5qwxz; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=kkse2jxmo1mojjewcfhgm4et; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Tue, 05 Sep 2017 15:51:41 GMT
+      - Thu, 07 Sep 2017 13:12:15 GMT
       connection:
       - close
       content-length:
       - '81'
     body:
-      encoding: ASCII-8BIT
-      string:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
         <response>
           <Returns>
             <Return warehouseID="60" shipmentID="91955463"
@@ -74,5 +75,5 @@ http_interactions:
           </Returns>
         </response>
     http_version:
-  recorded_at: Tue, 05 Sep 2017 15:51:41 GMT
+  recorded_at: Thu, 07 Sep 2017 13:12:15 GMT
 recorded_with: VCR 3.0.3

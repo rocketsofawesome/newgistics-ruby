@@ -7,6 +7,7 @@ RSpec.describe Newgistics::Order do
     vcr_options = { cassette_name: 'order/save/successfully' }
     context "when the order is placed successfully", vcr: vcr_options do
       before { use_valid_api_key }
+
       it 'updates the order object with the shipment_id and any errors or warnings' do
         order = described_class.new(order_attributes)
 
@@ -22,7 +23,7 @@ RSpec.describe Newgistics::Order do
       end
     end
 
-    vcr_options = { cassette_name: 'order/save/failure' }
+    vcr_options = { cassette_name: 'order/save/failure', record: :new_episodes }
     context "when placing the order fails", vcr: vcr_options do
       before { use_invalid_api_key }
 
@@ -37,14 +38,14 @@ RSpec.describe Newgistics::Order do
 
         order.save
 
-        expect(order.errors).to include('Attribute "apiKey" empty or missing from "Orders" element.')
+        expect(order.errors).to include('Invalid API key')
       end
     end
   end
 
   def order_attributes(attributes = {})
     {
-      id: 'R123456789',
+      id: 'R987654321',
       ship_method: 'USPS Express',
       info_line: 'Additional order details',
       requires_signature: false,
@@ -53,15 +54,15 @@ RSpec.describe Newgistics::Order do
       hold_for_all_inventory: true,
       order_date: '2017-08-20',
       customer: {
-        first_name: 'Stephen',
-        last_name: 'Strange',
+        first_name: 'Wade',
+        last_name: 'Wilson',
         address1: '75 Spring St',
         address2: '4th Floor',
         city: 'New York',
         state: 'NY',
         zip: '10012',
         country: 'USA',
-        email: 'stephen@strange.com',
+        email: 'wade@wilson.com',
         phone: '617 123 4567',
         is_residential: false
       },

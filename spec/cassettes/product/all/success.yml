@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://apistaging.newgisticsfulfillment.com/inventory.aspx?key=ABC123
+    uri: https://apistaging.newgisticsfulfillment.com/inventory.aspx?key=<API_KEY>
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       cache-control:
       - private
@@ -21,22 +21,176 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=ilzdl3hxawyf02pbfmry0ngf; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=yljirvcysrojvb5szwvo25sw; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Tue, 05 Sep 2017 15:36:55 GMT
+      - Thu, 07 Sep 2017 13:17:19 GMT
       connection:
       - close
       content-length:
-      - '6806'
+      - '6808'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPHByb2R1Y3RzPg0KICAgIDxwcm9kdWN0IGlkPSIxNDg0NTY1IiBza3U9IjEwMDctMjAxLUciPg0KICAgICAgPHJlY2VpdmluZ1F1YW50aXR5PjA8L3JlY2VpdmluZ1F1YW50aXR5Pg0KICAgICAgPGFycml2ZWRQdXRBd2F5UXVhbnRpdHk+MDwvYXJyaXZlZFB1dEF3YXlRdWFudGl0eT4NCiAgICAgIDxwdXRhd2F5UXVhbnRpdHk+MDwvcHV0YXdheVF1YW50aXR5Pg0KICAgICAgPHF1YXJhbnRpbmVRdWFudGl0eT4wPC9xdWFyYW50aW5lUXVhbnRpdHk+DQogICAgICA8ZGFtYWdlZFF1YW50aXR5PjA8L2RhbWFnZWRRdWFudGl0eT4NCiAgICAgIDxleHBpcmVkUXVhbnRpdHk+MDwvZXhwaXJlZFF1YW50aXR5Pg0KICAgICAgPHJlY2FsbGVkUXVhbnRpdHk+MDwvcmVjYWxsZWRRdWFudGl0eT4NCiAgICAgIDxyZXR1cm5zUXVhbnRpdHk+MDwvcmV0dXJuc1F1YW50aXR5Pg0KICAgICAgPGN1cnJlbnRRdWFudGl0eT4wPC9jdXJyZW50UXVhbnRpdHk+DQogICAgICA8a2l0dGluZ1F1YW50aXR5PjA8L2tpdHRpbmdRdWFudGl0eT4NCiAgICAgIDxwZW5kaW5nUXVhbnRpdHk+MDwvcGVuZGluZ1F1YW50aXR5Pg0KICAgICAgPGF2YWlsYWJsZVF1YW50aXR5PjA8L2F2YWlsYWJsZVF1YW50aXR5Pg0KICAgICAgPGJhY2tvcmRlcmVkUXVhbnRpdHk+MDwvYmFja29yZGVyZWRRdWFudGl0eT4NCiAgICA8L3Byb2R1Y3Q+DQogICAgPHByb2R1Y3QgaWQ9IjE0ODQ1NjYiIHNrdT0iMTAwOC0yNDAtQyI+DQogICAgICA8cmVjZWl2aW5nUXVhbnRpdHk+MDwvcmVjZWl2aW5nUXVhbnRpdHk+DQogICAgICA8YXJyaXZlZFB1dEF3YXlRdWFudGl0eT4wPC9hcnJpdmVkUHV0QXdheVF1YW50aXR5Pg0KICAgICAgPHB1dGF3YXlRdWFudGl0eT4wPC9wdXRhd2F5UXVhbnRpdHk+DQogICAgICA8cXVhcmFudGluZVF1YW50aXR5PjA8L3F1YXJhbnRpbmVRdWFudGl0eT4NCiAgICAgIDxkYW1hZ2VkUXVhbnRpdHk+MDwvZGFtYWdlZFF1YW50aXR5Pg0KICAgICAgPGV4cGlyZWRRdWFudGl0eT4wPC9leHBpcmVkUXVhbnRpdHk+DQogICAgICA8cmVjYWxsZWRRdWFudGl0eT4wPC9yZWNhbGxlZFF1YW50aXR5Pg0KICAgICAgPHJldHVybnNRdWFudGl0eT4wPC9yZXR1cm5zUXVhbnRpdHk+DQogICAgICA8Y3VycmVudFF1YW50aXR5PjA8L2N1cnJlbnRRdWFudGl0eT4NCiAgICAgIDxraXR0aW5nUXVhbnRpdHk+MDwva2l0dGluZ1F1YW50aXR5Pg0KICAgICAgPHBlbmRpbmdRdWFudGl0eT4wPC9wZW5kaW5nUXVhbnRpdHk+DQogICAgICA8YXZhaWxhYmxlUXVhbnRpdHk+MDwvYXZhaWxhYmxlUXVhbnRpdHk+DQogICAgICA8YmFja29yZGVyZWRRdWFudGl0eT4wPC9iYWNrb3JkZXJlZFF1YW50aXR5Pg0KICAgIDwvcHJvZHVjdD4NCiAgICA8cHJvZHVjdCBpZD0iMTQ4NDU2NyIgc2t1PSIyMDEwLTAyNS1FIj4NCiAgICAgIDxyZWNlaXZpbmdRdWFudGl0eT4wPC9yZWNlaXZpbmdRdWFudGl0eT4NCiAgICAgIDxhcnJpdmVkUHV0QXdheVF1YW50aXR5PjA8L2Fycml2ZWRQdXRBd2F5UXVhbnRpdHk+DQogICAgICA8cHV0YXdheVF1YW50aXR5PjA8L3B1dGF3YXlRdWFudGl0eT4NCiAgICAgIDxxdWFyYW50aW5lUXVhbnRpdHk+MDwvcXVhcmFudGluZVF1YW50aXR5Pg0KICAgICAgPGRhbWFnZWRRdWFudGl0eT4wPC9kYW1hZ2VkUXVhbnRpdHk+DQogICAgICA8ZXhwaXJlZFF1YW50aXR5PjA8L2V4cGlyZWRRdWFudGl0eT4NCiAgICAgIDxyZWNhbGxlZFF1YW50aXR5PjA8L3JlY2FsbGVkUXVhbnRpdHk+DQogICAgICA8cmV0dXJuc1F1YW50aXR5PjA8L3JldHVybnNRdWFudGl0eT4NCiAgICAgIDxjdXJyZW50UXVhbnRpdHk+MDwvY3VycmVudFF1YW50aXR5Pg0KICAgICAgPGtpdHRpbmdRdWFudGl0eT4wPC9raXR0aW5nUXVhbnRpdHk+DQogICAgICA8cGVuZGluZ1F1YW50aXR5PjA8L3BlbmRpbmdRdWFudGl0eT4NCiAgICAgIDxhdmFpbGFibGVRdWFudGl0eT4wPC9hdmFpbGFibGVRdWFudGl0eT4NCiAgICAgIDxiYWNrb3JkZXJlZFF1YW50aXR5PjA8L2JhY2tvcmRlcmVkUXVhbnRpdHk+DQogICAgPC9wcm9kdWN0Pg0KICAgIDxwcm9kdWN0IGlkPSIxNDg0NTc0IiBza3U9IjMwMzYtMjcwLUMiPg0KICAgICAgPHJlY2VpdmluZ1F1YW50aXR5PjA8L3JlY2VpdmluZ1F1YW50aXR5Pg0KICAgICAgPGFycml2ZWRQdXRBd2F5UXVhbnRpdHk+MDwvYXJyaXZlZFB1dEF3YXlRdWFudGl0eT4NCiAgICAgIDxwdXRhd2F5UXVhbnRpdHk+MDwvcHV0YXdheVF1YW50aXR5Pg0KICAgICAgPHF1YXJhbnRpbmVRdWFudGl0eT4wPC9xdWFyYW50aW5lUXVhbnRpdHk+DQogICAgICA8ZGFtYWdlZFF1YW50aXR5PjA8L2RhbWFnZWRRdWFudGl0eT4NCiAgICAgIDxleHBpcmVkUXVhbnRpdHk+MDwvZXhwaXJlZFF1YW50aXR5Pg0KICAgICAgPHJlY2FsbGVkUXVhbnRpdHk+MDwvcmVjYWxsZWRRdWFudGl0eT4NCiAgICAgIDxyZXR1cm5zUXVhbnRpdHk+MDwvcmV0dXJuc1F1YW50aXR5Pg0KICAgICAgPGN1cnJlbnRRdWFudGl0eT4wPC9jdXJyZW50UXVhbnRpdHk+DQogICAgICA8a2l0dGluZ1F1YW50aXR5PjA8L2tpdHRpbmdRdWFudGl0eT4NCiAgICAgIDxwZW5kaW5nUXVhbnRpdHk+MDwvcGVuZGluZ1F1YW50aXR5Pg0KICAgICAgPGF2YWlsYWJsZVF1YW50aXR5PjA8L2F2YWlsYWJsZVF1YW50aXR5Pg0KICAgICAgPGJhY2tvcmRlcmVkUXVhbnRpdHk+MDwvYmFja29yZGVyZWRRdWFudGl0eT4NCiAgICA8L3Byb2R1Y3Q+DQogICAgPHByb2R1Y3QgaWQ9IjE0ODQ1NzIiIHNrdT0iNDAzNS0wMDgtRyI+DQogICAgICA8cmVjZWl2aW5nUXVhbnRpdHk+MDwvcmVjZWl2aW5nUXVhbnRpdHk+DQogICAgICA8YXJyaXZlZFB1dEF3YXlRdWFudGl0eT4wPC9hcnJpdmVkUHV0QXdheVF1YW50aXR5Pg0KICAgICAgPHB1dGF3YXlRdWFudGl0eT4wPC9wdXRhd2F5UXVhbnRpdHk+DQogICAgICA8cXVhcmFudGluZVF1YW50aXR5PjA8L3F1YXJhbnRpbmVRdWFudGl0eT4NCiAgICAgIDxkYW1hZ2VkUXVhbnRpdHk+MDwvZGFtYWdlZFF1YW50aXR5Pg0KICAgICAgPGV4cGlyZWRRdWFudGl0eT4wPC9leHBpcmVkUXVhbnRpdHk+DQogICAgICA8cmVjYWxsZWRRdWFudGl0eT4wPC9yZWNhbGxlZFF1YW50aXR5Pg0KICAgICAgPHJldHVybnNRdWFudGl0eT4wPC9yZXR1cm5zUXVhbnRpdHk+DQogICAgICA8Y3VycmVudFF1YW50aXR5PjA8L2N1cnJlbnRRdWFudGl0eT4NCiAgICAgIDxraXR0aW5nUXVhbnRpdHk+MDwva2l0dGluZ1F1YW50aXR5Pg0KICAgICAgPHBlbmRpbmdRdWFudGl0eT4wPC9wZW5kaW5nUXVhbnRpdHk+DQogICAgICA8YXZhaWxhYmxlUXVhbnRpdHk+MDwvYXZhaWxhYmxlUXVhbnRpdHk+DQogICAgICA8YmFja29yZGVyZWRRdWFudGl0eT4wPC9iYWNrb3JkZXJlZFF1YW50aXR5Pg0KICAgIDwvcHJvZHVjdD4NCiAgICA8cHJvZHVjdCBpZD0iMTQ4NDU2OCIgc2t1PSI1MDQ1LTkwMS1CIj4NCiAgICAgIDxyZWNlaXZpbmdRdWFudGl0eT4wPC9yZWNlaXZpbmdRdWFudGl0eT4NCiAgICAgIDxhcnJpdmVkUHV0QXdheVF1YW50aXR5PjA8L2Fycml2ZWRQdXRBd2F5UXVhbnRpdHk+DQogICAgICA8cHV0YXdheVF1YW50aXR5PjA8L3B1dGF3YXlRdWFudGl0eT4NCiAgICAgIDxxdWFyYW50aW5lUXVhbnRpdHk+MDwvcXVhcmFudGluZVF1YW50aXR5Pg0KICAgICAgPGRhbWFnZWRRdWFudGl0eT4wPC9kYW1hZ2VkUXVhbnRpdHk+DQogICAgICA8ZXhwaXJlZFF1YW50aXR5PjA8L2V4cGlyZWRRdWFudGl0eT4NCiAgICAgIDxyZWNhbGxlZFF1YW50aXR5PjA8L3JlY2FsbGVkUXVhbnRpdHk+DQogICAgICA8cmV0dXJuc1F1YW50aXR5PjA8L3JldHVybnNRdWFudGl0eT4NCiAgICAgIDxjdXJyZW50UXVhbnRpdHk+MDwvY3VycmVudFF1YW50aXR5Pg0KICAgICAgPGtpdHRpbmdRdWFudGl0eT4wPC9raXR0aW5nUXVhbnRpdHk+DQogICAgICA8cGVuZGluZ1F1YW50aXR5PjA8L3BlbmRpbmdRdWFudGl0eT4NCiAgICAgIDxhdmFpbGFibGVRdWFudGl0eT4wPC9hdmFpbGFibGVRdWFudGl0eT4NCiAgICAgIDxiYWNrb3JkZXJlZFF1YW50aXR5PjA8L2JhY2tvcmRlcmVkUXVhbnRpdHk+DQogICAgPC9wcm9kdWN0Pg0KICAgIDxwcm9kdWN0IGlkPSIxNDg0NTcxIiBza3U9IjUxNzktNTA2LUciPg0KICAgICAgPHJlY2VpdmluZ1F1YW50aXR5PjA8L3JlY2VpdmluZ1F1YW50aXR5Pg0KICAgICAgPGFycml2ZWRQdXRBd2F5UXVhbnRpdHk+MDwvYXJyaXZlZFB1dEF3YXlRdWFudGl0eT4NCiAgICAgIDxwdXRhd2F5UXVhbnRpdHk+MDwvcHV0YXdheVF1YW50aXR5Pg0KICAgICAgPHF1YXJhbnRpbmVRdWFudGl0eT4wPC9xdWFyYW50aW5lUXVhbnRpdHk+DQogICAgICA8ZGFtYWdlZFF1YW50aXR5PjA8L2RhbWFnZWRRdWFudGl0eT4NCiAgICAgIDxleHBpcmVkUXVhbnRpdHk+MDwvZXhwaXJlZFF1YW50aXR5Pg0KICAgICAgPHJlY2FsbGVkUXVhbnRpdHk+MDwvcmVjYWxsZWRRdWFudGl0eT4NCiAgICAgIDxyZXR1cm5zUXVhbnRpdHk+MDwvcmV0dXJuc1F1YW50aXR5Pg0KICAgICAgPGN1cnJlbnRRdWFudGl0eT4wPC9jdXJyZW50UXVhbnRpdHk+DQogICAgICA8a2l0dGluZ1F1YW50aXR5PjA8L2tpdHRpbmdRdWFudGl0eT4NCiAgICAgIDxwZW5kaW5nUXVhbnRpdHk+MDwvcGVuZGluZ1F1YW50aXR5Pg0KICAgICAgPGF2YWlsYWJsZVF1YW50aXR5PjA8L2F2YWlsYWJsZVF1YW50aXR5Pg0KICAgICAgPGJhY2tvcmRlcmVkUXVhbnRpdHk+MDwvYmFja29yZGVyZWRRdWFudGl0eT4NCiAgICA8L3Byb2R1Y3Q+DQogICAgPHByb2R1Y3QgaWQ9IjE0ODQ1NjkiIHNrdT0iNzAwMEEtMDAyLUciPg0KICAgICAgPHJlY2VpdmluZ1F1YW50aXR5PjA8L3JlY2VpdmluZ1F1YW50aXR5Pg0KICAgICAgPGFycml2ZWRQdXRBd2F5UXVhbnRpdHk+MDwvYXJyaXZlZFB1dEF3YXlRdWFudGl0eT4NCiAgICAgIDxwdXRhd2F5UXVhbnRpdHk+MDwvcHV0YXdheVF1YW50aXR5Pg0KICAgICAgPHF1YXJhbnRpbmVRdWFudGl0eT4wPC9xdWFyYW50aW5lUXVhbnRpdHk+DQogICAgICA8ZGFtYWdlZFF1YW50aXR5PjA8L2RhbWFnZWRRdWFudGl0eT4NCiAgICAgIDxleHBpcmVkUXVhbnRpdHk+MDwvZXhwaXJlZFF1YW50aXR5Pg0KICAgICAgPHJlY2FsbGVkUXVhbnRpdHk+MDwvcmVjYWxsZWRRdWFudGl0eT4NCiAgICAgIDxyZXR1cm5zUXVhbnRpdHk+MDwvcmV0dXJuc1F1YW50aXR5Pg0KICAgICAgPGN1cnJlbnRRdWFudGl0eT4wPC9jdXJyZW50UXVhbnRpdHk+DQogICAgICA8a2l0dGluZ1F1YW50aXR5PjA8L2tpdHRpbmdRdWFudGl0eT4NCiAgICAgIDxwZW5kaW5nUXVhbnRpdHk+MDwvcGVuZGluZ1F1YW50aXR5Pg0KICAgICAgPGF2YWlsYWJsZVF1YW50aXR5PjA8L2F2YWlsYWJsZVF1YW50aXR5Pg0KICAgICAgPGJhY2tvcmRlcmVkUXVhbnRpdHk+MDwvYmFja29yZGVyZWRRdWFudGl0eT4NCiAgICA8L3Byb2R1Y3Q+DQogICAgPHByb2R1Y3QgaWQ9IjE0ODQ1NzMiIHNrdT0iODAyNC0yNTgtQyI+DQogICAgICA8cmVjZWl2aW5nUXVhbnRpdHk+MDwvcmVjZWl2aW5nUXVhbnRpdHk+DQogICAgICA8YXJyaXZlZFB1dEF3YXlRdWFudGl0eT4wPC9hcnJpdmVkUHV0QXdheVF1YW50aXR5Pg0KICAgICAgPHB1dGF3YXlRdWFudGl0eT4wPC9wdXRhd2F5UXVhbnRpdHk+DQogICAgICA8cXVhcmFudGluZVF1YW50aXR5PjA8L3F1YXJhbnRpbmVRdWFudGl0eT4NCiAgICAgIDxkYW1hZ2VkUXVhbnRpdHk+MDwvZGFtYWdlZFF1YW50aXR5Pg0KICAgICAgPGV4cGlyZWRRdWFudGl0eT4wPC9leHBpcmVkUXVhbnRpdHk+DQogICAgICA8cmVjYWxsZWRRdWFudGl0eT4wPC9yZWNhbGxlZFF1YW50aXR5Pg0KICAgICAgPHJldHVybnNRdWFudGl0eT4wPC9yZXR1cm5zUXVhbnRpdHk+DQogICAgICA8Y3VycmVudFF1YW50aXR5PjA8L2N1cnJlbnRRdWFudGl0eT4NCiAgICAgIDxraXR0aW5nUXVhbnRpdHk+MDwva2l0dGluZ1F1YW50aXR5Pg0KICAgICAgPHBlbmRpbmdRdWFudGl0eT4wPC9wZW5kaW5nUXVhbnRpdHk+DQogICAgICA8YXZhaWxhYmxlUXVhbnRpdHk+MDwvYXZhaWxhYmxlUXVhbnRpdHk+DQogICAgICA8YmFja29yZGVyZWRRdWFudGl0eT4wPC9iYWNrb3JkZXJlZFF1YW50aXR5Pg0KICAgIDwvcHJvZHVjdD4NCiAgICA8cHJvZHVjdCBpZD0iMTQ4NDU3MCIgc2t1PSI4MDI4LTAwNy1DIj4NCiAgICAgIDxyZWNlaXZpbmdRdWFudGl0eT4wPC9yZWNlaXZpbmdRdWFudGl0eT4NCiAgICAgIDxhcnJpdmVkUHV0QXdheVF1YW50aXR5PjA8L2Fycml2ZWRQdXRBd2F5UXVhbnRpdHk+DQogICAgICA8cHV0YXdheVF1YW50aXR5PjA8L3B1dGF3YXlRdWFudGl0eT4NCiAgICAgIDxxdWFyYW50aW5lUXVhbnRpdHk+MDwvcXVhcmFudGluZVF1YW50aXR5Pg0KICAgICAgPGRhbWFnZWRRdWFudGl0eT4wPC9kYW1hZ2VkUXVhbnRpdHk+DQogICAgICA8ZXhwaXJlZFF1YW50aXR5PjA8L2V4cGlyZWRRdWFudGl0eT4NCiAgICAgIDxyZWNhbGxlZFF1YW50aXR5PjA8L3JlY2FsbGVkUXVhbnRpdHk+DQogICAgICA8cmV0dXJuc1F1YW50aXR5PjA8L3JldHVybnNRdWFudGl0eT4NCiAgICAgIDxjdXJyZW50UXVhbnRpdHk+MDwvY3VycmVudFF1YW50aXR5Pg0KICAgICAgPGtpdHRpbmdRdWFudGl0eT4wPC9raXR0aW5nUXVhbnRpdHk+DQogICAgICA8cGVuZGluZ1F1YW50aXR5PjA8L3BlbmRpbmdRdWFudGl0eT4NCiAgICAgIDxhdmFpbGFibGVRdWFudGl0eT4wPC9hdmFpbGFibGVRdWFudGl0eT4NCiAgICAgIDxiYWNrb3JkZXJlZFF1YW50aXR5PjA8L2JhY2tvcmRlcmVkUXVhbnRpdHk+DQogICAgPC9wcm9kdWN0Pg0KICA8L3Byb2R1Y3RzPg0KPC9yZXNwb25zZT4=
-    http_version:
-  recorded_at: Tue, 05 Sep 2017 15:36:56 GMT
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <products>
+            <product id="1484565" sku="1007-201-G">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>1</pendingQuantity>
+              <availableQuantity>-1</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484566" sku="1008-240-C">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>2</pendingQuantity>
+              <availableQuantity>-2</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484567" sku="2010-025-E">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484574" sku="3036-270-C">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484572" sku="4035-008-G">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484568" sku="5045-901-B">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484571" sku="5179-506-G">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484569" sku="7000A-002-G">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484573" sku="8024-258-C">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+            <product id="1484570" sku="8028-007-C">
+              <receivingQuantity>0</receivingQuantity>
+              <arrivedPutAwayQuantity>0</arrivedPutAwayQuantity>
+              <putawayQuantity>0</putawayQuantity>
+              <quarantineQuantity>0</quarantineQuantity>
+              <damagedQuantity>0</damagedQuantity>
+              <expiredQuantity>0</expiredQuantity>
+              <recalledQuantity>0</recalledQuantity>
+              <returnsQuantity>0</returnsQuantity>
+              <currentQuantity>0</currentQuantity>
+              <kittingQuantity>0</kittingQuantity>
+              <pendingQuantity>0</pendingQuantity>
+              <availableQuantity>0</availableQuantity>
+              <backorderedQuantity>0</backorderedQuantity>
+            </product>
+          </products>
+        </response>
+    http_version: 
+  recorded_at: Thu, 07 Sep 2017 13:17:19 GMT
 recorded_with: VCR 3.0.3

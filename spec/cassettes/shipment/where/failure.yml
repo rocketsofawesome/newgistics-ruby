@@ -21,22 +21,27 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=b4spuu5lfdnatwbrtnfdo0gn; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=o45pk35t5encchzpjnnv4zdt; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Wed, 23 Aug 2017 17:09:11 GMT
+      - Thu, 07 Sep 2017 13:21:23 GMT
       connection:
       - close
       content-length:
       - '127'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxyZXNwb25zZT4NCiAgPGVycm9ycz4NCiAgICA8ZXJyb3I+SW52YWxpZCBBUEkga2V5PC9lcnJvcj4NCiAgPC9lcnJvcnM+DQo8L3Jlc3BvbnNlPg==
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <errors>
+            <error>Invalid API key</error>
+          </errors>
+        </response>
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 17:09:12 GMT
+  recorded_at: Thu, 07 Sep 2017 13:21:23 GMT
 recorded_with: VCR 3.0.3

@@ -19,7 +19,7 @@ RSpec.describe Newgistics::InboundReturn do
 
         inbound_return.save
 
-        expect(inbound_return.id).to eq('1754251')
+        expect(inbound_return.id).to eq('1754253')
       end
     end
 
@@ -27,16 +27,7 @@ RSpec.describe Newgistics::InboundReturn do
     context "when the inbound return fails to save", vcr: vcr_options do
       it 'updates the inbound_return object with the errors' do
         inbound_return = Newgistics::InboundReturn.new(
-          shipment_id: '91755251',
-          rma: '12938474',
-          comments: 'Sample Comment',
-          items: [
-            Newgistics::Item.new(
-              sku: 'BCD-123',
-              qty: 2,
-              reason: 'Too Big'
-            )
-          ]
+          return_attributes(shipment_id: 'INVALID')
         )
 
         success = inbound_return.save
@@ -44,7 +35,7 @@ RSpec.describe Newgistics::InboundReturn do
         expect(success).to eq false
         expect(inbound_return.errors.size).to eq 1
         expect(inbound_return.errors.first).to eq(
-          "Unable to create inbound return; Product SKU BCD-123 was not found"
+          "Unable to create inbound return; invalid shipment ID."
         )
       end
     end
@@ -52,8 +43,8 @@ RSpec.describe Newgistics::InboundReturn do
 
   def return_attributes(overrides = {})
     {
-      shipment_id: '91955463',
-      rma: 'RMA_NUMBER',
+      shipment_id: '91955506',
+      rma: 'RA343167887',
       comments: 'Sample Comment',
       items: [
         {

@@ -7,9 +7,9 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Returns apiKey="ABC123">
-          <Return id="91955463">
-            <RMA>RMA_NUMBER</RMA>
+        <Returns apiKey="<API_KEY>">
+          <Return id="91955506">
+            <RMA>RA343167887</RMA>
             <Comments>Sample Comment</Comments>
             <Items>
               <Item>
@@ -28,7 +28,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       cache-control:
       - private
@@ -37,22 +37,29 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=0n4w0ojt1ln4ugxws2euhdjh; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=und1duf4rmvcjypy2435szyi; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Tue, 05 Sep 2017 15:14:48 GMT
+      - Thu, 07 Sep 2017 13:33:28 GMT
       connection:
       - close
       content-length:
-      - '212'
+      - '213'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxSZXNwb25zZT4NCiAgPFJldHVybnM+DQogICAgPFJldHVybiBJRD0iMTc1NDI1MSIgUk1BPSJSTUFfTlVNQkVSIiBTaGlwbWVudElEPSI5MTk1NTQ2MyIgT3JkZXJJRD0iUjEyMzQ1Njc4OSIgLz4NCiAgPC9SZXR1cm5zPg0KICA8V2FybmluZ3MgLz4NCiAgPEVycm9ycyAvPg0KPC9SZXNwb25zZT4=
-    http_version:
-  recorded_at: Tue, 05 Sep 2017 15:14:48 GMT
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <Response>
+          <Returns>
+            <Return ID="1754253" RMA="RA343167887" ShipmentID="91955506" OrderID="R123456789"/>
+          </Returns>
+          <Warnings/>
+          <Errors/>
+        </Response>
+    http_version: 
+  recorded_at: Thu, 07 Sep 2017 13:33:28 GMT
 recorded_with: VCR 3.0.3

@@ -9,6 +9,8 @@ VCR.configure do |config|
     end
   end
 
+  config.filter_sensitive_data('<API_KEY>') { ENV['NEWGISTICS_API_KEY'] }
+
   config.default_cassette_options = {
     record: :none
   }
