@@ -50,21 +50,16 @@ You can use the `where` method to specify the parameters of the Search. Paramete
 
 `Newgistics::Shipment.where(conditions).all` will return a list of `Newgistics::Shipment` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
-### Products
+### Inbound Returns
 
-#### Retrieving products from Newgistics
+#### Sending inbound returns to Newgistics
 ```ruby
-products = Newgistics::Product.all
-products = Newgistics::Product.
-  where(sku: sku).
-  where(warehouse: warehouse_id).
-  all
+Newgistics::InboundReturn.new(inbound_return_attributes).save
 ```
-`sku` is a product's sku and `warehouse` is the warehouse's id number, where both of these values are strings. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
 
-However, parameters are not necessary for this endpoint and you will receive the complete inventory of products if you give it no parameters, so this allows you to just use the `all` method to retrieve the entire inventory.
+`inbound_return_attributes` is a `Hash` containing all the attributes for the inbound return, the attributes should map one-to-one to the Newgistics API spec. *Caveat*: you should only supply either `shipment_id` or `order_id` but not both because you will receive an error from the API.
 
-`Newgistics::Product.all` will return a list of `Newgistics::Product` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
+`inbound_return.save` will return `true` if the inbound return is sent successfully to Newgistics and `false` otherwise, any errors or warnings generated when sending the inbound_return are available under `inbound_return.errors` and `inbound_return.warnings` respectively
 
 ### Returns
 
@@ -82,17 +77,35 @@ You can use the where method to specify the parameters of the Search. Parameter 
 
 `Newgistics::Return.where(conditions).all` will return a list of `Newgistics::Return` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
-### Inbound Returns
+### Products
 
-#### Sending inbound returns to Newgistics
+#### Retrieving products from Newgistics
 ```ruby
-Newgistics::InboundReturn.new(inbound_return_attributes).save
+products = Newgistics::Product.all
+products = Newgistics::Product.
+  where(sku: sku).
+  where(warehouse: warehouse_id).
+  all
 ```
+`sku` is a product's sku and `warehouse` is the warehouse's id number, where both of these values are strings. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
 
-`inbound_return_attributes` is a `Hash` containing all the attributes for the inbound return, the attributes should map one-to-one to the Newgistics API spec. *Caveat*: you should only supply either `shipment_id` or `order_id` but not both because you will receive an error from the API.
+However, parameters are not necessary for this endpoint and you will receive the complete inventory of products if you give it no parameters, so this allows you to just use the `all` method to retrieve the entire inventory.
 
-`inbound_return.save` will return `true` if the inbound return is sent successfully to Newgistics and `false` otherwise, any errors or warnings generated when sending the inbound_return are available under `inbound_return.errors` and `inbound_return.warnings` respectively
+`Newgistics::Product.all` will return a list of `Newgistics::Product` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
+### Inventory
+
+#### Retrieve inventory details from Newgistics
+
+```ruby
+Newgistics::Inventory.
+  where(start_timestamp: start_date, end_timestamp: end_date).
+  all
+```
+`start_date` and `end_date` are Date types in ISO8601 format.
+
+You can use the `where` method to specify the parameters for the Search. Parameter keys will be automatically camelized when sent to
+Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
 
 ## Development
 
