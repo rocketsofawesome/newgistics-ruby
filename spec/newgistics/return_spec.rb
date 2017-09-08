@@ -16,7 +16,8 @@ RSpec.describe Newgistics::Return do
           all
 
         expect(returns.size).to eq(1)
-        expect(returns.first).to have_attributes(
+        newgistics_return = returns.first
+        expect(newgistics_return).to have_attributes(
           warehouse_id: "60",
           shipment_id: "91955463",
           order_id: "8aa081cb1fa5de9e011fb47803835ec9",
@@ -38,6 +39,13 @@ RSpec.describe Newgistics::Return do
           condition: "Opened with components opened",
           is_archived: false,
           timestamp: DateTime.parse("2017-09-05T10:30:00.0")
+        )
+        expect(newgistics_return.items.first).to have_attributes(
+          id: "79451",
+          sku: "1007-201-G",
+          qty_returned: 1,
+          return_reason: "Too Big",
+          qty_returned_to_stock: 1
         )
       end
     end

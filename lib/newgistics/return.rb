@@ -27,6 +27,7 @@ module Newgistics
     attribute :notes, String
     attribute :is_archived, Boolean
     attribute :timestamp, DateTime
+    attribute :items, Array[Item]
 
     def self.where(conditions)
       Query.build(
