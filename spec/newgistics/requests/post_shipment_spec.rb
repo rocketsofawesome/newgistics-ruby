@@ -35,6 +35,13 @@ RSpec.describe Newgistics::Requests::PostShipment do
           phone: '617 123 4567',
           is_residential: false
         },
+        drop_ship_info: {
+          company_name: "Box",
+          address: "123 Broadway",
+          city: "New York",
+          state: "New York",
+          zip: "10012"
+        },
         custom_fields: {
           subtotal: 10.0,
           additional_tax: 15.0,
@@ -61,6 +68,7 @@ RSpec.describe Newgistics::Requests::PostShipment do
       verify_order_xml(xml.at_css('Order'))
       verify_customer_xml(xml.at_css('Order CustomerInfo'))
       verify_custom_fields_xml(xml.at_css('Order CustomFields'))
+      verify_drop_ship_info_xml(xml.at_css('Order DropShipInfo'))
       verify_items_xml(xml.at_css('Order Items'))
     end
 
@@ -96,6 +104,14 @@ RSpec.describe Newgistics::Requests::PostShipment do
       expect(custom_fields_xml).to have_element('Subtotal').with_text('10.0')
       expect(custom_fields_xml).to have_element('AdditionalTax').with_text('15.0')
       expect(custom_fields_xml).to have_element('Total').with_text('25.0')
+    end
+
+    def verify_drop_ship_info_xml(drop_ship_info_xml)
+      expect(drop_ship_info_xml).to have_element('CompanyName').with_text('Box')
+      expect(drop_ship_info_xml).to have_element('Address').with_text('123 Broadway')
+      expect(drop_ship_info_xml).to have_element('City').with_text('New York')
+      expect(drop_ship_info_xml).to have_element('State').with_text('New York')
+      expect(drop_ship_info_xml).to have_element('Zip').with_text('10012')
     end
 
     def verify_items_xml(items_xml)
