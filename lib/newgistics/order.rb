@@ -5,6 +5,7 @@ module Newgistics
     attribute :id, String
     attribute :warehouse_id, String
     attribute :customer, Customer
+    attribute :drop_ship_info, Hash
     attribute :order_date, Date
     attribute :ship_method, String
     attribute :info_line, String

@@ -47,6 +47,7 @@ module Newgistics
 
           order_date_xml(order, xml)
           customer_xml(order.customer, xml)
+          drop_ship_info_xml(order, xml)
           custom_fields_xml(order, xml)
           items_xml(order.items, xml)
         end
@@ -55,6 +56,14 @@ module Newgistics
       def order_date_xml(order, xml)
         unless order.order_date.nil?
           xml.OrderDate order.order_date.strftime('%m/%d/%Y')
+        end
+      end
+
+      def drop_ship_info_xml(object, xml)
+        xml.DropShipInfo do
+          object.drop_ship_info.each do |key, value|
+            xml.send StringHelper.camelize(key), value
+          end
         end
       end
 
