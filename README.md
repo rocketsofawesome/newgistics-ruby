@@ -18,6 +18,32 @@ And then execute:
 
     $ bundle
 
+## Configuration
+Below is the available configuration options and their default values
+
+| Option          | Description                                                                                                                                                                                                                                                | Default Value                                |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| `host_url`        | The URL of the Newgistics API                                                                                                                                                                                                                              | `"https://apistaging.newgisticsfulfillment.com"` |
+| `api_key`         | Your Newgistics API key                                                                                                                                                                                                                                    | `nil`                                          |
+| `time_zone`       | The time zone used by Newgistics. When the API sends timestamps back it doesn't include a time zone, if it's not provided, the value of this setting will be used when parsing the timestamps into `Time` objects. You shouldn't need to change this setting | `"America/Denver"`                               |
+| `local_time_zone` | The time zone used by your application, all Newgistics timestamps will be translated to this time zone automatically.                                                                                                                                      | `"UTC"`                                         |
+
+### Setting your configuration
+
+To set configuration options use the `Newgistics.configure` method:
+
+```ruby
+Newgistics.configure do |config|
+  config.api_key = ENV['NEWGISTICS_API_KEY']
+  config.host_url = ENV['NEWGISTIC_API_URL']
+  config.local_time_zone = "America/New_York"
+end
+```
+
+When setting `time_zone` or `local_time_zone` pass a `String` with [the name of your time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+If you're using this gem in a Rails app, you'll probably want to put this config in an initializer.
+
 ## Resources
 
 ### Orders
