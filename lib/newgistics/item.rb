@@ -12,7 +12,7 @@ module Newgistics
     attribute :qty_returned, Integer
     attribute :return_reason, String
     attribute :qty_returned_to_stock, Integer
-    attribute :return_timestamp, Time
+    attribute :return_timestamp, Timestamp
 
     attribute :reason, String
   end

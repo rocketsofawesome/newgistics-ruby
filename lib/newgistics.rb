@@ -1,9 +1,12 @@
 require "virtus"
 require "nokogiri"
 require "faraday"
+require "tzinfo"
 
 require "newgistics/api"
 require "newgistics/configuration"
+require "newgistics/time_zone"
+require "newgistics/timestamp"
 require "newgistics/customer"
 require "newgistics/item"
 require "newgistics/order"
@@ -33,6 +36,10 @@ module Newgistics
 
   def self.api
     @api ||= Api.new
+  end
+
+  def self.time_zone
+    configuration.time_zone
   end
 
   def self.configure

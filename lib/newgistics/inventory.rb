@@ -6,7 +6,7 @@ module Newgistics
     attribute :manifest_po, String
     attribute :shipment_id, String
     attribute :order_id, String
-    attribute :timestamp, Time
+    attribute :timestamp, Timestamp
     attribute :sku, String
     attribute :quantity, Integer
     attribute :notes, String
