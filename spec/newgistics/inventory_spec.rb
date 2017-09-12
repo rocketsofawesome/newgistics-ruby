@@ -18,7 +18,7 @@ RSpec.describe Newgistics::Inventory do
           shipment_id: 'SHIPMENT_ID',
           notes: 'Damaged by forklift',
           quantity: -1,
-          timestamp: DateTime.new(2015,2,19,11,0)
+          timestamp: Time.new(2015,2,19,11,0)
         )
       end
     end

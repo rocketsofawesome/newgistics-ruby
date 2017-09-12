@@ -18,13 +18,13 @@ module Newgistics
     attribute :country, String
     attribute :email, String
     attribute :phone, String
-    attribute :order_timestamp, DateTime
-    attribute :received_timestamp, DateTime
+    attribute :order_timestamp, Time
+    attribute :received_timestamp, Time
     attribute :shipment_status, String
     attribute :order_type, String
-    attribute :shipped_date, DateTime
-    attribute :expected_delivery_date, DateTime
-    attribute :delivered_timestamp, DateTime
+    attribute :shipped_date, Time
+    attribute :expected_delivery_date, Time
+    attribute :delivered_timestamp, Time
     attribute :warehouse, Warehouse
     attribute :ship_method, String
     attribute :ship_method_code, String

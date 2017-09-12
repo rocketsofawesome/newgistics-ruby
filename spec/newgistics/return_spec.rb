@@ -38,7 +38,7 @@ RSpec.describe Newgistics::Return do
           reason: "Consumer Return",
           condition: "Opened with components opened",
           is_archived: false,
-          timestamp: DateTime.parse("2017-09-05T10:30:00.0")
+          timestamp: Time.iso8601("2017-09-05T10:30:00.0")
         )
         expect(newgistics_return.items.first).to have_attributes(
           id: "79451",
