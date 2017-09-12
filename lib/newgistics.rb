@@ -42,6 +42,10 @@ module Newgistics
     configuration.time_zone
   end
 
+  def self.local_time_zone
+    configuration.local_time_zone
+  end
+
   def self.configure
     yield(configuration)
   end

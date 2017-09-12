@@ -19,7 +19,7 @@ module Newgistics
     end
 
     def parse_date(date, fallback)
-      Time.iso8601(date)
+      Time.iso8601(date).getlocal(Newgistics.local_time_zone.utc_offset)
     rescue ArgumentError
       fallback
     end

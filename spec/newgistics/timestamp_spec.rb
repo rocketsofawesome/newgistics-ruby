@@ -7,9 +7,16 @@ RSpec.describe Newgistics::Timestamp do
         it "doesn't add the newgistics timezone" do
           timestamp = build_timestamp
 
-          result = timestamp.coerce("2017-09-12T12:00:00-04:00")
+          result = timestamp.coerce("2017-09-12T12:30:10-04:00")
 
-          expect(result.utc_offset).to eq(-4 * 3600)
+          expect(result.getlocal("-04:00")).to have_attributes(
+            year: 2017,
+            month: 9,
+            day: 12,
+            hour: 12,
+            min: 30,
+            sec: 10
+          )
         end
       end
 
@@ -20,7 +27,7 @@ RSpec.describe Newgistics::Timestamp do
           result = timestamp.coerce("2017-09-12T12:00:00")
 
           expect(result.utc_offset).
-            to eq(Newgistics.time_zone.utc_offset_in_seconds)
+            to eq(Newgistics.local_time_zone.utc_offset_in_seconds)
         end
       end
 
