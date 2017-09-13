@@ -26,7 +26,7 @@ module Newgistics
     attribute :condition, String
     attribute :notes, String
     attribute :is_archived, Boolean
-    attribute :timestamp, DateTime
+    attribute :timestamp, Timestamp
     attribute :items, Array[Item]
 
     def self.where(conditions)
