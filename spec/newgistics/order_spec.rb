@@ -43,6 +43,58 @@ RSpec.describe Newgistics::Order do
     end
   end
 
+  describe '#update' do
+    before { use_valid_api_key }
+
+    vcr_options = { cassette_name: 'update_shipment_contents/update/success' }
+    context "when the shipment contents are changed successfully", vcr: vcr_options do
+      it "returns true" do
+        order = Newgistics::Order.new(updated_attributes)
+
+        success = order.update
+
+        expect(success).to eq true
+      end
+
+      it 'sets success' do
+        order = Newgistics::Order.new(updated_attributes)
+
+        order.update
+
+        expect(order.success).to eq true
+      end
+    end
+
+    vcr_options = { cassette_name: 'update_shipment_contents/update/failure' }
+    context "when the updating the shipment contents fails", vcr: vcr_options do
+      it 'updates the inbound_return object with the errors' do
+        order = Newgistics::Order.new(
+          updated_attributes(shipment_id: 'INVALID')
+        )
+
+        success = order.update
+
+        expect(success).to eq false
+        expect(order.errors.size).to eq 1
+        expect(order.errors.first).to eq(
+          "Invalid shipment ID."
+        )
+      end
+    end
+  end
+
+  def updated_attributes(overrides = {})
+    {
+      shipment_id: '92300642',
+      add_items: [
+        {
+          sku: '1007-201-G',
+          qty: 1,
+        }
+      ]
+    }.merge(overrides)
+  end
+
   def order_attributes(attributes = {})
     {
       id: 'R987654321',

@@ -18,6 +18,10 @@ module Newgistics
     attribute :custom_fields, Hash
     attribute :items, Array[Item]
 
+    attribute :add_items, Array[Item]
+    attribute :remove_items, Array[Item]
+    attribute :success, Boolean
+
     attribute :errors, Array[String], default: []
     attribute :warnings, Array[String], default: []
     attribute :shipment_id, String
@@ -29,6 +33,15 @@ module Newgistics
       Newgistics.api.post(request, response_handler)
 
       errors.empty?
+    end
+
+    def update
+      request = Requests::UpdateShipmentContents.new(self)
+      response_handler = ResponseHandlers::UpdateShipmentContents.new(self)
+
+      Newgistics.api.post(request, response_handler)
+
+      success || errors.empty?
     end
   end
 end
