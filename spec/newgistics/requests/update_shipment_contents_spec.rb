@@ -12,8 +12,8 @@ RSpec.describe Newgistics::Requests::UpdateShipmentContents do
   describe '#body' do
     it 'serializes the updated shipment properly' do
       Newgistics.configure { |c| c.api_key = 'ABC123' }
-      order = Newgistics::Order.new(
-        shipment_id: 'SHIPMENT23',
+      update_shipment = Newgistics::UpdateShipment.new(
+        id: 'SHIPMENT23',
         add_items: [
           Newgistics::Item.new(
             sku: 'BCD-123',
@@ -28,7 +28,7 @@ RSpec.describe Newgistics::Requests::UpdateShipmentContents do
         ]
       )
 
-      request = described_class.new(order)
+      request = described_class.new(update_shipment)
 
       xml = Nokogiri::XML(request.body)
 
