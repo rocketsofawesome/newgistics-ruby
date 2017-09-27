@@ -60,7 +60,7 @@ RSpec.describe Newgistics::ShipmentUpdate do
       expect(update_shipment.success?).to eq true
     end
 
-    it 'returns false if success if false' do
+    it 'returns false if success is false' do
       update_shipment = described_class.new
 
       update_shipment.success = false
