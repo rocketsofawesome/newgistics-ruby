@@ -59,6 +59,18 @@ order.save
 
 `order.save` will return `true` if the order is placed successfully and `false` otherwise, any errors or warnings generated when placing the order are available under `order.errors` and `order.warnings` respectively
 
+#### Updating a shipment's/order's contents on Newgistics
+```ruby
+shipment_update = Newgistics::ShipmentUpdate.new(id: SHIPMENT_ID)
+shipment_update.add_items = [Newgistics::Item]
+shipment_update.remove_items = [Newgistics::Item]
+shipment_update.save
+```
+
+`add_items` and `remove_items` are arrays of `Newgistics::Item` that only require a `sku` and a `qty`. With these arrays we will update Newgistics what items to add and/or remove on the specified shipment_update object by either the shipment id(`id`) or you can use the internal order id(`order_id`) but BEWARE: use one or the other not both.
+
+`shipment_update.save` will return `true` if the order is updated successfully and `false` otherwise, any errors or warnings generated when updating the shipment are available under `shipment_update.errors` and `shipment_update.warnings` respectively. `shipment_update.success` or also `shipment_update.success?` will also be updated to the corresponding value.
+
 ### Shipments
 
 #### Searching for shipments on Newgistics

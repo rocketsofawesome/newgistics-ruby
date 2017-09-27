@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apistaging.newgisticsfulfillment.com/update_shipment_contents.aspx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0"?>
+        <Shipment apiKey="<API_KEY>" id="92300628">
+          <AddItems>
+            <Item>
+              <SKU>1007-201-G</SKU>
+              <Qty>1</Qty>
+            </Item>
+          </AddItems>
+          <RemoveItems/>
+        </Shipment>
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=x4mxs52c4b0srto5slmlbefp; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Wed, 27 Sep 2017 14:00:29 GMT
+      connection:
+      - close
+      content-length:
+      - '93'
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <success>true</success>
+        </response>
+    http_version: 
+  recorded_at: Wed, 27 Sep 2017 13:58:50 GMT
+recorded_with: VCR 3.0.3
