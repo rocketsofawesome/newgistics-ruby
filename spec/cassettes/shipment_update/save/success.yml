@@ -7,16 +7,14 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Shipment apiKey="<API_KEY>" id="INVALID">
-          <Items>
+        <Shipment apiKey="<API_KEY>" id="92300628">
+          <AddItems>
             <Item>
               <SKU>1007-201-G</SKU>
               <Qty>1</Qty>
             </Item>
-          </Items>
-          <AddItems>#&lt;Nokogiri::XML::Builder::NodeBuilder:0x007fb60b18f1c8&gt;</AddItems>
-          <Items/>
-          <RemoveItems>#&lt;Nokogiri::XML::Builder::NodeBuilder:0x007fb60b18d4b8&gt;</RemoveItems>
+          </AddItems>
+          <RemoveItems/>
         </Shipment>
     headers:
       User-Agent:
@@ -35,27 +33,25 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=ht15x41eukghvks4koikft1v; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=x4mxs52c4b0srto5slmlbefp; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Mon, 25 Sep 2017 19:12:33 GMT
+      - Wed, 27 Sep 2017 14:00:29 GMT
       connection:
       - close
       content-length:
-      - '132'
+      - '93'
     body:
       encoding: UTF-8
       string: |
         <?xml version="1.0" encoding="utf-8"?>
         <response>
-          <errors>
-            <error>Invalid shipment ID.</error>
-          </errors>
+          <success>true</success>
         </response>
     http_version: 
-  recorded_at: Mon, 25 Sep 2017 19:11:01 GMT
+  recorded_at: Wed, 27 Sep 2017 13:58:50 GMT
 recorded_with: VCR 3.0.3

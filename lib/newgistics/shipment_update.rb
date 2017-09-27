@@ -1,11 +1,11 @@
 module Newgistics
-  class UpdateShipment
+  class ShipmentUpdate
     include Virtus.model
 
     attribute :id, String
     attribute :order_id, String
-    attribute :add_items, Array[Item]
-    attribute :remove_items, Array[Item]
+    attribute :add_items, Array[Item], default: []
+    attribute :remove_items, Array[Item], default: []
     attribute :success, Boolean
 
     attribute :errors, Array[String], default: []
@@ -15,13 +15,13 @@ module Newgistics
       !!success
     end
 
-    def update
+    def save
       request = Requests::UpdateShipmentContents.new(self)
       response_handler = ResponseHandlers::UpdateShipmentContents.new(self)
 
       Newgistics.api.post(request, response_handler)
 
-      success || errors.empty?
+      errors.empty? && success?
     end
   end
 end

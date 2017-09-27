@@ -7,7 +7,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0"?>
-        <Shipment apiKey="<API_KEY>" id="92300642">
+        <Shipment apiKey="<API_KEY>" id="INVALID">
           <AddItems>
             <Item>
               <SKU>1007-201-G</SKU>
@@ -33,25 +33,27 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=0v1wri4h43q5bxjquwp1wpzq; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=2giz2wcgq4xg0j4rzpvmop4n; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Mon, 25 Sep 2017 19:34:41 GMT
+      - Wed, 27 Sep 2017 14:02:05 GMT
       connection:
       - close
       content-length:
-      - '93'
+      - '132'
     body:
       encoding: UTF-8
       string: |
         <?xml version="1.0" encoding="utf-8"?>
         <response>
-          <success>true</success>
+          <errors>
+            <error>Invalid shipment ID.</error>
+          </errors>
         </response>
     http_version: 
-  recorded_at: Mon, 25 Sep 2017 19:33:08 GMT
+  recorded_at: Wed, 27 Sep 2017 14:00:24 GMT
 recorded_with: VCR 3.0.3

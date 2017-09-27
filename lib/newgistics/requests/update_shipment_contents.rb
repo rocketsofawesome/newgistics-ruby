@@ -1,10 +1,10 @@
 module Newgistics
   module Requests
     class UpdateShipmentContents
-      attr_reader :update_shipment
+      attr_reader :shipment_update
 
-      def initialize(update_shipment)
-        @update_shipment = update_shipment
+      def initialize(shipment_update)
+        @shipment_update = shipment_update
       end
 
       def path
@@ -19,14 +19,14 @@ module Newgistics
 
       def xml_builder
         Nokogiri::XML::Builder.new do |xml|
-          update_shipment_xml(xml)
+          shipment_update_xml(xml)
         end
       end
 
-      def update_shipment_xml(xml)
-        xml.Shipment(update_shipment_attributes) do
-          add_items_xml(update_shipment.add_items, xml)
-          remove_items_xml(update_shipment.remove_items, xml)
+      def shipment_update_xml(xml)
+        xml.Shipment(shipment_update_attributes) do
+          add_items_xml(shipment_update.add_items, xml)
+          remove_items_xml(shipment_update.remove_items, xml)
         end
       end
 
@@ -34,11 +34,11 @@ module Newgistics
         Newgistics.configuration.api_key
       end
 
-      def update_shipment_attributes
+      def shipment_update_attributes
         {
           apiKey: api_key,
-          id: update_shipment.id,
-          orderID: update_shipment.order_id
+          id: shipment_update.id,
+          orderID: shipment_update.order_id
         }.reject { |_k, v| v.nil? || v.empty? }
       end
 

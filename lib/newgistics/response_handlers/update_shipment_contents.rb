@@ -18,7 +18,7 @@ module Newgistics
 
       def handle_successful_response(response)
         xml = Nokogiri::XML(response.body)
-        shipment.success = xml.css('success').children.first.text
+        shipment.success = xml.at_css('success').text
       end
     end
   end
