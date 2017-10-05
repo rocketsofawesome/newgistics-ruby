@@ -38,7 +38,8 @@ RSpec.describe Newgistics::Shipment do
           delivered_timestamp: nil,
           ship_method: "Hold, Do  Not Ship",
           ship_method_code:"HOLD",
-          tracking: nil
+          tracking: '4209492592612927005053140000004149',
+          tracking_url: 'http://shipment.co/tracking/2544/4209492592612927005053140000004149'
         )
         expect(results.last.warehouse).to have_attributes(
           id: "157",

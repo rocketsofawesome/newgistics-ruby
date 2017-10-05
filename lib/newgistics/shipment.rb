@@ -29,6 +29,7 @@ module Newgistics
     attribute :ship_method, String
     attribute :ship_method_code, String
     attribute :tracking, String
+    attribute :tracking_url, String
     attribute :items, Array[Item]
     attribute :custom_fields, Hash
 

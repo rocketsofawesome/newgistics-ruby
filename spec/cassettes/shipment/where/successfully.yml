@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       cache-control:
       - private
@@ -130,8 +130,8 @@ http_interactions:
             </Warehouse>
             <ShipMethod>Hold, Do  Not Ship</ShipMethod>
             <ShipMethodCode>HOLD</ShipMethodCode>
-            <Tracking/>
-            <TrackingUrl/>
+            <Tracking>4209492592612927005053140000004149</Tracking>
+            <TrackingUrl>http://shipment.co/tracking/2544/4209492592612927005053140000004149</TrackingUrl>
             <Weight/>
             <Postage/>
             <GiftWrap>false</GiftWrap>
@@ -166,6 +166,6 @@ http_interactions:
             <Packages/>
           </Shipment>
         </Shipments>
-    http_version: 
+    http_version:
   recorded_at: Thu, 07 Sep 2017 13:20:25 GMT
 recorded_with: VCR 3.0.3
