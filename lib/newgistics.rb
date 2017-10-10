@@ -4,6 +4,7 @@ require "faraday"
 require "tzinfo"
 
 require "newgistics/api"
+require "newgistics/default_logger"
 require "newgistics/configuration"
 require "newgistics/time_zone"
 require "newgistics/timestamp"
@@ -39,6 +40,14 @@ module Newgistics
 
   def self.api
     @api ||= Api.new
+  end
+
+  def self.logger
+    @logger ||= DefaultLogger.build
+  end
+
+  def self.logger=(logger)
+    @logger = logger
   end
 
   def self.time_zone

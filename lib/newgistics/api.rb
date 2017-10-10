@@ -13,7 +13,9 @@ module Newgistics
     private
 
     def connection
-      @connection ||= Faraday.new(url: host_url)
+      @connection ||= Faraday.new(url: host_url) do |faraday|
+        faraday.response :logger, Newgistics.logger, bodies: true
+      end
     end
 
     def host_url

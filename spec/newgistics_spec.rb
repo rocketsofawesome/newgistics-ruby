@@ -13,6 +13,16 @@ RSpec.describe Newgistics do
     expect(Newgistics.configuration).not_to be_nil
   end
 
+  describe '.logger=' do
+    it "allows developers to override the logger" do
+      logger = Logger.new(File::NULL)
+
+      Newgistics.logger = logger
+
+      expect(Newgistics.logger).to eq(logger)
+    end
+  end
+
   describe '.configure' do
     it "sets configuration options for Newgistics" do
       Newgistics.configure do |config|
