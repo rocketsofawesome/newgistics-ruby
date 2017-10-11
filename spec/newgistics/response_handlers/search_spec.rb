@@ -44,7 +44,7 @@ RSpec.describe Newgistics::ResponseHandlers::Search do
 
     context "when the response has a failure HTTP status" do
       it "raises a Newgistics::QueryError" do
-        response = build_response(status: 404, reason_phrase: 'Not Found')
+        response = build_response(status: 404)
         response_handler = build_response_handler
 
         expect { response_handler.handle(response) }.

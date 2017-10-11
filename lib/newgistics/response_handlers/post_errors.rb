@@ -24,9 +24,7 @@ module Newgistics
       end
 
       def handle_failed_response(response)
-        message = "Failed to save model: "
-        message += "#{response.status} - #{response.reason_phrase}"
-
+        message = "API Error: #{response.status}"
         model.errors << message
       end
 

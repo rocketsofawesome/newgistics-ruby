@@ -29,13 +29,13 @@ RSpec.describe Newgistics::ResponseHandlers::PostErrors do
 
     it 'handles a 404 response' do
       bogus_model = Newgistics::BogusModel.new
-      response = build_response(status: 404, reason_phrase: 'Not Found')
+      response = build_response(status: 404)
       response_handler = described_class.new(bogus_model)
 
       response_handler.handle(response)
 
       expect(bogus_model.errors.length).to eq 1
-      expect(bogus_model.errors.first).to eq "Failed to save model: 404 - Not Found"
+      expect(bogus_model.errors.first).to eq "API Error: 404"
     end
   end
 end

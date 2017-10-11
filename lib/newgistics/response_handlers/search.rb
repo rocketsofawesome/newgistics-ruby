@@ -42,7 +42,7 @@ module Newgistics
       end
 
       def handle_failed_response(response)
-        raise_error "#{response.status} - #{response.reason_phrase}"
+        raise_error "API Error: #{response.status}"
       end
 
       def raise_error(message)
