@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Newgistics::Requests::UpdateShipmentContents do
-   describe '#path' do
+  describe '#path' do
     it "returns the correct API endpoint" do
       request = described_class.new([])
 
