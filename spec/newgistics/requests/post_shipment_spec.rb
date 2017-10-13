@@ -21,6 +21,7 @@ RSpec.describe Newgistics::Requests::PostShipment do
         is_insured: false,
         add_gift_wrap: false,
         hold_for_all_inventory: true,
+        allow_duplicate: false,
         order_date: '2017-08-20',
         customer: {
           first_name: 'Stephen',
@@ -84,6 +85,7 @@ RSpec.describe Newgistics::Requests::PostShipment do
       expect(order_xml).to have_element('AddGiftWrap').with_text('false')
       expect(order_xml).to have_element('HoldForAllInventory').with_text('true')
       expect(order_xml).to have_element('OrderDate').with_text('08/20/2017')
+      expect(order_xml).to have_element('AllowDuplicate').with_text('false')
     end
 
     def verify_customer_xml(customer_xml)

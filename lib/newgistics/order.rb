@@ -16,6 +16,7 @@ module Newgistics
     attribute :gift_message, String
     attribute :hold_for_all_inventory, Boolean
     attribute :custom_fields, Hash
+    attribute :allow_duplicate, Boolean
     attribute :items, Array[Item]
 
     attribute :errors, Array[String], default: []

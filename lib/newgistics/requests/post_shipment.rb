@@ -44,6 +44,7 @@ module Newgistics
           xml.AddGiftWrap order.add_gift_wrap
           xml.GiftMessage order.gift_message
           xml.HoldForAllInventory order.hold_for_all_inventory
+          xml.AllowDuplicate order.allow_duplicate
 
           order_date_xml(order, xml)
           customer_xml(order.customer, xml)
