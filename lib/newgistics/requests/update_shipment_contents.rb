@@ -1,10 +1,11 @@
 module Newgistics
   module Requests
     class UpdateShipmentContents
-      attr_reader :shipment_update
+      attr_reader :shipment_update, :response_handler
 
-      def initialize(shipment_update)
+      def initialize(shipment_update, response_handler: nil)
         @shipment_update = shipment_update
+        @response_handler = response_handler || default_response_handler
       end
 
       def path
@@ -15,7 +16,15 @@ module Newgistics
         xml_builder.to_xml
       end
 
+      def perform
+        Newgistics.api.post(self, response_handler.new(shipment_update))
+      end
+
       private
+
+      def default_response_handler
+        ResponseHandlers::UpdateShipmentContents
+      end
 
       def xml_builder
         Nokogiri::XML::Builder.new do |xml|

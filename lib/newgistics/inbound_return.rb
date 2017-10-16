@@ -13,10 +13,7 @@ module Newgistics
     attribute :warnings, Array[String]
 
     def save
-      request = Requests::PostInboundReturn.new([self])
-      response_handler = ResponseHandlers::PostInboundReturn.new(self)
-
-      Newgistics.api.post(request, response_handler)
+      request = Requests::PostInboundReturn.new(self).perform
 
       errors.empty?
     end

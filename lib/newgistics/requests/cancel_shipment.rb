@@ -1,10 +1,11 @@
 module Newgistics
   module Requests
     class CancelShipment
-      attr_reader :shipment_cancellation
+      attr_reader :shipment_cancellation, :response_handler
 
-      def initialize(shipment_cancellation)
+      def initialize(shipment_cancellation, response_handler: nil)
         @shipment_cancellation = shipment_cancellation
+        @response_handler = response_handler || default_response_handler
       end
 
       def path
@@ -15,7 +16,15 @@ module Newgistics
         xml_builder.to_xml
       end
 
+      def perform
+        Newgistics.api.post(self, response_handler.new(shipment_cancellation))
+      end
+
       private
+
+      def default_response_handler
+        ResponseHandlers::CancelShipment
+      end
 
       def xml_builder
         Nokogiri::XML::Builder.new do |xml|

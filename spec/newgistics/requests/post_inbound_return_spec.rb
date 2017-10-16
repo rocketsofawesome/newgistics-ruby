@@ -24,7 +24,7 @@ RSpec.describe Newgistics::Requests::PostInboundReturn do
           )
         ]
       )
-      request = described_class.new([inbound_return])
+      request = described_class.new(inbound_return)
 
       xml = Nokogiri::XML(request.body)
 
