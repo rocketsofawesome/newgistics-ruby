@@ -1,10 +1,11 @@
 module Newgistics
   module Requests
     class PostShipment
-      attr_reader :orders
+      attr_reader :order, :response_handler
 
-      def initialize(orders)
-        @orders = orders
+      def initialize(order, response_handler: nil)
+        @order = order
+        @response_handler = response_handler || default_response_handler
       end
 
       def path
@@ -15,7 +16,15 @@ module Newgistics
         xml_builder.to_xml
       end
 
+      def perform
+        Newgistics.api.post(self, response_handler)
+      end
+
       private
+
+      def default_response_handler
+        ResponseHandlers::PostShipment.new(order)
+      end
 
       def xml_builder
         Nokogiri::XML::Builder.new do |xml|
@@ -25,7 +34,7 @@ module Newgistics
 
       def orders_xml(xml)
         xml.Orders(apiKey: api_key) do
-          orders.each { |order| order_xml(order, xml) }
+          order_xml(order, xml)
         end
       end
 

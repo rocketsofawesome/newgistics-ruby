@@ -60,7 +60,7 @@ RSpec.describe Newgistics::Requests::PostShipment do
           }
         ]
       )
-      request = described_class.new([order])
+      request = described_class.new(order)
 
       xml = Nokogiri::XML(request.body)
 

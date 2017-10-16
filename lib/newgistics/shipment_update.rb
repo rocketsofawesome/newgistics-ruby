@@ -16,10 +16,7 @@ module Newgistics
     end
 
     def save
-      request = Requests::UpdateShipmentContents.new(self)
-      response_handler = ResponseHandlers::UpdateShipmentContents.new(self)
-
-      Newgistics.api.post(request, response_handler)
+      Requests::UpdateShipmentContents.new(self).perform
 
       errors.empty? && success?
     end

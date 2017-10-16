@@ -24,10 +24,7 @@ module Newgistics
     attribute :shipment_id, String
 
     def save
-      request = Requests::PostShipment.new([self])
-      response_handler = ResponseHandlers::PostShipment.new(self)
-
-      Newgistics.api.post(request, response_handler)
+      Requests::PostShipment.new(self).perform
 
       errors.empty?
     end

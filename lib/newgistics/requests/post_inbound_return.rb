@@ -1,10 +1,11 @@
 module Newgistics
   module Requests
     class PostInboundReturn
-      attr_reader :returns
+      attr_reader :inbound_return, :response_handler
 
-      def initialize(returns)
-        @returns = returns
+      def initialize(inbound_return, response_handler: nil)
+        @inbound_return = inbound_return
+        @response_handler = response_handler || default_response_handler
       end
 
       def path
@@ -15,7 +16,15 @@ module Newgistics
         xml_builder.to_xml
       end
 
+      def perform
+        Newgistics.api.post(self, response_handler)
+      end
+
       private
+
+      def default_response_handler
+        ResponseHandlers::PostInboundReturn.new(inbound_return)
+      end
 
       def xml_builder
         Nokogiri::XML::Builder.new do |xml|
@@ -25,7 +34,7 @@ module Newgistics
 
       def returns_xml(xml)
         xml.Returns(apiKey: api_key) do
-          returns.each { |inbound_return| return_xml(inbound_return, xml) }
+          return_xml(inbound_return, xml)
         end
       end
 
