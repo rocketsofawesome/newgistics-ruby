@@ -17,13 +17,13 @@ module Newgistics
       end
 
       def perform
-        Newgistics.api.post(self, response_handler.new(shipment_cancellation))
+        Newgistics.api.post(self, response_handler)
       end
 
       private
 
       def default_response_handler
-        ResponseHandlers::CancelShipment
+        ResponseHandlers::CancelShipment.new(shipment_cancellation)
       end
 
       def xml_builder

@@ -17,13 +17,13 @@ module Newgistics
       end
 
       def perform
-        Newgistics.api.post(self, response_handler.new(inbound_return))
+        Newgistics.api.post(self, response_handler)
       end
 
       private
 
       def default_response_handler
-        ResponseHandlers::PostInboundReturn
+        ResponseHandlers::PostInboundReturn.new(inbound_return)
       end
 
       def xml_builder

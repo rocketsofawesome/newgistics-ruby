@@ -17,13 +17,13 @@ module Newgistics
       end
 
       def perform
-        Newgistics.api.post(self, response_handler.new(shipment_update))
+        Newgistics.api.post(self, response_handler)
       end
 
       private
 
       def default_response_handler
-        ResponseHandlers::UpdateShipmentContents
+        ResponseHandlers::UpdateShipmentContents.new(shipment_update)
       end
 
       def xml_builder
