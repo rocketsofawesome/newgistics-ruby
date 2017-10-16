@@ -43,12 +43,10 @@ module Newgistics
       end
 
       def cancel_if_in_process(xml)
-        return unless shipment_cancellation.cancel_if_in_process
         xml.cancelIfInProcess shipment_cancellation.cancel_if_in_process
       end
 
       def cancel_if_backorder(xml)
-        return unless shipment_cancellation.cancel_if_backorder
         xml.cancelIfBackorder shipment_cancellation.cancel_if_backorder
       end
 
