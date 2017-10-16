@@ -71,6 +71,16 @@ shipment_update.save
 
 `shipment_update.save` will return `true` if the order is updated successfully and `false` otherwise, any errors or warnings generated when updating the shipment are available under `shipment_update.errors` and `shipment_update.warnings` respectively. `shipment_update.success` or also `shipment_update.success?` will also be updated to the corresponding value.
 
+#### Cancelling a shipment/order on Newgistics
+```ruby
+shipment_cancellation = Newgistics::ShipmentCancellation.new(shipment_id: SHIPMENT_ID)
+shipment_cancellation.save
+```
+
+You must either give a `shipment_id` or `order_id` when cancelling a shipment in order for Newgistics to find the appropriate shipment. There are also optional parameters of `cancel_if_in_process` and `cancel_if_backorder` which are boolean values and covered in the Newgistics API documentation.
+
+`shipment_cancellation.save` will return `true` if the order is cancelled successfully and `false` otherwise, any errors or warnings generated when cancelling the shipment are available under `shipment_cancellation.errors` and `shipment_cancellation.warnings` respectively. `shipment_cancellation.success` or also `shipment_cancellation.success?` will also be updated to the corresponding value.
+
 ### Shipments
 
 #### Searching for shipments on Newgistics
