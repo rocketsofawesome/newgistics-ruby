@@ -16,6 +16,7 @@ module Newgistics
       end
 
       private
+
       def mandatory_params
         {
           apiKey: Newgistics.configuration.api_key,
