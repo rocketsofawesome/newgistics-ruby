@@ -16,7 +16,7 @@ module Newgistics
     end
 
     def save
-      request = Requests::UpdateShipmentContents.new(self).perform
+      Requests::UpdateShipmentContents.new(self).perform
 
       errors.empty? && success?
     end

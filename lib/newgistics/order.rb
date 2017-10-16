@@ -24,7 +24,7 @@ module Newgistics
     attribute :shipment_id, String
 
     def save
-      request = Requests::PostShipment.new(self).perform
+      Requests::PostShipment.new(self).perform
 
       errors.empty?
     end

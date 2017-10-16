@@ -13,7 +13,7 @@ module Newgistics
     attribute :warnings, Array[String]
 
     def save
-      request = Requests::PostInboundReturn.new(self).perform
+      Requests::PostInboundReturn.new(self).perform
 
       errors.empty?
     end
