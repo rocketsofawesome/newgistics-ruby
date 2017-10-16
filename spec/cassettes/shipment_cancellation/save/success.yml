@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apistaging.newgisticsfulfillment.com/cancel_shipment.aspx?apiKey=<API_KEY>&cancelIfBackorder=true&orderID=R684492341
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0"?>
+        <cancelShipment apiKey="<API_KEY>" orderID="R684492341">
+          <cancelIfBackorder>true</cancelIfBackorder>
+        </cancelShipment>
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=z5binecvzxo3fmx2brbcncax; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Mon, 16 Oct 2017 16:52:46 GMT
+      connection:
+      - close
+      content-length:
+      - '93'
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <success>true</success>
+        </response>
+    http_version: 
+  recorded_at: Mon, 16 Oct 2017 16:52:46 GMT
+recorded_with: VCR 3.0.3

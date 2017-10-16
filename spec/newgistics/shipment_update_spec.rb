@@ -44,8 +44,6 @@ RSpec.describe Newgistics::ShipmentUpdate do
   end
 
   describe "#success?" do
-    before { use_valid_api_key }
-
     it "returns false if success is nil" do
       update_shipment = described_class.new
 
