@@ -9,7 +9,7 @@ RSpec.describe Newgistics::ShipmentCancellation do
     vcr_options = { cassette_name: 'shipment_cancellation/save/success' }
     context "when the shipment is cancelled successfully", vcr: vcr_options do
       it "returns true" do
-        shipment_cancellation = described_class.new(updated_attributes)
+        shipment_cancellation = described_class.new(cancelled_attributes)
 
         success = shipment_cancellation.save
 
@@ -17,7 +17,7 @@ RSpec.describe Newgistics::ShipmentCancellation do
       end
 
       it 'sets success' do
-        shipment_cancellation = described_class.new(updated_attributes)
+        shipment_cancellation = described_class.new(cancelled_attributes)
 
         shipment_cancellation.save
 
@@ -29,7 +29,7 @@ RSpec.describe Newgistics::ShipmentCancellation do
     context "when cancelling the shipment fails", vcr: vcr_options do
       it 'sets the errors on the shipment cancellation' do
         shipment_cancellation = described_class.new(
-          updated_attributes(order_id: 'INVALID')
+          cancelled_attributes(order_id: 'INVALID')
         )
 
         success = shipment_cancellation.save
@@ -44,8 +44,6 @@ RSpec.describe Newgistics::ShipmentCancellation do
   end
 
   describe "#success?" do
-    before { use_valid_api_key }
-
     it "returns false if success is nil" do
       shipment_cancellation = described_class.new
 
@@ -69,7 +67,7 @@ RSpec.describe Newgistics::ShipmentCancellation do
     end
   end
 
-  def updated_attributes(overrides = {})
+  def cancelled_attributes(overrides = {})
     {
       order_id: 'R684492341',
       cancel_if_backorder: true
