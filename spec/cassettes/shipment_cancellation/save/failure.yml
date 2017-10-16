@@ -1,11 +1,15 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://apistaging.newgisticsfulfillment.com/cancel_shipment.aspx?apiKey=<API_KEY>&cancelIfBackorder=true&orderID=R348258352
+    method: post
+    uri: https://apistaging.newgisticsfulfillment.com/cancel_shipment.aspx?apiKey=<API_KEY>&cancelIfBackorder=true&orderID=INVALID
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0"?>
+        <cancelShipment apiKey="<API_KEY>" orderID="INVALID">
+          <cancelIfBackorder>true</cancelIfBackorder>
+        </cancelShipment>
     headers:
       User-Agent:
       - Faraday v0.13.1
@@ -21,27 +25,27 @@ http_interactions:
       server:
       - Microsoft-IIS/8.5
       set-cookie:
-      - ASP.NET_SessionId=sh0nl5fq5bk5zazrstzlb4ah; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+      - ASP.NET_SessionId=x0mkxc55g2v5gby3pjtsd5xq; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
         path=/
       x-aspnet-version:
       - 4.0.30319
       x-powered-by:
       - ASP.NET
       date:
-      - Mon, 16 Oct 2017 14:06:13 GMT
+      - Mon, 16 Oct 2017 16:52:46 GMT
       connection:
       - close
       content-length:
-      - '136'
+      - '156'
     body:
       encoding: UTF-8
       string: |
         <?xml version="1.0" encoding="utf-8"?>
         <response>
           <errors>
-            <error>Root element is missing.</error>
+            <error>No orders matching order ID 'INVALID' found.</error>
           </errors>
         </response>
     http_version: 
-  recorded_at: Mon, 16 Oct 2017 14:06:09 GMT
+  recorded_at: Mon, 16 Oct 2017 16:52:46 GMT
 recorded_with: VCR 3.0.3

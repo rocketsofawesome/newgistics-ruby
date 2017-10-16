@@ -19,7 +19,7 @@ module Newgistics
       request = Requests::CancelShipment.new(self)
       response_handler = ResponseHandlers::CancelShipment.new(self)
 
-      Newgistics.api.get(request, response_handler)
+      Newgistics.api.post(request, response_handler)
 
       errors.empty? && success?
     end

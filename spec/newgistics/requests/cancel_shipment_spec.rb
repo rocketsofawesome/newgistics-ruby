@@ -3,9 +3,9 @@ require 'spec_helper'
 RSpec.describe Newgistics::Requests::CancelShipment do
   describe '#path' do
     it "returns the correct API endpoint" do
-      request = described_class.new([])
+      request = described_class.new(Newgistics::ShipmentCancellation.new)
 
-      expect(request.path).to eq('/cancel_shipment.aspx')
+      expect(request.path).to eq('/cancel_shipment.aspx?apiKey=INVALID')
     end
   end
 
@@ -20,14 +20,13 @@ RSpec.describe Newgistics::Requests::CancelShipment do
 
       request = described_class.new(shipment_cancellation)
 
-      body = request.body
+      xml = Nokogiri::XML(request.body)
 
-      expect(body).to include(
-        apiKey: 'ABC123',
-        shipmentID: 'SHIPMENT23',
-        cancelIfInProcess: true,
-        cancelIfBackorder: true
-      )
+      expect(xml).to have_element('cancelShipment').with_attributes(apiKey: 'ABC123')
+      expect(xml).to have_element('cancelShipment').with_attributes(shipmentID: 'SHIPMENT23')
+      cancel_shipment = xml.at_css('cancelShipment')
+      expect(cancel_shipment).to have_element('cancelIfInProcess').with_text('true')
+      expect(cancel_shipment).to have_element('cancelIfBackorder').with_text('true')
     end
   end
 end
