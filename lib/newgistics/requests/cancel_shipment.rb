@@ -24,7 +24,7 @@ module Newgistics
       end
 
       def shipment_cancellation_xml(xml)
-        xml.cancelShipment(shipment_cancellation_attributes) do
+        xml.cancelShipment(mandatory_params) do
           cancel_if_in_process(xml)
           cancel_if_backorder(xml)
         end
@@ -34,7 +34,7 @@ module Newgistics
         Newgistics.configuration.api_key
       end
 
-      def shipment_cancellation_attributes
+      def mandatory_params
          {
           apiKey: api_key,
           shipmentID: shipment_cancellation.shipment_id,
@@ -50,14 +50,6 @@ module Newgistics
       def cancel_if_backorder(xml)
         return unless shipment_cancellation.cancel_if_backorder
         xml.cancelIfBackorder shipment_cancellation.cancel_if_backorder
-      end
-
-      def mandatory_params
-        {
-          apiKey: Newgistics.configuration.api_key,
-          shipmentID: shipment_cancellation.shipment_id,
-          orderID: shipment_cancellation.order_id
-        }.reject { |_k, v| v.nil? || v.empty? }
       end
 
       def optional_params
