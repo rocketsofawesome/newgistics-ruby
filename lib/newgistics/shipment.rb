@@ -33,6 +33,38 @@ module Newgistics
     attribute :items, Array[Item]
     attribute :custom_fields, Hash
 
+    def backordered?
+      shipment_status == 'BACKORDER'
+    end
+
+    def canceled?
+      shipment_status == 'CANCELED'
+    end
+
+    def on_hold?
+      %w(ONHOLD BADSKUHOLD BADADDRESS CNFHOLD INVHOLD).include? shipment_status
+    end
+
+    def received?
+      shipment_status == 'RECEIVED'
+    end
+
+    def printed?
+      shipment_status == 'PRINTED'
+    end
+
+    def shipped?
+      shipment_status == 'SHIPPED'
+    end
+
+    def returned?
+      shipment_status == 'RETURNED'
+    end
+
+    def verified?
+      shipment_status == 'VERIFIED'
+    end
+
     def self.where(conditions)
       Query.build(
         endpoint: '/shipments.aspx',
