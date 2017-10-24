@@ -69,4 +69,118 @@ RSpec.describe Newgistics::Shipment do
       end
     end
   end
+
+  describe '#backordered?' do
+    it "returns true for backordered shipments" do
+      shipment = described_class.new(shipment_status: 'BACKORDER')
+
+      expect(shipment).to be_backordered
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).not_to be_backordered
+    end
+  end
+
+  describe '#canceled?' do
+    it "returns true for canceled shipments" do
+      shipment = described_class.new(shipment_status: 'CANCELED')
+
+      expect(shipment).to be_canceled
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).not_to be_canceled
+    end
+  end
+
+  describe '#on_hold?' do
+    %w(BADADDRESS ONHOLD BADSKUHOLD CNFHOLD INVHOLD).each do |status|
+      it "returns true for shipments with a #{status} status" do
+        shipment = described_class.new(shipment_status: status)
+
+        expect(shipment).to be_on_hold
+      end
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).not_to be_on_hold
+    end
+  end
+
+  describe '#received?' do
+    it "returns true for received shipments" do
+      shipment = described_class.new(shipment_status: 'RECEIVED')
+
+      expect(shipment).to be_received
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).not_to be_received
+    end
+  end
+
+  describe '#printed?' do
+    it "returns true for printed shipments" do
+      shipment = described_class.new(shipment_status: 'PRINTED')
+
+      expect(shipment).to be_printed
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).not_to be_printed
+    end
+  end
+
+  describe '#shipped?' do
+    it "returns true for shipped shipments" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).to be_shipped
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'CANCELED')
+
+      expect(shipment).not_to be_shipped
+    end
+  end
+
+  describe '#returned?' do
+    it "returns true for returned shipments" do
+      shipment = described_class.new(shipment_status: 'RETURNED')
+
+      expect(shipment).to be_returned
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'BACKORDER')
+
+      expect(shipment).not_to be_returned
+    end
+  end
+
+  describe '#verified?' do
+    it "returns true for verified shipments" do
+      shipment = described_class.new(shipment_status: 'VERIFIED')
+
+      expect(shipment).to be_verified
+    end
+
+    it "returns false for any other shipment_status" do
+      shipment = described_class.new(shipment_status: 'SHIPPED')
+
+      expect(shipment).not_to be_verified
+    end
+  end
 end
