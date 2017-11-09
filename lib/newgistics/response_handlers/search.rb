@@ -20,13 +20,17 @@ module Newgistics
 
       def handle_successful_response(response)
         xml = Nokogiri::XML(response.body)
-        errors = xml.css('errors error').map(&:text)
+        errors = error_nodes(xml).map(&:text)
 
         if errors.empty?
           build_models(xml)
         else
           raise_error(errors.join(', '))
         end
+      end
+
+      def error_nodes(xml)
+        xml.css('errors error') + xml.css('Errors Error')
       end
 
       def build_models(xml)

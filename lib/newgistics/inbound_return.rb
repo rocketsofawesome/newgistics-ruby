@@ -12,6 +12,14 @@ module Newgistics
     attribute :errors, Array[String]
     attribute :warnings, Array[String]
 
+    def self.where(conditions)
+      Query.build(
+        endpoint: '/inbound_returns.aspx',
+        element_selector: 'InboundReturns InboundReturn',
+        model_class: self
+      ).where(conditions)
+    end
+
     def save
       Requests::PostInboundReturn.new(self).perform
 

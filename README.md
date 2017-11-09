@@ -19,7 +19,7 @@ And then execute:
     $ bundle
 
 ## Configuration
-Below is the available configuration options and their default values
+Here is a list of the available configuration options and their default values
 
 | Option          | Description                                                                                                                                                                                                                                                | Default Value                                |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
@@ -108,6 +108,19 @@ Newgistics::InboundReturn.new(inbound_return_attributes).save
 `inbound_return_attributes` is a `Hash` containing all the attributes for the inbound return, the attributes should map one-to-one to the Newgistics API spec. *Caveat*: you should only supply either `shipment_id` or `order_id` but not both because you will receive an error from the API.
 
 `inbound_return.save` will return `true` if the inbound return is sent successfully to Newgistics and `false` otherwise, any errors or warnings generated when sending the inbound_return are available under `inbound_return.errors` and `inbound_return.warnings` respectively
+
+#### Searching for inbound returns on Newgistics
+
+```ruby
+Newgistics::InboundReturn.
+  where(start_created_timestamp: start_date).
+  where(end_created_timestamp: end_date).
+  all
+```
+
+You can use the `where` method to specify the parameters of the Search. Parameter keys will be automatically camelized when sent to Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
+
+`Newgistics::InboundReturn.where(conditions).all` will return a list of `Newgistics::InboundReturn` elements if the request is successful. Otherwise it will raise a `Newgistics::QueryError`.
 
 ### Returns
 

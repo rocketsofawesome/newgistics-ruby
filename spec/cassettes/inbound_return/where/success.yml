@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apistaging.newgisticsfulfillment.com/inbound_returns.aspx?endCreatedTimestamp=2017-11-09&key=<API_KEY>&startCreatedTimestamp=2017-11-07
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=y5tbys3chcjgfg1mxdccfn1x; path=/; HttpOnly, NgsFulLB=rd3o00000000000000000000ffffac1f173do80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Thu, 09 Nov 2017 00:00:03 GMT
+      connection:
+      - close
+      content-length:
+      - '951'
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <InboundReturns>
+          <InboundReturn id="1799569">
+            <ShipmentID>92978955</ShipmentID>
+            <OrderID>R041850832</OrderID>
+            <RMA>RA123456789</RMA>
+            <CreateTimestamp>2017-11-08T16:58:21.817</CreateTimestamp>
+            <FirstName>JENNIFER</FirstName>
+            <LastName>USREY</LastName>
+            <Company>ATTN: ELLA</Company>
+            <Address1>10 ROCK HAVEN LN </Address1>
+            <Address2/>
+            <City>SIGNAL MOUNTAIN</City>
+            <State>TN</State>
+            <PostalCode>37377-2133</PostalCode>
+            <Country>UNITED STATES</Country>
+            <Email>jmusrey@yahoo.com</Email>
+            <Phone/>
+            <LabelUrl/>
+            <SmartLabelTracking/>
+            <CarrierTracking/>
+            <Items>
+              <Item id="1490831">
+                <SKU>5257-525-P</SKU>
+                <Description>SPLIT BACK ACTIVE TOP SUGAR PLUM</Description>
+                <Qty>1</Qty>
+                <Reason>Box Returns</Reason>
+              </Item>
+            </Items>
+          </InboundReturn>
+        </InboundReturns>
+    http_version: 
+  recorded_at: Thu, 09 Nov 2017 00:00:03 GMT
+recorded_with: VCR 3.0.3
