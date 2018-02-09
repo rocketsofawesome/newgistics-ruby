@@ -9,8 +9,8 @@ module Newgistics
     attribute :comments, String
     attribute :items, Array[Item]
 
-    attribute :errors, Array[String]
-    attribute :warnings, Array[String]
+    attribute :errors, Array[String], default: []
+    attribute :warnings, Array[String], default: []
 
     def self.where(conditions)
       Query.build(

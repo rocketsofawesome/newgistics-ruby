@@ -16,8 +16,9 @@ RSpec.describe Newgistics::Shipment do
           where(end_received_timestamp: end_date).
           all
 
+        shipment = results.last
         expect(results.length).to eql 2
-        expect(results.last).to have_attributes(
+        expect(shipment).to have_attributes(
           order_id: "R123456789",
           name: "STEPHEN STRANGE",
           first_name: "STEPHEN",
@@ -39,9 +40,11 @@ RSpec.describe Newgistics::Shipment do
           ship_method: "Hold, Do  Not Ship",
           ship_method_code:"HOLD",
           tracking: '4209492592612927005053140000004149',
-          tracking_url: 'http://shipment.co/tracking/2544/4209492592612927005053140000004149'
+          tracking_url: 'http://shipment.co/tracking/2544/4209492592612927005053140000004149',
+          weight: 3.23,
+          postage: 11.29
         )
-        expect(results.last.warehouse).to have_attributes(
+        expect(shipment.warehouse).to have_attributes(
           id: "157",
           name: "Hebron, KY",
           address: "1200 WORLDWIDE BLVD",
@@ -50,10 +53,15 @@ RSpec.describe Newgistics::Shipment do
           postal_code: "41048",
           country: "US"
         )
-        expect(results.last.custom_fields).to include(
+        expect(shipment.custom_fields).to include(
           additional_tax: "15.0",
           subtotal: "10.0",
           total: "25.0"
+        )
+        expect(shipment.fees.first).to have_attributes(
+          type: 'PICKPACK',
+          amount: 4.15,
+          notes: nil
         )
       end
     end

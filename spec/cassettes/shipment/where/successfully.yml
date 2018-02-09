@@ -132,8 +132,8 @@ http_interactions:
             <ShipMethodCode>HOLD</ShipMethodCode>
             <Tracking>4209492592612927005053140000004149</Tracking>
             <TrackingUrl>http://shipment.co/tracking/2544/4209492592612927005053140000004149</TrackingUrl>
-            <Weight/>
-            <Postage/>
+            <Weight>3.23</Weight>
+            <Postage>11.29</Postage>
             <GiftWrap>false</GiftWrap>
             <CustomFields>
               <AdditionalTax>15.0</AdditionalTax>
@@ -164,6 +164,13 @@ http_interactions:
               </Item>
             </Items>
             <Packages/>
+            <Fees>
+              <Fee>
+                <Type>PICKPACK</Type>
+                <Amount>4.15</Amount>
+                <Notes />
+              </Fee>
+            </Fees>
           </Shipment>
         </Shipments>
     http_version:

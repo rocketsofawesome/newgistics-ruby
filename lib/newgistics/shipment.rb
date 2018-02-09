@@ -32,6 +32,9 @@ module Newgistics
     attribute :tracking_url, String
     attribute :items, Array[Item]
     attribute :custom_fields, Hash
+    attribute :weight, Float
+    attribute :postage, Float
+    attribute :fees, Array[Fee]
 
     def backordered?
       shipment_status == 'BACKORDER'
