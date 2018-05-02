@@ -11,7 +11,7 @@ This Ruby gem allows you to interact with the Newgistics Fulfillment API.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'newgistics', github: 'rocketsofawesome/newgistics-ruby'
+gem 'newgistics'
 ```
 
 And then execute:
