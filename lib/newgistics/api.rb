@@ -13,14 +13,14 @@ module Newgistics
     private
 
     def connection
-      @connection ||= Faraday.new(url: host_url) do |faraday|
+      @connection ||= Faraday.new(url: api_base_url) do |faraday|
         faraday.response :logger, Newgistics.logger, bodies: true
         faraday.adapter Faraday.default_adapter
       end
     end
 
-    def host_url
-      Newgistics.configuration.host_url
+    def api_base_url
+      Newgistics.configuration.api_base_url
     end
   end
 end

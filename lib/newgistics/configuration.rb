@@ -1,15 +1,15 @@
 module Newgistics
   class Configuration
     attr_reader :time_zone, :local_time_zone
-    attr_accessor :api_key, :host_url
+    attr_accessor :api_key, :api_base_url
 
     def initialize
       self.time_zone = "America/Denver"
       self.local_time_zone = "UTC"
     end
 
-    def host_url
-      @host_url ||= "https://apistaging.newgisticsfulfillment.com"
+    def api_base_url
+      @api_base_url ||= "https://apistaging.newgisticsfulfillment.com"
     end
 
     def time_zone=(name)

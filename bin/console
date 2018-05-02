@@ -2,13 +2,15 @@
 
 require "bundler/setup"
 require "newgistics"
-
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
-
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
-
 require "irb"
+require "pry"
+require "dotenv"
+
+Dotenv.load
+
+Newgistics.configure do |config|
+  config.api_base_url = ENV.fetch('NEWGISTICS_API_URL', "https://apistaging.newgisticsfulfillment.com")
+  config.api_key = ENV['NEWGISTICS_API_KEY']
+end
+
 IRB.start(__FILE__)
