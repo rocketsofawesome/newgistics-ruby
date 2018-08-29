@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://apistaging.newgisticsfulfillment.com/post_manifests.aspx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0"?>
+        <manifests apiKey="INVALID">
+          <manifest>
+            <manifest_slip>
+              <manifest_po>PO-00001</manifest_po>
+              <manifest_name>Purchase Order 1</manifest_name>
+              <warehouse_id/>
+              <status>SHIPPED</status>
+              <tracking_no/>
+              <pallet_count/>
+              <carton_count/>
+              <weight/>
+              <notes/>
+              <ship_date>08/29/2018</ship_date>
+            </manifest_slip>
+            <contents/>
+          </manifest>
+        </manifests>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=rw4l1r3b1dbmm4txnp1w3tzj; path=/; HttpOnly, NgsFulLB=rd322o00000000000000000000ffff0a200296o80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Wed, 29 Aug 2018 21:53:27 GMT
+      connection:
+      - close
+      content-length:
+      - '127'
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+          <errors>
+            <error>Invalid API key</error>
+          </errors>
+        </response>
+    http_version: 
+  recorded_at: Wed, 29 Aug 2018 21:54:19 GMT
+recorded_with: VCR 3.0.3
