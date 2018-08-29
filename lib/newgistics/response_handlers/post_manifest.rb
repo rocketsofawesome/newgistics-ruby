@@ -9,9 +9,7 @@ module Newgistics
 
       def handle(response)
         PostErrors.new(manifest).handle(response)
-        if manifest.errors.empty?
-          handle_successful_response(response)
-        end
+        handle_successful_response(response) if manifest.errors.empty?
       end
 
       private

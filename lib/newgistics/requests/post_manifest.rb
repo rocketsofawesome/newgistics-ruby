@@ -64,10 +64,7 @@ module Newgistics
 
       def date_xml(xml, attribute)
         date = manifest.send(attribute)
-
-        unless date.nil?
-          xml.send(attribute, date.strftime("%m/%d/%Y"))
-        end
+        xml.send(attribute, date.strftime("%m/%d/%Y")) unless date.nil?
       end
 
       def contents_xml(xml)
