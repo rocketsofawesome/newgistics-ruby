@@ -168,6 +168,20 @@ Newgistics::Inventory.
 You can use the `where` method to specify the parameters for the Search. Parameter keys will be automatically camelized when sent to
 Newgistics, for a full list of the available parameters refer to the Newgistics API documentation.
 
+### Manifests
+
+#### Creating a new Manifest in Newgistics
+
+```ruby
+manifest = Newgistics::Manifest.new(manifest_attributes)
+manifest.save
+```
+
+`manifest_attributes` is a `Hash` containing all the attributes for the manifest, the attributes should map one-to-one to the Newgistics API spec.
+
+`manifest.save` will return `true` if the manifest is placed successfully and `false` otherwise, any errors or warnings generated when creating the manifest are available under `manifest.errors` and `manifest.warnings` respectively
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Newgistics::Requests::PostShipment do
   describe '#path' do
     it "returns the correct API endpoint" do
-      request = described_class.new([])
+      request = described_class.new(nil)
 
       expect(request.path).to eq('/post_shipments.aspx')
     end
