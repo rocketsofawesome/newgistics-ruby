@@ -1,6 +1,6 @@
 module Newgistics
   class Shipment
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
     attribute :client_name, String
@@ -71,7 +71,6 @@ module Newgistics
     def self.where(conditions)
       Query.build(
         endpoint: '/shipments.aspx',
-        element_selector: 'Shipments Shipment',
         model_class: self
       ).where(conditions)
     end

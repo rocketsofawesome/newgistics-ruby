@@ -46,25 +46,25 @@ module Newgistics
       end
 
       def manifest_slip_xml(xml)
-        xml.manifest_slip do
-          xml.manifest_po manifest.manifest_po
-          xml.manifest_name manifest.manifest_name
-          xml.warehouse_id manifest.warehouse_id
-          xml.status manifest.status
-          xml.tracking_no manifest.tracking_no
-          xml.pallet_count manifest.pallet_count
-          xml.carton_count manifest.carton_count
-          xml.weight manifest.weight
-          xml.notes manifest.notes
+        manifest_slip = manifest.manifest_slip || ManifestSlip.new
 
-          date_xml(xml, :ship_date)
-          date_xml(xml, :estimated_arrival_date)
+        xml.manifest_slip do
+          xml.manifest_po manifest_slip.manifest_po
+          xml.manifest_name manifest_slip.manifest_name
+          xml.warehouse_id manifest_slip.warehouse_id
+          xml.status manifest_slip.status
+          xml.tracking_no manifest_slip.tracking_no
+          xml.pallet_count manifest_slip.pallet_count
+          xml.carton_count manifest_slip.carton_count
+          xml.weight manifest_slip.weight
+          xml.notes manifest_slip.notes
+          xml.ship_date format_date(manifest_slip.ship_date)
+          xml.estimated_arrival_date format_date(manifest_slip.estimated_arrival_date)
         end
       end
 
-      def date_xml(xml, attribute)
-        date = manifest.send(attribute)
-        xml.send(attribute, date.strftime("%m/%d/%Y")) unless date.nil?
+      def format_date(date)
+        date.strftime("%m/%d/%Y") if date.respond_to?(:strftime)
       end
 
       def contents_xml(xml)

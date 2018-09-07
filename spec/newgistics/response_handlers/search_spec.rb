@@ -55,7 +55,6 @@ RSpec.describe Newgistics::ResponseHandlers::Search do
 
   def build_response_handler
     described_class.new(
-      element_selector: 'BogusModels BogusModel',
       model_class: Newgistics::BogusModel
     )
   end

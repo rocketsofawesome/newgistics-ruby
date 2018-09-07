@@ -1,6 +1,6 @@
 module Newgistics
   class Fee
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :type, String
     attribute :amount, Float

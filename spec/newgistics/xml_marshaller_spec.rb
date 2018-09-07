@@ -48,7 +48,29 @@ RSpec.describe Newgistics::XmlMarshaller do
       marshaller.assign_attributes(object, xml.root)
 
       item_names = object.bogus_items.map(&:name)
-      expect(item_names).to eq ['First item', 'Second item']
+      expect(item_names).to contain_exactly('First item', 'Second item')
+    end
+
+    it "assigns list items with custom element selectors" do
+      xml = build_xml(<<-XML)
+        <BogusModel>
+          <CustomItems>
+            <Item>
+              <Name>First item</Name>
+            </Item>
+            <Item>
+              <Name>Second item</Name>
+            </Item>
+          </CustomItems>
+        </BogusModel>
+      XML
+      marshaller = described_class.new
+      object = Newgistics::BogusModel.new
+
+      marshaller.assign_attributes(object, xml.root)
+
+      item_names = object.custom_items.map(&:name)
+      expect(item_names).to contain_exactly('First item', 'Second item')
     end
 
     it "assigns hash attributes" do

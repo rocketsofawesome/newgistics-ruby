@@ -1,6 +1,6 @@
 module Newgistics
   class Return
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :warehouse_id, String
     attribute :shipment_id, String
@@ -32,7 +32,6 @@ module Newgistics
     def self.where(conditions)
       Query.build(
         endpoint: '/returns.aspx',
-        element_selector: 'Returns Return',
         model_class: self
       ).where(conditions)
     end

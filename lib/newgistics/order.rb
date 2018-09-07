@@ -1,6 +1,6 @@
 module Newgistics
   class Order
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
     attribute :warehouse_id, String

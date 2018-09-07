@@ -1,6 +1,6 @@
 module Newgistics
   class Warehouse
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
 

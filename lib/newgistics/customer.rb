@@ -1,6 +1,6 @@
 module Newgistics
   class Customer
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :company, String
     attribute :first_name, String

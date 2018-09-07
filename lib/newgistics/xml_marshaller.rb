@@ -37,8 +37,7 @@ module Newgistics
     end
 
     def build_list(item_class, element)
-      item_selector = get_list_item_selector(item_class)
-      element.css(item_selector).map do |child|
+      element.css(item_class.element_selector).map do |child|
         build_object(item_class, child)
       end
     end
@@ -47,10 +46,6 @@ module Newgistics
       klass_name.new.tap do |new_object|
         assign_attributes(new_object, element)
       end
-    end
-
-    def get_list_item_selector(item_class)
-      item_class.to_s.split('::').last
     end
 
     def assign_simple_attribute(object, element)
