@@ -59,7 +59,9 @@ module Newgistics
           xml.weight manifest_slip.weight
           xml.notes manifest_slip.notes
           xml.ship_date format_date(manifest_slip.ship_date)
-          xml.estimated_arrival_date format_date(manifest_slip.estimated_arrival_date)
+          xml.estimated_arrival_date format_date(
+            manifest_slip.estimated_arrival_date
+          )
         end
       end
 

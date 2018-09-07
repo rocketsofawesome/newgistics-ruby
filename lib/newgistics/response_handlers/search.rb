@@ -49,7 +49,7 @@ module Newgistics
       end
 
       def raise_error(message)
-        raise QueryError.new(message)
+        raise QueryError, message
       end
     end
   end

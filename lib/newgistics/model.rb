@@ -7,7 +7,7 @@ module Newgistics
 
     module ClassMethods
       def element_selector
-        self.name.split('::').last
+        name.split('::').last
       end
     end
   end

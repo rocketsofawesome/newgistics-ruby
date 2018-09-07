@@ -13,7 +13,7 @@ module Newgistics
 
       def body
         params.
-          map { |k,v| [StringHelper.camelize(k, upcase_first: false), v] }.
+          map { |k, v| [StringHelper.camelize(k, upcase_first: false), v] }.
           to_h
       end
     end
