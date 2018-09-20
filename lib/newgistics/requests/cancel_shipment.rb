@@ -44,7 +44,7 @@ module Newgistics
       end
 
       def mandatory_params
-         {
+        {
           apiKey: api_key,
           shipmentID: shipment_cancellation.shipment_id,
           orderID: shipment_cancellation.order_id

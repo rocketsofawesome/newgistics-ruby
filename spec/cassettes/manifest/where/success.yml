@@ -1,0 +1,133 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://apistaging.newgisticsfulfillment.com/manifests.aspx?key=<API_KEY>&status=SHIPPED
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - text/xml
+      server:
+      - Microsoft-IIS/8.5
+      set-cookie:
+      - ASP.NET_SessionId=fu2cv3l3vmo5ftis23xxv5r2; path=/; HttpOnly, NgsFulLB=rd322o00000000000000000000ffff0a200296o80;
+        path=/
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Fri, 07 Sep 2018 17:08:01 GMT
+      connection:
+      - close
+      content-length:
+      - '26596'
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="utf-8"?>
+        <manifests>
+          <manifest>
+            <manifest_slip>
+              <manifest_id>394408</manifest_id>
+              <manifest_po>100167</manifest_po>
+              <manifest_name>CFL (Duplicate of M393353)</manifest_name>
+              <destination_warehouse id="157">Hebron, KY</destination_warehouse>
+              <status>SHIPPED</status>
+              <shipped_date>2018-01-11T00:00:00</shipped_date>
+              <shipped_via>Freight</shipped_via>
+              <tracking_no/>
+              <created_date>1/30/2018 9:15 AM</created_date>
+              <estimated_arrival_date>2/1/2018</estimated_arrival_date>
+              <actual_arrival_date/>
+              <actual_received_date/>
+              <no_pallets>0</no_pallets>
+              <no_cartons>23</no_cartons>
+              <total_weight/>
+              <notes/>
+            </manifest_slip>
+            <contents>
+              <item>
+                <sku>8084-214-H</sku>
+                <upc>8084-214-H</upc>
+                <description>SOFT DOLPHIN SHORT ECLIPSE</description>
+                <original_qty>85</original_qty>
+                <received_qty>0</received_qty>
+                <variance>-85</variance>
+                <damaged_qty>0</damaged_qty>
+              </item>
+              <item>
+                <sku>8084-214-I</sku>
+                <upc>8084-214-I</upc>
+                <description>SOFT DOLPHIN SHORT ECLIPSE</description>
+                <original_qty>105</original_qty>
+                <received_qty>0</received_qty>
+                <variance>-105</variance>
+                <damaged_qty>0</damaged_qty>
+              </item>
+              <item>
+                <sku>8084-214-K</sku>
+                <upc>8084-214-K</upc>
+                <description>SOFT DOLPHIN SHORT ECLIPSE</description>
+                <original_qty>135</original_qty>
+                <received_qty>0</received_qty>
+                <variance>-135</variance>
+                <damaged_qty>0</damaged_qty>
+              </item>
+            </contents>
+          </manifest>
+          <manifest>
+            <manifest_slip>
+              <manifest_id>438259</manifest_id>
+              <manifest_po>200019</manifest_po>
+              <manifest_name>Green W Associates</manifest_name>
+              <destination_warehouse id="157">Hebron, KY</destination_warehouse>
+              <status>SHIPPED</status>
+              <shipped_date>2018-08-01T00:00:00</shipped_date>
+              <shipped_via>UPS</shipped_via>
+              <tracking_no/>
+              <created_date>7/23/2018 11:43 AM</created_date>
+              <estimated_arrival_date>8/6/2018</estimated_arrival_date>
+              <actual_arrival_date/>
+              <actual_received_date/>
+              <no_pallets/>
+              <no_cartons>1</no_cartons>
+              <total_weight/>
+              <notes/>
+            </manifest_slip>
+            <contents>
+              <item>
+                <sku>Z015-K09-A</sku>
+                <upc/>
+                <description>BOX PACKING SLIP</description>
+                <original_qty>60000</original_qty>
+                <received_qty>0</received_qty>
+                <variance>-60000</variance>
+                <damaged_qty>0</damaged_qty>
+              </item>
+              <item>
+                <sku>Z016-K09-A</sku>
+                <upc/>
+                <description>SHOP PACKING SLIP</description>
+                <original_qty>5000</original_qty>
+                <received_qty>0</received_qty>
+                <variance>-5000</variance>
+                <damaged_qty>0</damaged_qty>
+              </item>
+            </contents>
+          </manifest>
+        </manifests>
+    http_version:
+  recorded_at: Fri, 07 Sep 2018 17:08:17 GMT
+recorded_with: VCR 3.0.3

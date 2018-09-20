@@ -10,20 +10,22 @@ RSpec.describe Newgistics::Requests::PostManifest do
   end
 
   describe '#body' do
-    it "serializes the manifest attributes properly" do
+    it "serializes the manifest slip properly" do
       Newgistics.configure { |c| c.api_key = 'ABC123' }
       manifest = Newgistics::Manifest.new(
-        manifest_po: 'PO_NUMBER',
-        manifest_name: 'Sample',
-        warehouse_id: 'WAREHOUSE_ID',
-        status: 'SHIPPED',
-        tracking_no: 'TRACKING_NO',
-        pallet_count: 1,
-        carton_count: 2,
-        weight: 25.8,
-        notes: 'Some notes',
-        ship_date: '2018-08-07',
-        estimated_arrival_date: '2018-08-15'
+        manifest_slip: {
+          manifest_po: 'PO_NUMBER',
+          manifest_name: 'Sample',
+          warehouse_id: 'WAREHOUSE_ID',
+          status: 'SHIPPED',
+          tracking_no: 'TRACKING_NO',
+          pallet_count: 1,
+          carton_count: 2,
+          weight: 25.8,
+          notes: 'Some notes',
+          ship_date: Date.parse('2018-08-07'),
+          estimated_arrival_date: Date.parse('2018-08-15')
+        }
       )
       request = described_class.new(manifest)
 

@@ -3,6 +3,69 @@ require 'spec_helper'
 RSpec.describe Newgistics::Manifest do
   include IntegrationHelpers
 
+  describe '.where' do
+    vcr_options = { cassette_name: 'manifest/where/success' }
+    context "when the query succeeds", vcr: vcr_options do
+      before { use_valid_api_key }
+
+      it "returns an array of manifests" do
+        manifests = described_class.where(status: 'SHIPPED').all
+
+        manifest = manifests.first
+
+        expect(manifests.size).to eq(2)
+        expect(manifest.manifest_slip).to have_attributes(
+          manifest_id: '394408',
+          manifest_po: '100167',
+          manifest_name: 'CFL (Duplicate of M393353)',
+          status: 'SHIPPED',
+          shipped_date: newgistics_time('2018-01-11T00:00:00'),
+          shipped_via: 'Freight',
+          no_pallets: 0,
+          no_cartons: 23
+        )
+        expect(manifest.contents.size).to eq(3)
+        expect(manifest.contents.first).to have_attributes(
+          sku: '8084-214-H',
+          upc: '8084-214-H',
+          description: 'SOFT DOLPHIN SHORT ECLIPSE',
+          original_qty: 85,
+          received_qty: 0,
+          variance: -85,
+          damaged_qty: 0
+        )
+      end
+    end
+
+    vcr_options = { cassette_name: 'manifest/where/failure' }
+    context "when the query fails", vcr: vcr_options do
+      before { use_invalid_api_key }
+
+      it "raises an error" do
+        expect { described_class.where(status: 'SHIPPED').all }.
+          to raise_error(Newgistics::QueryError)
+      end
+    end
+  end
+
+  describe '#id=' do
+    it "sets the id on the manifest slip" do
+      manifest = described_class.new
+
+      manifest.id = 1
+
+      expect(manifest.manifest_slip).to have_attributes(manifest_id: '1')
+    end
+  end
+
+  describe '#id' do
+    it "retrieves the id from the manifest slip" do
+      manifest = described_class.new(manifest_slip: { manifest_id: 2 })
+
+      expect(manifest.id).to eq('2')
+    end
+  end
+
   describe '#save' do
     vcr_options = { cassette_name: 'manifest/save/success' }
     context "when submitting the manifest succeeds", vcr: vcr_options do
@@ -44,10 +107,12 @@ RSpec.describe Newgistics::Manifest do
 
     def build_manifest
       described_class.new(
-        manifest_po: 'PO-00001',
-        manifest_name: 'Purchase Order 1',
-        status: 'SHIPPED',
-        ship_date: '2018-08-29',
+        manifest_slip: {
+          manifest_po: 'PO-00001',
+          manifest_name: 'Purchase Order 1',
+          status: 'SHIPPED',
+          ship_date: '2018-08-29'
+        },
         contents: [
           { sku: 'SKU-1', description: 'Sku 1', original_qty: 1 }
         ]

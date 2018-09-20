@@ -1,6 +1,6 @@
 module Newgistics
   class InboundReturn
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
     attribute :shipment_id, String
@@ -15,7 +15,6 @@ module Newgistics
     def self.where(conditions)
       Query.build(
         endpoint: '/inbound_returns.aspx',
-        element_selector: 'InboundReturns InboundReturn',
         model_class: self
       ).where(conditions)
     end

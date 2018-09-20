@@ -1,13 +1,6 @@
 engines:
   rubocop:
     enabled: true
-    checks:
-      Rubocop/Style/Documentation:
-        enabled: false
-      Rubocop/Style/FrozenStringLiteralComment:
-        enabled: false
-      Rubocop/Style/StringLiterals:
-        enabled: false
   duplication:
     enabled: true
     config:

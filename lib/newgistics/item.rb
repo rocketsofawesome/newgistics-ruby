@@ -1,6 +1,6 @@
 module Newgistics
   class Item
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
 

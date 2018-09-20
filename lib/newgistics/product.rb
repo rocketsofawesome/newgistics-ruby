@@ -1,6 +1,6 @@
 module Newgistics
   class Product
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
     attribute :sku, String
@@ -22,9 +22,12 @@ module Newgistics
     def self.where(conditions)
       Query.build(
         endpoint: '/inventory.aspx',
-        element_selector: 'products product',
         model_class: self
       ).where(conditions)
+    end
+
+    def self.element_selector
+      'product'
     end
   end
 end

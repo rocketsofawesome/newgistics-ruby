@@ -1,10 +1,9 @@
 module Newgistics
   module ResponseHandlers
     class Search
-      attr_reader :element_selector, :model_class
+      attr_reader :model_class
 
-      def initialize(element_selector:, model_class:)
-        @element_selector = element_selector
+      def initialize(model_class:)
         @model_class = model_class
       end
 
@@ -34,7 +33,7 @@ module Newgistics
       end
 
       def build_models(xml)
-        xml.css(element_selector).map do |model_xml|
+        xml.css(model_class.element_selector).map do |model_xml|
           build_model(model_xml)
         end
       end
@@ -50,7 +49,7 @@ module Newgistics
       end
 
       def raise_error(message)
-        raise QueryError.new(message)
+        raise QueryError, message
       end
     end
   end

@@ -1,6 +1,6 @@
 module Newgistics
   class ShipmentUpdate
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :id, String
     attribute :order_id, String

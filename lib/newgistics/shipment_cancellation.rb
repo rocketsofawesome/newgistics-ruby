@@ -1,6 +1,6 @@
 module Newgistics
   class ShipmentCancellation
-    include Virtus.model
+    include Newgistics::Model
 
     attribute :shipment_id, String
     attribute :order_id, String
