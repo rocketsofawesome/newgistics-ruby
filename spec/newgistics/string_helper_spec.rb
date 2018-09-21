@@ -29,11 +29,19 @@ RSpec.describe Newgistics::StringHelper do
         expect(result).to eq('aSampleString')
       end
     end
+
+    it "can handle nil values" do
+      expect(described_class.camelize(nil)).to eq('')
+    end
   end
 
   describe '.underscore' do
     it "transforms a camel-cased string properly" do
       expect(described_class.underscore('aNiceString')).to eq('a_nice_string')
+    end
+
+    it "can handle nil values" do
+      expect(described_class.underscore(nil)).to eq("")
     end
   end
 end
