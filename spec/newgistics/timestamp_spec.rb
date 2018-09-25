@@ -2,9 +2,9 @@ require 'spec_helper'
 
 RSpec.describe Newgistics::Timestamp do
   describe '#coerce' do
-    context "when input is a String with an ISO8601 format" do
-      context "and it includes a timezone" do
-        it "doesn't add the newgistics timezone" do
+    context "when input is a String" do
+      context "and no custom parser has been specified" do
+        it "coerces the value using the ISO8601 parser" do
           timestamp = build_timestamp
 
           result = timestamp.coerce("2017-09-12T12:30:10-04:00")
@@ -20,35 +20,22 @@ RSpec.describe Newgistics::Timestamp do
         end
       end
 
-      context "and it doesn't include a timezone" do
-        it "adds the newgistics timezone" do
-          timestamp = build_timestamp
+      context "and a custom parser has been specified" do
+        it "coerces the value using the custom parser" do
+          parser = Newgistics::TimeParsers.american_datetime
+          timestamp = build_timestamp(parser: parser)
 
-          result = timestamp.coerce("2017-09-12T12:00:00")
+          result = timestamp.coerce("08/31/2018 8:30 AM")
 
-          expect(result.utc_offset).
-            to eq(Newgistics.local_time_zone.utc_offset_in_seconds)
+          newgistics_time = result.getlocal(Newgistics.time_zone.utc_offset)
+          expect(newgistics_time).to have_attributes(
+            year: 2018,
+            month: 8,
+            day: 31,
+            hour: 8,
+            min: 30
+          )
         end
-      end
-
-      context "and it's an invalid date" do
-        it "doesn't coerce the value" do
-          timestamp = build_timestamp
-
-          result = timestamp.coerce("2017-20-12T12:00:00-04:00")
-
-          expect(result).to eq("2017-20-12T12:00:00-04:00")
-        end
-      end
-    end
-
-    context "when input is a String with a different format than ISO8601" do
-      it "doesn't coerce the input" do
-        timestamp = build_timestamp
-
-        result = timestamp.coerce("09/12/2017")
-
-        expect(result).to eq("09/12/2017")
       end
     end
 
@@ -63,7 +50,7 @@ RSpec.describe Newgistics::Timestamp do
     end
   end
 
-  def build_timestamp
-    Virtus::Attribute::Builder.call(described_class)
+  def build_timestamp(options = {})
+    Virtus::Attribute::Builder.call(described_class, options)
   end
 end

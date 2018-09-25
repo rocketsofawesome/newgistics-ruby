@@ -2,10 +2,10 @@ module Newgistics
   class ManifestSlip
     include Newgistics::Model
 
-    attribute :actual_arrival_date, Timestamp
-    attribute :actual_received_date, Timestamp
+    attribute :actual_arrival_date, Timestamp, parser: TimeParsers.american_datetime
+    attribute :actual_received_date, Timestamp, parser: TimeParsers.american_datetime
     attribute :carton_count, Integer
-    attribute :created_date, Timestamp
+    attribute :created_date, Timestamp, parser: TimeParsers.american_datetime
     attribute :estimated_arrival_date, Date
     attribute :manifest_id, String
     attribute :manifest_name, String
