@@ -179,7 +179,16 @@ manifest.save
 
 `manifest_attributes` is a `Hash` containing all the attributes for the manifest, the attributes should map one-to-one to the Newgistics API spec.
 
-`manifest.save` will return `true` if the manifest is placed successfully and `false` otherwise, any errors or warnings generated when creating the manifest are available under `manifest.errors` and `manifest.warnings` respectively
+`manifest.save` will return `true` if the manifest is placed successfully and `false` otherwise, any errors or warnings generated when creating the manifest are available under `manifest.errors` and `manifest.warnings` respectively.
+
+#### Canceling an existing Manifest in Newgistics
+
+```ruby
+manifest = Newgistics::Manifest.new(id: '123456')
+manifest.cancel
+```
+
+`manifest.cancel` will return `true` if the manifest is canceled successfully and `false` otherwise, any errors or warnings generated when cancelling the manifest are available under `manifest.errors` and `manifest.warnings` respectively. The cancel operation only requires the manifest to have an `id`, while other attributes can be set on the `manifest` object, they aren't required for cancelling it.
 
 
 ## Development
