@@ -1,5 +1,5 @@
-[![Code Climate](https://codeclimate.com/repos/5991e52637216b02640002d4/badges/9e19d346f6da0db0783c/gpa.svg)](https://codeclimate.com/repos/5991e52637216b02640002d4/feed)
-[![Test Coverage](https://codeclimate.com/repos/5991e52637216b02640002d4/badges/9e19d346f6da0db0783c/coverage.svg)](https://codeclimate.com/repos/5991e52637216b02640002d4/coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ed9b1c5905ae5547414e/maintainability)](https://codeclimate.com/github/rocketsofawesome/newgistics-ruby/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ed9b1c5905ae5547414e/test_coverage)](https://codeclimate.com/github/rocketsofawesome/newgistics-ruby/test_coverage)
 [ ![Codeship Status for rocketsofawesome/newgistics-ruby](https://app.codeship.com/projects/63cb9a70-68b6-0135-a28b-5ec5668067cc/status?branch=master)](https://app.codeship.com/projects/241459)
 # Newgistics
 
