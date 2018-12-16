@@ -35,6 +35,7 @@ module Newgistics
     attribute :weight, Float
     attribute :postage, Float
     attribute :fees, Array[Fee]
+    attribute :packages, Array[Package]
 
     def backordered?
       shipment_status == 'BACKORDER'

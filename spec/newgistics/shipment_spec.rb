@@ -63,6 +63,18 @@ RSpec.describe Newgistics::Shipment do
           amount: 4.15,
           notes: nil
         )
+        expect(shipment.packages.first).to have_attributes(
+          tracking_number: "9400100000000000000000",
+          weight: 1.00000,
+          billable_weight: 1.00000,
+          height: 10.00000,
+          width: 10.00000,
+          depth: 5.50000
+        )
+        expect(shipment.packages.first.items.first).to have_attributes(
+          sku: "ABC123",
+          qty: 1
+        )
       end
     end
 
