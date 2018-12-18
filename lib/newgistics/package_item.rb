@@ -6,7 +6,7 @@ module Newgistics
     attribute :qty, Integer
 
     def self.element_selector
-      'item'
+      'Item'
     end
   end
 end

@@ -71,6 +71,10 @@ RSpec.describe Newgistics::Shipment do
           width: 10.00000,
           depth: 5.50000
         )
+        expect(shipment.packages.first.items.first).to have_attributes(
+          sku: "ABC123",
+          qty: 1
+        )
       end
     end
 
