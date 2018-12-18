@@ -1,5 +1,5 @@
-[![Code Climate](https://codeclimate.com/repos/5991e52637216b02640002d4/badges/9e19d346f6da0db0783c/gpa.svg)](https://codeclimate.com/repos/5991e52637216b02640002d4/feed)
-[![Test Coverage](https://codeclimate.com/repos/5991e52637216b02640002d4/badges/9e19d346f6da0db0783c/coverage.svg)](https://codeclimate.com/repos/5991e52637216b02640002d4/coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ed9b1c5905ae5547414e/maintainability)](https://codeclimate.com/github/rocketsofawesome/newgistics-ruby/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ed9b1c5905ae5547414e/test_coverage)](https://codeclimate.com/github/rocketsofawesome/newgistics-ruby/test_coverage)
 [ ![Codeship Status for rocketsofawesome/newgistics-ruby](https://app.codeship.com/projects/63cb9a70-68b6-0135-a28b-5ec5668067cc/status?branch=master)](https://app.codeship.com/projects/241459)
 # Newgistics
 
@@ -179,7 +179,16 @@ manifest.save
 
 `manifest_attributes` is a `Hash` containing all the attributes for the manifest, the attributes should map one-to-one to the Newgistics API spec.
 
-`manifest.save` will return `true` if the manifest is placed successfully and `false` otherwise, any errors or warnings generated when creating the manifest are available under `manifest.errors` and `manifest.warnings` respectively
+`manifest.save` will return `true` if the manifest is placed successfully and `false` otherwise, any errors or warnings generated when creating the manifest are available under `manifest.errors` and `manifest.warnings` respectively.
+
+#### Canceling an existing Manifest in Newgistics
+
+```ruby
+manifest = Newgistics::Manifest.new(id: '123456')
+manifest.cancel
+```
+
+`manifest.cancel` will return `true` if the manifest is canceled successfully and `false` otherwise, any errors or warnings generated when cancelling the manifest are available under `manifest.errors` and `manifest.warnings` respectively. The cancel operation only requires the manifest to have an `id`, while other attributes can be set on the `manifest` object, they aren't required for cancelling it.
 
 
 ## Development

@@ -66,6 +66,73 @@ RSpec.describe Newgistics::Manifest do
     end
   end
 
+  describe '#status=' do
+    it "sets the status on the manifest slip" do
+      manifest = described_class.new
+
+      manifest.status = 'SHIPPED'
+
+      expect(manifest.manifest_slip.status).to eq('SHIPPED')
+    end
+  end
+
+  describe '#status' do
+    it "retrieves the status from the manifest slip" do
+      manifest = described_class.new(manifest_slip: { status: 'CREATED' })
+
+      expect(manifest.status).to eq('CREATED')
+    end
+  end
+
+  describe '#cancel' do
+    vcr_options = { cassette_name: 'manifest/cancel/success' }
+    context "when canceling the manifest succeeds", vcr: vcr_options do
+      before { use_valid_api_key }
+
+      it "updates the status on the manifest" do
+        manifest = described_class.new(id: 468681, status: 'CREATED')
+
+        manifest.cancel
+
+        expect(manifest.status).to eq('CANCELED')
+      end
+
+      it "returns true" do
+        manifest = described_class.new(id: 468681)
+
+        expect(manifest.cancel).to be(true)
+      end
+    end
+
+    vcr_options = { cassette_name: 'manifest/cancel/failure' }
+    context "when canceling the manifest fails", vcr: vcr_options do
+      before { use_valid_api_key }
+
+      it "doesn't change the status on the manifest" do
+        manifest = described_class.new(id: 468679, status: 'CREATED')
+
+        manifest.cancel
+
+        expect(manifest.status).to eq('CREATED')
+      end
+
+      it "stores the errors on the manifest" do
+        manifest = described_class.new(id: 468679)
+
+        manifest.cancel
+
+        expect(manifest.errors).
+          to contain_exactly('This manifest has already been canceled')
+      end
+
+      it "returns false" do
+        manifest = described_class.new(id: 468679)
+
+        expect(manifest.cancel).to be(false)
+      end
+    end
+  end
+
   describe '#save' do
     vcr_options = { cassette_name: 'manifest/save/success' }
     context "when submitting the manifest succeeds", vcr: vcr_options do
