@@ -1,3 +1,3 @@
 module Newgistics
-  VERSION = "2.0.3"
+  VERSION = "2.3.0"
 end
