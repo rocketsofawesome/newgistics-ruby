@@ -8,6 +8,6 @@ module Newgistics
     attribute :height, Float
     attribute :width, Float
     attribute :depth, Float
-    attribute :items, Array[Item]
+    attribute :items, Array[PackageItem]
   end
 end
