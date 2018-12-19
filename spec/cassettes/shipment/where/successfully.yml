@@ -94,7 +94,29 @@ http_interactions:
                 <AssemblyItems/>
               </Item>
             </Items>
-            <Packages/>
+            <Packages>
+              <Package id="12345678">
+                <TrackingNumber>9400100000000000000000</TrackingNumber>
+                <Weight>1.00000</Weight>
+                <BillableWeight>1.00000</BillableWeight>
+                <Height>10.00000</Height>
+                <Width>10.00000</Width>
+                <Depth>5.50000</Depth>
+                <Items>
+                  <Item id="1234567">
+                      <SKU>ABC123</SKU>
+                      <Qty>1</Qty>
+                  </Item>
+                </Items>
+              </Package>
+            </Packages>
+            <Fees>
+              <Fee>
+                <Type>PICKPACK</Type>
+                <Amount>4.15</Amount>
+                <Notes />
+              </Fee>
+            </Fees>
           </Shipment>
           <Shipment id="91955506">
             <ClientName>Rockets of Awesome</ClientName>
@@ -163,7 +185,22 @@ http_interactions:
                 <AssemblyItems/>
               </Item>
             </Items>
-            <Packages/>
+            <Packages>
+              <Package id="23456789">
+                <TrackingNumber>9400100000000000000000</TrackingNumber>
+                <Weight>1.00000</Weight>
+                <BillableWeight>1.00000</BillableWeight>
+                <Height>10.00000</Height>
+                <Width>10.00000</Width>
+                <Depth>5.50000</Depth>
+                <Items>
+                  <Item id="1234567">
+                      <SKU>ABC123</SKU>
+                      <Qty>1</Qty>
+                  </Item>
+                </Items>
+              </Package>
+            </Packages>
             <Fees>
               <Fee>
                 <Type>PICKPACK</Type>
