@@ -71,6 +71,16 @@ shipment_update.save
 
 `shipment_update.save` will return `true` if the order is updated successfully and `false` otherwise, any errors or warnings generated when updating the shipment are available under `shipment_update.errors` and `shipment_update.warnings` respectively. `shipment_update.success` or also `shipment_update.success?` will also be updated to the corresponding value.
 
+#### Updating a shipment's address in Newgistics
+```ruby
+address_update = Newgistics::ShipmentAddressUpdate.new(update_attributes)
+address_update.save
+```
+
+`update_attributes` is a `Hash` with the updates you want to perform on the shipment, for a list of available attributes you can look at the [Newgistics::ShipmentAddressUpdate model](lib/newgistics/shipment_address_update.rb)
+
+`address_update.save` will return `true` if the shipment is updated successfully and `false` otherwise, any errors or warnings generated when updating the shipment are available under `address_update.errors` and `address_update.warnings` respectively. `address_update.success` or also `address_update.success?` will also be updated to the corresponding value.
+
 #### Cancelling a shipment/order on Newgistics
 ```ruby
 shipment_cancellation = Newgistics::ShipmentCancellation.new(shipment_id: SHIPMENT_ID)
