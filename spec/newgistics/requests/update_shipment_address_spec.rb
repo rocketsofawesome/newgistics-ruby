@@ -51,4 +51,19 @@ RSpec.describe Newgistics::Requests::UpdateShipmentAddress do
       expect(update).to have_element('StatusNotes').with_text('Some notes')
     end
   end
+
+  it "doesn't serialize nil attributes" do
+    address_update = Newgistics::ShipmentAddressUpdate.new(
+      status: 'ONHOLD',
+      address1: nil,
+      address2: ''
+    )
+    request = described_class.new(address_update)
+
+    xml = Nokogiri::XML(request.body).at_css('updateShipment')
+
+    expect(xml).not_to have_element('Address1')
+    expect(xml).to have_element('Address2').with_text('')
+    expect(xml).to have_element('Status').with_text('ONHOLD')
+  end
 end
