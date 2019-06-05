@@ -34,23 +34,28 @@ module Newgistics
 
       def shipment_address_update_xml(xml)
         xml.updateShipment(shipment_address_update_attributes) do
-          xml.FirstName shipment_address_update.first_name
-          xml.LastName shipment_address_update.last_name
-          xml.Company shipment_address_update.company
-          xml.Address1 shipment_address_update.address1
-          xml.Address2 shipment_address_update.address2
-          xml.City shipment_address_update.city
-          xml.State shipment_address_update.state
-          xml.PostalCode shipment_address_update.postal_code
-          xml.Country shipment_address_update.country
-          xml.Email shipment_address_update.email
-          xml.Phone shipment_address_update.phone
-          xml.Fax shipment_address_update.fax
-          xml.IsResidential shipment_address_update.is_residential
-          xml.Status shipment_address_update.status
-          xml.StatusNotes shipment_address_update.status_notes
-          xml.ShipMethod shipment_address_update.ship_method
+          xml_field(xml, 'FirstName', :first_name)
+          xml_field(xml, 'LastName', :last_name)
+          xml_field(xml, 'Company', :company)
+          xml_field(xml, 'Address1', :address1)
+          xml_field(xml, 'Address2', :address2)
+          xml_field(xml, 'City', :city)
+          xml_field(xml, 'State', :state)
+          xml_field(xml, 'PostalCode', :postal_code)
+          xml_field(xml, 'Country', :country)
+          xml_field(xml, 'Email', :email)
+          xml_field(xml, 'Phone', :phone)
+          xml_field(xml, 'Fax', :fax)
+          xml_field(xml, 'IsResidential', :is_residential)
+          xml_field(xml, 'Status', :status)
+          xml_field(xml, 'StatusNotes', :status_notes)
+          xml_field(xml, 'ShipMethod', :ship_method)
         end
+      end
+
+      def xml_field(xml, xml_node, attribute_name)
+        value = shipment_address_update.send(attribute_name)
+        xml.send(xml_node, value) unless value.nil?
       end
 
       def api_key
