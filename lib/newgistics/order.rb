@@ -18,6 +18,8 @@ module Newgistics
     attribute :custom_fields, Hash
     attribute :allow_duplicate, Boolean
     attribute :items, Array[Item]
+    attribute :reference_1, String
+    attribute :reference_2, String
 
     attribute :errors, Array[String], default: []
     attribute :warnings, Array[String], default: []

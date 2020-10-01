@@ -54,6 +54,8 @@ module Newgistics
           xml.GiftMessage order.gift_message
           xml.HoldForAllInventory order.hold_for_all_inventory
           xml.AllowDuplicate order.allow_duplicate
+          xml.Reference1 order.reference_1
+          xml.Reference2 order.reference_2
 
           order_date_xml(order, xml)
           customer_xml(order.customer, xml)
