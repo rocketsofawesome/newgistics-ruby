@@ -23,6 +23,8 @@ RSpec.describe Newgistics::Requests::PostShipment do
         hold_for_all_inventory: true,
         allow_duplicate: false,
         order_date: '2017-08-20',
+        reference_1: 'Reference 1',
+        reference_2: 'Reference 2',
         customer: {
           first_name: 'Stephen',
           last_name: 'Strange',
@@ -86,6 +88,8 @@ RSpec.describe Newgistics::Requests::PostShipment do
       expect(order_xml).to have_element('HoldForAllInventory').with_text('true')
       expect(order_xml).to have_element('OrderDate').with_text('08/20/2017')
       expect(order_xml).to have_element('AllowDuplicate').with_text('false')
+      expect(order_xml).to have_element('Reference1').with_text('Reference 1')
+      expect(order_xml).to have_element('Reference2').with_text('Reference 2')
     end
 
     def verify_customer_xml(customer_xml)
