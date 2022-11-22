@@ -1,7 +1,7 @@
 module Newgistics
   class Configuration
     attr_reader :time_zone, :local_time_zone
-    attr_accessor :api_key, :api_base_url
+    attr_accessor :api_key, :api_base_url, :logger
 
     def initialize
       self.time_zone = "America/Denver"
@@ -18,6 +18,10 @@ module Newgistics
 
     def local_time_zone=(name)
       @local_time_zone = TimeZone.new(name)
+    end
+
+    def logger=(_logger)
+      @logger = _logger
     end
   end
 end
