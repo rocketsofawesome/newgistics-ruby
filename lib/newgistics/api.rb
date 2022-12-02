@@ -14,8 +14,16 @@ module Newgistics
 
     def connection
       @connection ||= Faraday.new(url: api_base_url) do |faraday|
-        faraday.response :logger, Newgistics.logger
-        faraday.adapter Faraday.default_adapter
+        faraday.adapter(Faraday.default_adapter)
+        faraday.response(
+          :logger,
+          Newgistics.configuration.logger,
+          {
+            headers: Newgistics.configuration.log_http_headers,
+            bodies: Newgistics.configuration.log_http_bodies,
+            errors: Newgistics.configuration.log_http_errors,
+          },
+        ) if Newgistics.configuration.log_http
       end
     end
 
