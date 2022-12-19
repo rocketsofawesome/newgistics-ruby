@@ -54,31 +54,19 @@ require "newgistics/version"
 require "newgistics/xml_marshaller"
 
 module Newgistics
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
-
-  def self.api
-    @api ||= Api.new
-  end
-
-  def self.logger
-    @logger ||= DefaultLogger.build
-  end
-
-  def self.logger=(logger)
-    @logger = logger
-  end
-
-  def self.time_zone
-    configuration.time_zone
-  end
-
-  def self.local_time_zone
-    configuration.local_time_zone
-  end
-
-  def self.configure
-    yield(configuration)
+  class << self
+    delegate :time_zone, :local_time_zone, :logger, :logger=, to: :@configuration
+  
+    def configuration
+      @configuration ||= Configuration.new
+    end
+  
+    def api
+      @api ||= Api.new
+    end
+  
+    def configure
+      yield(configuration)
+    end
   end
 end
