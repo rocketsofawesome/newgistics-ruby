@@ -2,6 +2,7 @@ require "virtus"
 require "nokogiri"
 require "faraday"
 require "tzinfo"
+require 'forwardable'
 
 require "newgistics/time_parsers"
 require "newgistics/time_parsers/iso8601"
@@ -55,7 +56,9 @@ require "newgistics/xml_marshaller"
 
 module Newgistics
   class << self
-    delegate :time_zone, :local_time_zone, :logger, :logger=, to: :@configuration
+    extend Forwardable
+
+    def_delegators :@configuration, :time_zone, :local_time_zone, :logger, :logger=
   
     def configuration
       @configuration ||= Configuration.new
